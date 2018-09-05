@@ -101,7 +101,7 @@
         <!-- <li @click="goto('Geolocation/')">地理位置<span>Geolocation</span><i class="ion-md-globe"></i></li> -->
         <!-- <li @click="goto('Camera/')">摄像头拍照<span>Camera</span><i class="ion-ios-camera"></i></li> -->
         <!-- <li @click="goto('Capture/')">录制<span>Capture</span><i class="ion-ios-videocam"></i></li> -->
-        <li @click="goto('Media/')">录制音频<span>Media</span><i class="ion-md-microphone"></i></li>
+        <!-- <li @click="goto('Media/')">录制音频<span>Media</span><i class="ion-md-microphone"></i></li> -->
         <li @click="goto('BarcodeScanner/')">条形码/二维码扫描<span>Barcode Scanner</span><i class="ion-ios-barcode"></i></li>
         <li @click="goto('DeviceOrientation/')">方向传感器<span>Device Orientation</span><i class="ion-ios-compass"></i></li>
         <li @click="goto('DeviceMotion/')">陀螺仪传感器<span>Device Motion</span><i class="ion-ios-contract"></i></li>
