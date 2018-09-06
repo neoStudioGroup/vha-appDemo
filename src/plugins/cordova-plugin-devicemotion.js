@@ -2,10 +2,10 @@ const vha = {
   install(Vue, options) {
     document.addEventListener('deviceready', () => {
       try {
-        if (typeof StatusBar != 'undefined') {
-          Vue.prototype.$vha.statusbar = StatusBar
+        if (typeof navigator.accelerometer != 'undefined') {
+          Vue.prototype.$vha.devicemotion = navigator.accelerometer
         } else {
-          throw "cordova-plugin-statusbar undefined"
+          throw "cordova-plugin-device-motion undefined"
         }
       }
       catch (err) {

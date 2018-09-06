@@ -5,30 +5,28 @@
   flex-direction column
   .p_UI-content
     flex 1
+    img 
+      max-width 100%
 </style>
 --------------------------------------------------------------------------------
 <template>
   <div class="p_UI-barcodescanner">
 
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
-      </label>
-      
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
-      
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @click="scan()">
+        扫描二维码
       </div>
+      
+      <label class="_UI-input">
+        <span class="input-label">结果：</span>
+        <input type="text" v-model="resultTXT">
+      </label>
+      
+      <div class="_UI-button" @click="encode()">
+        编码
+      </div>
+      
+      <img :src="encodeUrl">
     </vha-scrollview>
     
     <UIlog :text="logText"></UIlog>
@@ -51,6 +49,8 @@ export default {
     //动态数据
     return {
       logText: "",
+      resultTXT: "http://neoStudioGroup.com/",
+      encodeUrl: ""
     }
   },
   components: {
@@ -62,18 +62,42 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
+    scan: function () {
+      this.$vha.barcodescanner.scan((result) => {
+          if(result.text != ""){
+            this.resultTXT = result.text
+          }
+          this.logText += 
+            "结果: " + result.text + "\n" +
+            "格式: " + result.format + "\n" +
+            "取消: " + result.cancelled + "\n"
+        }, (error) => {
+          this.logText += "错误 : " + error + "\n" 
+        }, {
+          preferFrontCamera : false, // iOS and Android
+          showFlipCameraButton : true, // iOS and Android
+          showTorchButton : true, // iOS and Android
+          torchOn: false, // Android, launch with the torch switched on (if available)
+          saveHistory: true, // Android, save scan history (default false)
+          prompt : "将二维码放置在扫描区域", // Android
+          resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+          formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+          orientation : "portrait", // Android only (portrait|landscape), default unset so it rotates with the device
+          disableAnimations : true, // iOS
+          disableSuccessBeep: false // iOS and Android
         }
-      } catch (exception) {
-        console.log(exception)
-      }
-      this.logText += "执行初始化" + "\n"
+      )
+    },
+    encode: function () {
+      this.encodeUrl = "http://qr.liantu.com/api.php?text=" + this.resultTXT
+      
+      this.$vha.barcodescanner.encode(this.$vha.barcodescanner.Encode.TEXT_TYPE, this.resultTXT, (success) => {
+          console.log(success)
+          this.logText += "成功 : " + success + "\n"
+        }, (fail) => {
+          this.logText += "失败 : " + fail + "\n"
+        }
+      )
     }
   },
   watch: {

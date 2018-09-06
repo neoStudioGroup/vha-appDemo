@@ -5,29 +5,21 @@
   flex-direction column
   .p_UI-content
     flex 1
+    img
+      padding rem(40)
+      width 100%
+      box-sizing border-box
+      transition all 300ms
 </style>
 --------------------------------------------------------------------------------
 <template>
   <div class="p_UI-deviceorientation">
 
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
-      </label>
+      <img src="../../assets/images/Orientation.png" :style="intdeg">
       
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
-      
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @click="getCurrentHeading()">
+        获取数据
       </div>
     </vha-scrollview>
     
@@ -51,6 +43,10 @@ export default {
     //动态数据
     return {
       logText: "",
+      watchID: 0,
+      intdeg: {
+        transform: ''
+      }
     }
   },
   components: {
@@ -62,18 +58,13 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
-        }
-      } catch (exception) {
-        console.log(exception)
-      }
-      this.logText += "执行初始化" + "\n"
+    getCurrentHeading: function () {
+      this.$vha.deviceorientation.getCurrentHeading((result) => {
+          let intdeg = parseInt(result.magneticHeading)
+          this.logText += "intdeg : " + intdeg + "\n"
+        }, (err) => {
+          this.logText += "错误 : " + err + "\n"
+        })
     }
   },
   watch: {
@@ -81,12 +72,36 @@ export default {
   },
   created() {
     //实例创建完成后
+    this.watchID = 0
+    this.inAngle = -1
+    this.lastAngle = 0
   },
   mounted() {
     //挂载实例后 - this.el存在
+  
+    this.getCurrentHeading()
+    setTimeout(() => {}, 1000)
+    
+    let options = {
+      frequency: 10
+    }
+    
+    this.watchID = this.$vha.deviceorientation.watchHeading((result) => {
+        let intdeg_ = 360 - result.magneticHeading
+        
+        let thisAngle = intdeg_ - this.lastAngle
+        if (thisAngle != 0) {
+          this.intdeg.transform = "rotate(" + intdeg_ + "deg)"
+        }
+        this.lastAngle = intdeg_
+      }, (err) => {
+        this.logText += "错误 : " + err + "\n"
+      }, options)
+    
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用
+    this.$vha.deviceorientation.clearWatch(this.watchID)
   },
   destroyed() {
     //销毁后

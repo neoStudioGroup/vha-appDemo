@@ -107,8 +107,7 @@
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
     <plugin name="cordova-plugin-media" spec="^5.0.2" />
-    <plugin name="phonegap-plugin-barcodescanner" spec="^8.0.0">
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
-    </plugin>
-    <engine name="android" spec="^6.4.0" />
+    <plugin name="cordova-plugin-device-orientation" spec="^2.0.1" />
+    <plugin name="cordova-plugin-device-motion" spec="^2.0.1" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

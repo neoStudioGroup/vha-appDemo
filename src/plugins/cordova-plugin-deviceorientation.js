@@ -2,10 +2,10 @@ const vha = {
   install(Vue, options) {
     document.addEventListener('deviceready', () => {
       try {
-        if (typeof StatusBar != 'undefined') {
-          Vue.prototype.$vha.statusbar = StatusBar
+        if (typeof navigator.compass != 'undefined') {
+          Vue.prototype.$vha.deviceorientation = navigator.compass
         } else {
-          throw "cordova-plugin-statusbar undefined"
+          throw "cordova-plugin-device-orientation undefined"
         }
       }
       catch (err) {
