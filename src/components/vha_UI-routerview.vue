@@ -65,13 +65,18 @@
 --------------------------------------------------------------------------------
 <template>
   <div class="vha_UI-routerview">
-  <!-- <keep-alive include='p_UI-index,vha_UI-scroll'> -->
     <vha-content>
       <transition :name="transitionName">
+        
         <router-view></router-view>
+  
+        <!-- <keep-alive>
+          <router-view v-if='$route.meta.keepAlive'></router-view> 
+        </keep-alive>
+        <router-view v-if='!$route.meta.keepAlive'></router-view> -->
+        
       </transition>
     </vha-content>
-  <!-- </keep-alive> -->
   </div>
 </template>
 --------------------------------------------------------------------------------

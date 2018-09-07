@@ -8,7 +8,7 @@ module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        // 全局使用rem()
+        // 全局使用 rem()
         import: ['~vha-components/assets/stylus/method.styl']
       }
     }

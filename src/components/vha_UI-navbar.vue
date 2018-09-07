@@ -19,25 +19,37 @@
   .ui-n-lefttext, .ui-n-righttext
     cursor pointer
     flex 0 0 rem(140)
-    font-size rem(24)
-    color #38f
+    div
+      width 100%
+      height 100%
+      font-size rem(24)
   .ui-n-lefttext
     i
       margin-top -1px
       margin-right rem(12)
       font-size rem(46)
+    div
+      color #38f
 
 </style>
 --------------------------------------------------------------------------------
 <template>
   <div class="vha_UI-navbar">
-    <div class="ui-n-lefttext _df _ac _jc" @click="goBack()"><i class="ion-ios-arrow-back"></i>{{leftText}}</div>
+    <div class="ui-n-lefttext">
+      <div class="_df _ac _jc" @click="goBack()" v-show="this.$route.path != '/'">
+        <i class="ion-ios-arrow-back"></i>{{leftText}}
+      </div>
+    </div>
       <div class="ui-n-title _df _ac _jc">
         <transition name="fade">
          <span v-if="showTitle">{{title}}</span>
         </transition>
       </div>
-    <div class="ui-n-righttext _df _ac _jc"><slot></slot></div>
+    <div class="ui-n-righttext">
+      <div class="_df _ac _jc">
+        <slot></slot>
+      </div>
+    </div>
   </div>
 </template>
 --------------------------------------------------------------------------------

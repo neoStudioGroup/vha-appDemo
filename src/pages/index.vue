@@ -54,9 +54,9 @@
 --------------------------------------------------------------------------------
 <template>
   <div class="p_UI-index">
-  <!-- <keep-alive include='vha_UI-scrollview'> -->
-    
     <vha-scrollview :keep-scroll="true">
+
+      <!-- <div @click="bbb()">22222</div> -->
 
       <!-- UI组件-LOGO -->
       <div class="p_UI-logo _df">
@@ -123,8 +123,6 @@
       </ul>
       
     </vha-scrollview>
-  <!-- </keep-alive> -->
-    
   </div>
 </template>
 --------------------------------------------------------------------------------
@@ -140,6 +138,9 @@ export default {
   data() {
     //动态数据
     return {
+      aa: 0,
+      exit: false,
+      timeid: 0
     }
   },
   components: {
@@ -150,22 +151,31 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
+    bbb: function () {
+      console.log(this.aa)
+      this.aa = 12314
+    },
     goto: function (page) {
-      
-      
-      
-      
-      
       
       
       this.$router.push(page)
       this.$store.state.navbarTitle = page.replace("/","")
       
       
+    },
+    onBackButton: function () {
+      this.$vha.toast.showShortBottom("再点击一次退出!")
+        
+      clearTimeout(this.timeid)
+      this.timeid = setTimeout(() => {
+        this.exit = false
+      }, 2000)
       
-      
-      
-      
+      if (this.exit) {
+        this.$vha.app.exitApp()
+      } else {
+        this.exit = true
+      }
     }
   },
   watch: {
@@ -176,9 +186,13 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.el存在
+    document.addEventListener('deviceready', () => {
+      document.addEventListener("backbutton", this.onBackButton, false)
+    }, false)
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用
+    document.removeEventListener("backbutton", this.onBackButton, false) //返回键
   },
   destroyed() {
     //销毁后

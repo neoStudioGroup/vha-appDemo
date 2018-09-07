@@ -11,13 +11,13 @@
   <div class="p_UI-capture">
 
     <vha-scrollview class="p_UI-content">
-      <div class="_UI-button" @click="captureAudio()">
+      <!-- <div class="_UI-button" @click="captureAudio()">
         录制音频
       </div>
       
       <div class="_UI-button" @click="captureImage()">
         录制图片
-      </div>
+      </div> -->
       
       <div class="_UI-button" @click="captureVideo()">
         录制视频

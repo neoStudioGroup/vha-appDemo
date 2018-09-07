@@ -68,7 +68,7 @@ export default {
       })
     },
     uninstall: function () {
-      let packName = prompt("输入包名", "com.neovue.hybridapp")
+      let packName = prompt("输入包名", "com.vha.vhaappdemo")
       this.$vha.fileopener2.uninstall(packName, {
         error: (e) => {
           this.logText += "失败" + e + "\n"
@@ -78,7 +78,7 @@ export default {
       })
     },
     appIsInstalled: function () {
-      let packName = prompt("输入包名", "com.neovue.hybridapp")
+      let packName = prompt("输入包名", "com.vha.vhaappdemo")
       this.$vha.fileopener2.appIsInstalled(packName, {
         success: (res) => {
           let iscb = res.status === 1 ? "已安装" : "未安装"

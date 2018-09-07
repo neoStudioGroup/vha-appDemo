@@ -1,3 +1,5 @@
+import platform from './plugins/cordova-plugin-platform'
+
 // 系统 System
 import splashscreen from './plugins/cordova-plugin-splashscreen'
 import statusbar from './plugins/cordova-plugin-statusbar'
@@ -83,6 +85,8 @@ const vha = {
       deviceready: false
     }
     
+    
+    Vue.use(platform)
     
     // 系统 System
     Vue.use(splashscreen)

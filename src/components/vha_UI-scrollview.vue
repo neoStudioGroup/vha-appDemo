@@ -18,7 +18,7 @@
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="vha_UI-scrollview" :style="{height: calcHeight}" ref="vhaUIScrollview">
+  <div class="vha_UI-scrollview" :style="{height: calcHeight}" ref="vhaUIScrollview" @touchmove="touchmove">
     <slot></slot>
   </div>
 </template>
@@ -69,6 +69,9 @@ export default {
     handleScroll () {
       this.$vhaComponents.keepscroll = this.$refs.vhaUIScrollview.scrollTop
       // console.log(this.$vhaComponents.keepscroll)
+    },
+    touchmove (event) {
+      // console.log(event)
     }
   },
   watch: {

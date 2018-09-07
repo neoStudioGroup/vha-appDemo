@@ -74,8 +74,7 @@
       "cordova-plugin-camera": {},
       "cordova-plugin-baidumaplocation": {
         "ANDROID_KEY": "104RLNdEmAqbESLXCa8Beb44oOEeyXPu",
-        "IOS_KEY": "<API_KEY_IOS>",
-        "IOS_LOCATION_DESC": "请点击'好'以允许访问。"
+        "IOS_KEY": "<API_KEY_IOS>"
       },
       "cordova-plugin-statusbar": {},
       "cordova-plugin-badge": {},
