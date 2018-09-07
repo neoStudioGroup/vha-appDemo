@@ -21,6 +21,20 @@ yarn-error.log*
 *.sw*
 
 # cordova stuff
-/platforms
+# /platforms/android/*
+# !/platforms/android/app/build/outputs/apk
+
+/platforms/android/* 
+!/platforms/android/app/
+
+/platforms/android/app/* 
+!/platforms/android/app/build/
+
+/platforms/android/app/build/* 
+!/platforms/android/app/build/outputs/
+
+/platforms/android/app/build/outputs/* 
+!/platforms/android/app/build/outputs/apk/
+
 /plugins
 

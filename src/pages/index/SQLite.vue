@@ -11,23 +11,16 @@
   <div class="p_UI-sqlite">
 
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
-      </label>
+      <div class="_UI-button" @click="Echotest()">
+        Echo测试
+      </div>
       
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
+      <div class="_UI-button" @click="Selftest()">
+        Self测试
+      </div>
       
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @9click="SQLite()">
+        本地数据库
       </div>
     </vha-scrollview>
     
@@ -62,18 +55,29 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
-        }
-      } catch (exception) {
-        console.log(exception)
-      }
-      this.logText += "执行初始化" + "\n"
+    Echotest: function () {
+      this.$vha.sqlite.echoTest(() => {
+        this.logText += "ECHO 测试 OK" + "\n"
+      })
+    },
+    Selftest: function () {
+      this.$vha.sqlite.selfTest(() => {
+        this.logText += "SELF 测试 OK" + "\n"
+      })
+    },
+    SQLite: function () {
+      let db = this.$vha.sqlite.openDatabase({name: 'test.db', location: 'default'})
+      let query = "INSERT INTO test_table (data, data_num) VALUES (?,?)"
+      
+      db.transaction((tr) => {
+        tr.executeSql(query, [], (tx, result) => {
+          console.log("insertId: " + result.insertId)
+          this.logText += "insertId：" + result.insertId + "\n"
+        },
+        (transaction, error) => {
+          this.logText += "出错：" + error + "\n"
+        })
+      })
     }
   },
   watch: {

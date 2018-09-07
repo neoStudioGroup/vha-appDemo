@@ -14,7 +14,7 @@
       
       <label class="_UI-input">
         <span class="input-label">地址：</span>
-        <input type="text" v-model="url">
+        <input type="url" v-model="url">
       </label>
       
       <div class="_UI-button" @click="open()">

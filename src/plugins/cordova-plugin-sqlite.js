@@ -2,10 +2,10 @@ const vha = {
   install(Vue, options) {
     document.addEventListener('deviceready', () => {
       try {
-        if (typeof StatusBar != 'undefined') {
-          Vue.prototype.$vha.statusbar = StatusBar
+        if (typeof window.sqlitePlugin != 'undefined') {
+          Vue.prototype.$vha.sqlite = window.sqlitePlugin
         } else {
-          throw "cordova-plugin-statusbar undefined"
+          throw "cordova-sqlite-storage undefined"
         }
       }
       catch (err) {

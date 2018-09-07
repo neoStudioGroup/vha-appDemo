@@ -25,6 +25,8 @@ import inappbrowser from './plugins/cordova-plugin-inappbrowser'
 import zip from './plugins/cordova-plugin-zip'
 import appversion from './plugins/cordova-plugin-appversion'
 import appavailability from './plugins/cordova-plugin-appavailability'
+import apprate from './plugins/cordova-plugin-apprate'
+import apppreferences from './plugins/cordova-plugin-apppreferences'
 
 // // 设备 device
 import device from './plugins/cordova-plugin-device'
@@ -40,13 +42,15 @@ import deviceorientation from './plugins/cordova-plugin-deviceorientation'
 import devicemotion from './plugins/cordova-plugin-devicemotion'
 import flashlight from './plugins/cordova-plugin-flashlight'
 import vibration from './plugins/cordova-plugin-vibration'
+import ibeacon from './plugins/cordova-plugin-ibeacon'
+import bluetooth from './plugins/cordova-plugin-bluetooth'
 import touchid from './plugins/cordova-plugin-touchid'
 import launchnavigator from './plugins/cordova-plugin-launchnavigator'
 
 // // 其它 other
-import applogin from './plugins/cordova-plugin-applogin'
+// import applogin from './plugins/cordova-plugin-applogin'
 import sqlite from './plugins/cordova-plugin-sqlite'
-import keychain from './plugins/cordova-plugin-keychain'
+// import keychain from './plugins/cordova-plugin-keychain'
 
 
 const vha = {
@@ -107,7 +111,9 @@ const vha = {
     Vue.use(zip)
     Vue.use(appversion)
     Vue.use(appavailability)
-    
+    Vue.use(apprate)
+    Vue.use(apppreferences)
+
     // // 设备 device
     Vue.use(device)
     // Vue.use(batterystatus)
@@ -122,13 +128,15 @@ const vha = {
     Vue.use(devicemotion)
     Vue.use(flashlight)
     Vue.use(vibration)
+    Vue.use(ibeacon)
+    Vue.use(bluetooth)
     Vue.use(touchid)
     Vue.use(launchnavigator)
     
     // // 其它 other
-    Vue.use(applogin)
+    // Vue.use(applogin)
     Vue.use(sqlite)
-    Vue.use(keychain)
+    // Vue.use(keychain)
     
     // pluginsList.forEach(pluginName => {
     //   let plugin = require('./plugins/' + pluginName)

@@ -29,6 +29,8 @@ import Keyboard from './pages/index/Keyboard'
 import Zip from './pages/index/Zip'
 import AppVersion from './pages/index/AppVersion'
 import AppAvailability from './pages/index/AppAvailability'
+import AppRate from './pages/index/AppRate'
+import AppPreferences from './pages/index/AppPreferences'
 
 // 设备 Device
 import Device from './pages/index/Device'
@@ -43,6 +45,8 @@ import DeviceOrientation from './pages/index/DeviceOrientation'
 import DeviceMotion from './pages/index/DeviceMotion'
 import Flashlight from './pages/index/Flashlight'
 import Vibration from './pages/index/Vibration'
+import iBeacon from './pages/index/iBeacon'
+import Bluetooth from './pages/index/Bluetooth'
 import TouchID from './pages/index/TouchID'
 import LaunchNavigator from './pages/index/LaunchNavigator'
 
@@ -189,13 +193,24 @@ export default new Router({
       name: 'AppVersion',
       component: AppVersion
     },
-    
-    // 设备 Device
     {
       path: '/AppAvailability',
       name: 'AppAvailability',
       component: AppAvailability
     },
+    {
+      path: '/AppRate',
+      name: 'AppRate',
+      component: AppRate
+    },
+    {
+      path: '/AppPreferences',
+      name: 'AppPreferences',
+      component: AppPreferences
+    },
+    
+    
+    // 设备 Device
     {
       path: '/Device',
       name: 'Device',
@@ -255,6 +270,16 @@ export default new Router({
       path: '/Vibration',
       name: 'Vibration',
       component: Vibration
+    },
+    {
+      path: '/iBeacon',
+      name: 'iBeacon',
+      component: iBeacon
+    },
+    {
+      path: '/Bluetooth',
+      name: 'Bluetooth',
+      component: Bluetooth
     },
     {
       path: '/TouchID',

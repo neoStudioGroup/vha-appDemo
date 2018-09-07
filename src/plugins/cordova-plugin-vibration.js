@@ -2,10 +2,10 @@ const vha = {
   install(Vue, options) {
     document.addEventListener('deviceready', () => {
       try {
-        if (typeof StatusBar != 'undefined') {
-          Vue.prototype.$vha.statusbar = StatusBar
+        if (typeof navigator.vibrate != 'undefined') {
+          Vue.prototype.$vha.vibration = navigator
         } else {
-          throw "cordova-plugin-statusbar undefined"
+          throw "cordova-plugin-vibration undefined"
         }
       }
       catch (err) {

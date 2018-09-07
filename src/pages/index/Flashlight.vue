@@ -11,23 +11,17 @@
   <div class="p_UI-flashlight">
 
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
-      </label>
-      
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
-      
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @click="FlashlightIs()">
+        是否可用
+      </div>
+      <div class="_UI-button" @click="FlashlightOn()">
+        打开
+      </div>
+      <div class="_UI-button" @click="FlashlightOff()">
+        关闭
+      </div>
+      <div class="_UI-button" @click="FlashlightChange()">
+        切换
       </div>
     </vha-scrollview>
     
@@ -62,18 +56,31 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
-        }
-      } catch (exception) {
-        console.log(exception)
-      }
-      this.logText += "执行初始化" + "\n"
+    FlashlightIs: function(){
+      this.$vha.flashlight.available((isAvailable) => {
+        this.logText += "闪光灯是否可用" + isAvailable + "\n"
+      })
+    },
+    FlashlightOn: function(){
+      this.$vha.flashlight.switchOn((success) => {
+          this.logText += "开启 " + success + "\n"
+        }, (error) => {
+          this.logText += "开启失败 " + error + "\n"
+        })
+    },
+    FlashlightOff: function(){
+      this.$vha.flashlight.switchOff((success) => {
+          this.logText += "关闭 " + success + "\n"
+        }, (error) => {
+          this.logText += "关闭失败 " + error + "\n"
+        })
+    },
+    FlashlightChange: function(){
+      this.$vha.flashlight.toggle((success) => {
+          this.logText += "切换 " + success + "\n"
+        }, (error) => {
+          this.logText += "切换失败 " + error + "\n"
+        })
     }
   },
   watch: {

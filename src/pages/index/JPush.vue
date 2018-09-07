@@ -153,6 +153,7 @@ export default {
           this.logText += "获取registrationId : " + this.registrationId + "\n"
         })
       } catch (exception) {
+        this.logText += "错误 : " + exception + "\n"
         console.log(exception)
       }
     },

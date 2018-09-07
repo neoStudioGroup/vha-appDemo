@@ -12,22 +12,12 @@
 
     <vha-scrollview class="p_UI-content">
       <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
+        <span class="input-label">震动毫秒：</span>
+        <input type="text" v-model="VibrationTime">
       </label>
       
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
-      
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @click="Vibration()">
+        震动
       </div>
     </vha-scrollview>
     
@@ -51,6 +41,7 @@ export default {
     //动态数据
     return {
       logText: "",
+      VibrationTime: 2000
     }
   },
   components: {
@@ -62,18 +53,13 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
-        }
-      } catch (exception) {
-        console.log(exception)
+    Vibration: function () {
+      this.logText += "震动：" + this.VibrationTime + " 毫秒" + "\n"
+      if (this.$vha.vibration.vibrate(this.VibrationTime)) {
+        this.logText += "成功" + "\n"
+      } else {
+        this.logText += "失败" + "\n"
       }
-      this.logText += "执行初始化" + "\n"
     }
   },
   watch: {

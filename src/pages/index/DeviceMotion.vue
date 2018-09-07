@@ -46,7 +46,7 @@
       </div>
     </vha-scrollview>
     
-    <UIlog :text="logText"></UIlog>
+    <!-- <UIlog :text="logText"></UIlog> -->
 
   </div>
 </template>
@@ -119,8 +119,9 @@ export default {
         let tiltLR = eventData.gamma
         let tiltFB = eventData.beta
         let dir = eventData.alpha
-              
-        this.Motion.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+        
+        // this.Motion.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)"
+        this.Motion.transform = "rotate3d(0,1,0, " + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)"
       }, false)
     } else {
       this.logText += "Device Orientation API not supported." + "\n"

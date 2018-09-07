@@ -11,23 +11,16 @@
   <div class="p_UI-applogin">
 
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">registrationId：</span>
-        <input type="text" v-model="registrationId">
-      </label>
+      <!-- <div class="_UI-button" @click="QQlogin()">
+        QQ登陆
+      </div> -->
       
-      <label class="_UI-input">
-        <span class="input-label">Tags：</span>
-        <br>
-        <input type="text" v-model="tagText1">
-        <input type="text" v-model="tagText2">
-        <input type="text" v-model="tagText3">
-      </label>
+      <div class="_UI-button" @click="WXlogin()">
+        微信登陆
+      </div>
       
-      <div class="_UI-hr"></div>
-      
-      <div class="_UI-button" @click="init()">
-        初始化
+      <div class="_UI-button" @click="share()">
+        分享到朋友圈
       </div>
     </vha-scrollview>
     
@@ -62,19 +55,31 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    init: function () {
-      try {
-        this.$vha.jpush.init()
-        this.$vha.jpush.setDebugMode(true)
-        
-        if (device.platform != "Android") {
-          this.$vha.jpush.setApplicationIconBadgeNumber(0)
-        }
-      } catch (exception) {
-        console.log(exception)
-      }
-      this.logText += "执行初始化" + "\n"
-    }
+    QQlogin: function () {
+
+    },
+    
+    WXlogin: function () {
+      var scope = "snsapi_userinfo",
+          state = "_" + (+new Date());
+      Wechat.auth(scope, state, function (response) {
+        // you may use response.code to get the access token.
+        this.logText += JSON.stringify(response) + "\n"
+      }, function (reason) {
+        this.logText += "失败 : " + reason + "\n"
+      })
+    },
+    
+    share: function () {
+      Wechat.share({
+        text: "这是vha分享的文本",
+        scene: Wechat.Scene.TIMELINE
+      }, function () {
+        this.logText += "成功" + "\n"
+      }, function (reason) {
+        this.logText += "失败 : " + reason + "\n"
+      })
+    },
   },
   watch: {
     //观察 - 数据或方法
