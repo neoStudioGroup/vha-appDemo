@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------------
 <template>
   <div id="app">
-    <vha-navbar :title.sync="$store.state.navbarTitle"></vha-navbar>
+    <vha-navbar></vha-navbar>
     <vha-routerview></vha-routerview>
     <!-- <vha-tabs></vha-tabs> -->
   </div>

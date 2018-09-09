@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-actionsheet
+.i_UI-actionsheet
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-actionsheet">
+  <div class="i_UI-actionsheet">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button" @click="ActionSheet()">
         原生上拉菜单
       </div>
@@ -25,7 +25,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-actionsheet',
+  name: 'i_UI-actionsheet',
   beforeCreate() {
     //实例创建之前
   },

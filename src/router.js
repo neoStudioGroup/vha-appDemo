@@ -66,6 +66,7 @@ export default new Router({
       name: 'index',
       component: index,
       meta: {
+        navBarTitle: 'neoStudioGroup.com',
         keepAlive: true
       }
     },

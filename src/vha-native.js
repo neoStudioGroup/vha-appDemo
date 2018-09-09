@@ -19,6 +19,7 @@ import file from './plugins/cordova-plugin-file'
 import filetransfer from './plugins/cordova-plugin-filetransfer'
 import fileopener2 from './plugins/cordova-plugin-fileopener2'
 import imagepicker from './plugins/cordova-plugin-imagepicker'
+import mediapicker from './plugins/cordova-plugin-mediapicker'
 import nativeaudio from './plugins/cordova-plugin-nativeaudio'
 import contacts from './plugins/cordova-plugin-contacts'
 import sms from './plugins/cordova-plugin-sms'
@@ -107,6 +108,7 @@ const vha = {
     Vue.use(filetransfer)
     Vue.use(fileopener2)
     Vue.use(imagepicker)
+    Vue.use(mediapicker)
     Vue.use(nativeaudio)
     Vue.use(contacts)
     Vue.use(sms)

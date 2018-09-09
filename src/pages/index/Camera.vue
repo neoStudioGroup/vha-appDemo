@@ -1,18 +1,18 @@
 <style lang="stylus">
-.p_UI-camera
+.i_UI-camera
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     img
       max-width 100%
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-camera">
+  <div class="i_UI-camera">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <img :src="myImage">
       <div class="_UI-button" @click="Camera()">
         拍照
@@ -28,7 +28,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-camera',
+  name: 'i_UI-camera',
   beforeCreate() {
     //实例创建之前
   },

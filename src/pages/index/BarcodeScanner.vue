@@ -1,18 +1,18 @@
 <style lang="stylus">
-.p_UI-barcodescanner
+.i_UI-barcodescanner
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     img 
       max-width 100%
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-barcodescanner">
+  <div class="i_UI-barcodescanner">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button" @click="scan()">
         扫描二维码
       </div>
@@ -38,7 +38,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-barcodescanner',
+  name: 'i_UI-barcodescanner',
   beforeCreate() {
     //实例创建之前
   },

@@ -1,9 +1,9 @@
 <style lang="stylus">
-.p_UI-deviceorientation
+.i_UI-deviceorientation
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     img
       padding rem(40)
@@ -13,9 +13,9 @@
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-deviceorientation">
+  <div class="i_UI-deviceorientation">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <img src="../../assets/images/Orientation.png" :style="intdeg">
       
       <div class="_UI-button" @click="getCurrentHeading()">
@@ -32,7 +32,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-deviceorientation',
+  name: 'i_UI-deviceorientation',
   beforeCreate() {
     //实例创建之前
   },

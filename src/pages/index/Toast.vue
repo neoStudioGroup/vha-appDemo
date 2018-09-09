@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-toast
+.i_UI-toast
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-toast">
+  <div class="i_UI-toast">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <label class="_UI-input">
         <span class="input-label">Message ：</span>
         <input type="text" v-model="Message">
@@ -38,7 +38,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-toast',
+  name: 'i_UI-toast',
   beforeCreate() {
     //实例创建之前
   },
@@ -63,7 +63,6 @@ export default {
     //方法 - 每次进入页面创建
     showTop: function(){
       this.$vha.toast.showShortTop(this.Message)
-      this.$vha.toast.showLongBottom(this.Message)
     },
     show: function(){
       this.$vha.toast.showShortCenter(this.Message)

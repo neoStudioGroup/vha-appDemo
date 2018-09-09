@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-ibeacon
+.i_UI-ibeacon
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-ibeacon">
+  <div class="i_UI-ibeacon">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <!-- 低功耗室内定位与通信 -->
       <label class="_UI-input">
@@ -42,7 +42,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-ibeacon',
+  name: 'i_UI-ibeacon',
   beforeCreate() {
     //实例创建之前
   },

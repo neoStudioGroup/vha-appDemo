@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-zip
+.i_UI-zip
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-zip">
+  <div class="i_UI-zip">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <img :src="JobsPath" />
       
       <p>解压进度{{Progress}}%</p>
@@ -29,7 +29,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-zip',
+  name: 'i_UI-zip',
   beforeCreate() {
     //实例创建之前
   },

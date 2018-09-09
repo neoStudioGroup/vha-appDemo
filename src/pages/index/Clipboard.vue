@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-clipboard
+.i_UI-clipboard
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-clipboard">
+  <div class="i_UI-clipboard">
     
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <label class="_UI-input">
         <span class="input-label">复制内容：</span>
         <input type="text" v-model="cpText">
@@ -39,7 +39,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-clipboard',
+  name: 'i_UI-clipboard',
   beforeCreate() {
     //实例创建之前
   },

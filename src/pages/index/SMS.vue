@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-sms
+.i_UI-sms
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-sms">
+  <div class="i_UI-sms">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <label class="_UI-input">
         <span class="input-label">手机号码：</span>
@@ -37,7 +37,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-sms',
+  name: 'i_UI-sms',
   beforeCreate() {
     //实例创建之前
   },

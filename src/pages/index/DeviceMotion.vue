@@ -1,12 +1,12 @@
 <style lang="stylus">
-.p_UI-devicemotion
+.i_UI-devicemotion
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     
-  .p_UI-Motionbg
+  .i_UI-Motionbg
     margin 0 auto
     width 200px
     height 200px
@@ -18,7 +18,7 @@
       left 90px
       transition all 100ms
 
-  .p_UI-html5
+  .i_UI-html5
     width 100%
     padding rem(80)
     box-sizing border-box
@@ -28,10 +28,10 @@
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-devicemotion">
+  <div class="i_UI-devicemotion">
 
-    <vha-scrollview class="p_UI-content">
-      <div class="p_UI-Motionbg">
+    <vha-scrollview class="i_UI-content">
+      <div class="i_UI-Motionbg">
         <img src="../../assets/images/Motiondot.png" :style="Motionanima">
       </div>
       
@@ -41,8 +41,8 @@
         <span class="input-label">朝向：{{Direction}}</span>
       </label>
       
-      <div class="p_UI-html5">
-        <img class="p_UI-html5" src="../../assets/images/HTML5.png" :style="Motion">
+      <div class="i_UI-html5">
+        <img class="i_UI-html5" src="../../assets/images/HTML5.png" :style="Motion">
       </div>
     </vha-scrollview>
     
@@ -55,7 +55,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-devicemotion',
+  name: 'i_UI-devicemotion',
   beforeCreate() {
     //实例创建之前
   },

@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-batterystatus
+.i_UI-batterystatus
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-batterystatus">
+  <div class="i_UI-batterystatus">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button" @click="BatteryStatus()">
         获取电池信息
       </div>
@@ -25,7 +25,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-batterystatus',
+  name: 'i_UI-batterystatus',
   beforeCreate() {
     //实例创建之前
   },

@@ -1,9 +1,9 @@
 <style lang="stylus">
-.p_UI-geolocation
+.i_UI-geolocation
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     #baiduMap
       width 100%
@@ -11,9 +11,9 @@
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-geolocation">
+  <div class="i_UI-geolocation">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div id="baiduMap"></div>
       
       <div class="_UI-button" @click="baidumaplocation()">
@@ -30,7 +30,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-geolocation',
+  name: 'i_UI-geolocation',
   beforeCreate() {
     //实例创建之前
   },

@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-spinnerdialog
+.i_UI-spinnerdialog
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-spinnerdialog">
+  <div class="i_UI-spinnerdialog">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button" @click="SpinnerDlgshow()">
         等待对话框
       </div>
@@ -25,7 +25,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-spinnerdialog',
+  name: 'i_UI-spinnerdialog',
   beforeCreate() {
     //实例创建之前
   },

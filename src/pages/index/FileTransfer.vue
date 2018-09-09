@@ -1,18 +1,18 @@
 <style lang="stylus">
-.p_UI-filetransfer
+.i_UI-filetransfer
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
     img
       width 100%
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-filetransfer">
+  <div class="i_UI-filetransfer">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <img :src="targetPath"/>
       
@@ -38,7 +38,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-filetransfer',
+  name: 'i_UI-filetransfer',
   beforeCreate() {
     //实例创建之前
   },

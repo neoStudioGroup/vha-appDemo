@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-fileopener2
+.i_UI-fileopener2
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-fileopener2">
+  <div class="i_UI-fileopener2">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <div class="_UI-button" @click="open()">
         打开文件
@@ -35,7 +35,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-fileopener2',
+  name: 'i_UI-fileopener2',
   beforeCreate() {
     //实例创建之前
   },

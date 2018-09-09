@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-contacts
+.i_UI-contacts
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-contacts">
+  <div class="i_UI-contacts">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <div class="_UI-button" @click="getAll()">
         获取通讯录
@@ -48,7 +48,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-contacts',
+  name: 'i_UI-contacts',
   beforeCreate() {
     //实例创建之前
   },

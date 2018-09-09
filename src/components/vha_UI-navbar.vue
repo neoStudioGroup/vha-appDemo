@@ -42,7 +42,7 @@
     </div>
       <div class="ui-n-title _df _ac _jc">
         <transition name="fade">
-         <span v-if="showTitle">{{title}}</span>
+          <span v-if="showTitle">{{$route.meta.navBarTitle || $route.name}}</span>
         </transition>
       </div>
     <div class="ui-n-righttext">
@@ -73,7 +73,6 @@ export default {
   data() {
     //动态数据
     return {
-      fromTitle: "",
       showTitle: true
     }
   },
@@ -86,16 +85,14 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     goBack(){
-      this.$emit('update:title', this.fromTitle)
       this.$router.go(-1)
     }
   },
   watch: {
     //观察 - 数据或方法
-    'title' (to, from) {
+    '$route' (to, from) {
       this.showTitle = false
       setTimeout(() => {
-        this.fromTitle = from
         this.showTitle = true
       }, 200)
     }

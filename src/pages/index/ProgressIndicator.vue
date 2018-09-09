@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-progressindicator
+.i_UI-progressindicator
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-progressindicator">
+  <div class="i_UI-progressindicator">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <div class="_UI-button" @click="showText()">
         仅文本
@@ -69,7 +69,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-progressindicator',
+  name: 'i_UI-progressindicator',
   beforeCreate() {
     //实例创建之前
   },

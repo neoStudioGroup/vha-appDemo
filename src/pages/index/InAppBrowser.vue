@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-inappbrowser
+.i_UI-inappbrowser
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-inappbrowser">
+  <div class="i_UI-inappbrowser">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <label class="_UI-input">
         <span class="input-label">地址：</span>
@@ -32,7 +32,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-inappbrowser',
+  name: 'i_UI-inappbrowser',
   beforeCreate() {
     //实例创建之前
   },

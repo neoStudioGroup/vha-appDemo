@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-localnotification
+.i_UI-localnotification
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-localnotification">
+  <div class="i_UI-localnotification">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <label class="_UI-input">
         <span class="input-label">registrationId：</span>
         <input type="text" v-model="registrationId">
@@ -40,7 +40,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-localnotification',
+  name: 'i_UI-localnotification',
   beforeCreate() {
     //实例创建之前
   },

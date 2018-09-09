@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-flashlight
+.i_UI-flashlight
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-flashlight">
+  <div class="i_UI-flashlight">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button" @click="FlashlightIs()">
         是否可用
       </div>
@@ -34,7 +34,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-flashlight',
+  name: 'i_UI-flashlight',
   beforeCreate() {
     //实例创建之前
   },

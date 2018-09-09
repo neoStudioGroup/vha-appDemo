@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-dialogs
+.i_UI-dialogs
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-dialogs">
+  <div class="i_UI-dialogs">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       <div class="_UI-button"  @click="alert()">
         原生普通对话框
       </div>
@@ -33,7 +33,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-dialogs',
+  name: 'i_UI-dialogs',
   beforeCreate() {
     //实例创建之前
   },

@@ -1,16 +1,16 @@
 <style lang="stylus">
-.p_UI-nativeaudio
+.i_UI-nativeaudio
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .i_UI-content
     flex 1
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-nativeaudio">
+  <div class="i_UI-nativeaudio">
 
-    <vha-scrollview class="p_UI-content">
+    <vha-scrollview class="i_UI-content">
       
       <div class="_UI-button" @click="play('bass')">
         播放bass
@@ -43,7 +43,7 @@
 import UIlog from "../../components/_UI-log"
 
 export default {
-  name: 'p_UI-nativeaudio',
+  name: 'i_UI-nativeaudio',
   beforeCreate() {
     //实例创建之前
   },
