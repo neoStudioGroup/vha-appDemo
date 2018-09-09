@@ -60,6 +60,13 @@ export default {
     },
     
     WXlogin: function () {
+      Wechat.isInstalled(function (installed) {
+        // this.logText += "微信已安装" + installed + "\n"
+      }, function (reason) {
+        this.logText += "微信未安装 : " + reason + "\n"
+        return
+      });
+      
       var scope = "snsapi_userinfo",
           state = "_" + (+new Date());
       Wechat.auth(scope, state, function (response) {
@@ -72,7 +79,7 @@ export default {
     
     share: function () {
       Wechat.share({
-        text: "这是vha分享的文本",
+        text: "这是vha-appDemo分享的文本",
         scene: Wechat.Scene.TIMELINE
       }, function () {
         this.logText += "成功" + "\n"

@@ -92,5 +92,5 @@
         <variable name="IOS_PHOTO_LIBRARY_USAGE_DESCRIPTION" value="value" />
     </plugin>
     <plugin name="cordova-plugin-vha-fileopener2" spec="^0.2019.0" />
-    <engine name="android" spec="^7.0.0" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
