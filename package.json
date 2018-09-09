@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cordova-android": "^7.0.0",
+    "cordova-android": "^7.1.1",
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-appavailability": "^0.4.2",
     "cordova-plugin-apprate": "^1.4.0",
@@ -55,8 +55,8 @@
     "cordova-sms-plugin": "^0.1.13",
     "cordova-sqlite-storage": "^2.4.0",
     "jpush-phonegap-plugin": "^3.4.3",
-    "vha-components": "^0.1.1",
-    "vha-native": "^0.1.12",
+    "vha-components": "0.0.11",
+    "vha-native": "0.0.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

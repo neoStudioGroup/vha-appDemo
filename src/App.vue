@@ -1,5 +1,4 @@
 <style lang="stylus"> 
-@import "./assets/stylus/reset.styl"
 @import "./assets/stylus/ionicons.styl"
 @import "./assets/stylus/global.styl"
 </style>
