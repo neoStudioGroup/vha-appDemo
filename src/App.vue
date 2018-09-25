@@ -7,7 +7,8 @@
   <div id="app">
     <vha-navbar></vha-navbar>
     <vha-routerview></vha-routerview>
-    <!-- <vha-tabs></vha-tabs> -->
+    <vha-tabs></vha-tabs>
+    <!-- 组件 API 实例(特效 效果) 关于 -->
   </div>
 </template>
 --------------------------------------------------------------------------------

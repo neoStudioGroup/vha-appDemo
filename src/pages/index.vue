@@ -108,7 +108,7 @@
         <li @click.once="goto('DeviceOrientation/')">方向传感器<span>Device Orientation</span><i class="ion-ios-compass"></i></li>
         <li @click.once="goto('DeviceMotion/')">陀螺仪传感器<span>Device Motion</span><i class="ion-ios-contract"></i></li>
         <li @click.once="goto('Flashlight/')">闪光灯<span>Flashlight</span><i class="ion-ios-flash"></i></li>
-        <!-- <li @click.once="goto('Vibration/')">震动<span>Vibration</span><i class="ion-ios-pulse"></i></li> -->
+        <li @click.once="goto('Vibration/')">震动<span>Vibration</span><i class="ion-ios-pulse"></i></li>
         <li @click.once="goto('iBeacon/')">iBeacon<span>iBeacon</span><i class="ion-md-wifi"></i></li>
         <li @click.once="goto('Bluetooth/')">蓝牙<span>Bluetooth</span><i class="ion-md-bluetooth"></i></li>
 <!-- <li @click.once="goto('TouchID/')">指纹识别<span>TouchID</span><i class="ion-md-hand"></i></li> -->
