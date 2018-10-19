@@ -60,21 +60,21 @@ export default {
         this.logText += value + "\n"
       }, (error) => {
         this.logText += "错误 : " + error + "\n"
-      }, 'key:1', 'value:1');
+      }, 'key:1', 'value:1')
     },
     getkey: function () {
       this.$vha.apppreferences.fetch((value) => {
         this.logText += value + "\n"
       }, (error) => {
         this.logText += "错误 : " + error + "\n"
-      }, 'key:1');
+      }, 'key:1')
     },
     show: function () {
       this.$vha.apppreferences.show((value) => {
         this.logText += value + "\n"
       }, (error) => {
         this.logText += "错误 : " + error + "\n"
-      });
+      })
     }
   },
   watch: {

@@ -113,7 +113,7 @@ export default {
         this.logText += "错误 : " + err + "\n"
       }, options)
     
-    
+    // HTML5 deviceorientation演示
     if ('DeviceOrientationEvent' in window) {
       window.addEventListener('deviceorientation', (eventData) => {
         let tiltLR = eventData.gamma
