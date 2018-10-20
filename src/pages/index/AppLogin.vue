@@ -58,7 +58,6 @@ export default {
     QQlogin: function () {
 
     },
-    
     WXlogin: function () {
       Wechat.isInstalled(function (installed) {
         // this.logText += "微信已安装" + installed + "\n"
@@ -76,7 +75,6 @@ export default {
         this.logText += "失败 : " + reason + "\n"
       })
     },
-    
     share: function () {
       Wechat.share({
         text: "这是vha-appDemo分享的文本",
@@ -86,7 +84,7 @@ export default {
       }, function (reason) {
         this.logText += "失败 : " + reason + "\n"
       })
-    },
+    }
   },
   watch: {
     //观察 - 数据或方法
