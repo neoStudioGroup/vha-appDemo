@@ -1,63 +1,69 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from './pages/index.vue'
+import components from './pages/components.vue'
+import native from './pages/native.vue'
+import about from './pages/about.vue'
+
+// 基础 Base
+import Button from './pages/components/Button'
+
 
 // 系统 System
-import Splashscreen from './pages/index/Splashscreen'
-import StatusBar from './pages/index/StatusBar'
-import Badge from './pages/index/Badge'
-import Network from './pages/index/Network'
-import Clipboard from './pages/index/Clipboard'
-import LocalNotification from './pages/index/LocalNotification'
-import JPush from './pages/index/JPush'
-import Toast from './pages/index/Toast'
-import Dialogs from './pages/index/Dialogs'
-import PinDialog from './pages/index/PinDialog'
-import ActionSheet from './pages/index/ActionSheet'
-import ProgressIndicator from './pages/index/ProgressIndicator'
-import SpinnerDialog from './pages/index/SpinnerDialog'
-import DatePicker from './pages/index/DatePicker'
-import File from './pages/index/File'
-import FileTransfer from './pages/index/FileTransfer'
-import FileOpener2 from './pages/index/FileOpener2'
-import NativeAudio from './pages/index/NativeAudio'
-import ImagePicker from './pages/index/ImagePicker'
-import SMS from './pages/index/SMS'
-import Contacts from './pages/index/Contacts'
-import InAppBrowser from './pages/index/InAppBrowser'
-import Keyboard from './pages/index/Keyboard'
-import Zip from './pages/index/Zip'
-import AppVersion from './pages/index/AppVersion'
-import AppAvailability from './pages/index/AppAvailability'
-import AppRate from './pages/index/AppRate'
-import AppPreferences from './pages/index/AppPreferences'
+import Splashscreen from './pages/native/Splashscreen'
+import StatusBar from './pages/native/StatusBar'
+import Badge from './pages/native/Badge'
+import Network from './pages/native/Network'
+import Clipboard from './pages/native/Clipboard'
+import LocalNotification from './pages/native/LocalNotification'
+import JPush from './pages/native/JPush'
+import Toast from './pages/native/Toast'
+import Dialogs from './pages/native/Dialogs'
+import PinDialog from './pages/native/PinDialog'
+import ActionSheet from './pages/native/ActionSheet'
+import ProgressIndicator from './pages/native/ProgressIndicator'
+import SpinnerDialog from './pages/native/SpinnerDialog'
+import DatePicker from './pages/native/DatePicker'
+import File from './pages/native/File'
+import FileTransfer from './pages/native/FileTransfer'
+import FileOpener2 from './pages/native/FileOpener2'
+import NativeAudio from './pages/native/NativeAudio'
+import ImagePicker from './pages/native/ImagePicker'
+import SMS from './pages/native/SMS'
+import Contacts from './pages/native/Contacts'
+import InAppBrowser from './pages/native/InAppBrowser'
+import Keyboard from './pages/native/Keyboard'
+import Zip from './pages/native/Zip'
+import AppVersion from './pages/native/AppVersion'
+import AppAvailability from './pages/native/AppAvailability'
+import AppRate from './pages/native/AppRate'
+import AppPreferences from './pages/native/AppPreferences'
 
 // 设备 Device
-import Device from './pages/index/Device'
-import BatteryStatus from './pages/index/BatteryStatus'
-import Globalization from './pages/index/Globalization'
-import Geolocation from './pages/index/Geolocation'
-import Camera from './pages/index/Camera'
-import Capture from './pages/index/Capture'
-import Media from './pages/index/Media'
-import BarcodeScanner from './pages/index/BarcodeScanner'
-import DeviceOrientation from './pages/index/DeviceOrientation'
-import DeviceMotion from './pages/index/DeviceMotion'
-import Flashlight from './pages/index/Flashlight'
-import Vibration from './pages/index/Vibration'
-import iBeacon from './pages/index/iBeacon'
-import Bluetooth from './pages/index/Bluetooth'
-import TouchID from './pages/index/TouchID'
-import LaunchNavigator from './pages/index/LaunchNavigator'
+import Device from './pages/native/Device'
+import BatteryStatus from './pages/native/BatteryStatus'
+import Globalization from './pages/native/Globalization'
+import Geolocation from './pages/native/Geolocation'
+import Camera from './pages/native/Camera'
+import Capture from './pages/native/Capture'
+import Media from './pages/native/Media'
+import BarcodeScanner from './pages/native/BarcodeScanner'
+import DeviceOrientation from './pages/native/DeviceOrientation'
+import DeviceMotion from './pages/native/DeviceMotion'
+import Flashlight from './pages/native/Flashlight'
+import Vibration from './pages/native/Vibration'
+import iBeacon from './pages/native/iBeacon'
+import Bluetooth from './pages/native/Bluetooth'
+import TouchID from './pages/native/TouchID'
+import LaunchNavigator from './pages/native/LaunchNavigator'
 
 // 其它 Other
-import AppLogin from './pages/index/AppLogin'
-import SQLite from './pages/index/SQLite'
-import Keychain from './pages/index/Keychain'
+import AppLogin from './pages/native/AppLogin'
+import SQLite from './pages/native/SQLite'
+import Keychain from './pages/native/Keychain'
 
 
 Vue.use(Router)
-
 export default new Router({
   base: process.env.BASE_URL,
   routes: [
@@ -65,12 +71,46 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index,
+      redirect: '/components',
+    },
+    {
+      path: '/components',
+      name: 'components',
+      component: components,
       meta: {
         navBarTitle: 'neoStudioGroup.com',
         keepAlive: true
       }
     },
-  
+    {
+      path: '/native',
+      name: 'native',
+      component: native,
+      meta: {
+        navBarTitle: 'neoStudioGroup.com',
+        keepAlive: true
+      }
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: about,
+      meta: {
+        navBarTitle: 'neoStudioGroup.com',
+        keepAlive: true
+      }
+    },
+    
+    // 基础 Base
+    {
+      path: '/Button',
+      name: 'Button',
+      component: Button
+    },
+    
+    
+    
+    
     // 系统 System
     {
       path: '/Splashscreen',

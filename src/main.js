@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import vhaComponents from 'vha-components'
+import vhaComponents from '../vha-components/index.js'
+// import vhaComponents from 'vha-components'
 Vue.use(vhaComponents)
 import vhaNative from 'vha-native'
 Vue.use(vhaNative)

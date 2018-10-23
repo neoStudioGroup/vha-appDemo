@@ -1,15 +1,26 @@
 <style lang="stylus">
-// ._PG-index
+._PG-about
+
+  // UI组件-名称
+  ._UI-name
+    background-color red
+
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="_PG-index">
+  <div class="_PG-about">
+
+    <!-- UI组件-名称 -->
+    <div class="_UI-name">
+      11111
+    </div>
+
   </div>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'PGindex',
+  name: 'PGabout',
   data() {
     //动态数据
     return {

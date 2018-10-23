@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   outputDir: 'www',
   baseUrl: '',
@@ -8,8 +10,9 @@ module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        // 全局使用 rem()
-        import: ['~vha-components/assets/stylus/method.styl']
+        // 全局使用 rpx()
+        import: [__dirname + '/vha-components/assets/stylus/method.styl']
+        // import: ['~vha-components/assets/stylus/method.styl']
       }
     }
   }

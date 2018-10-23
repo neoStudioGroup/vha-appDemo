@@ -7,7 +7,7 @@
   // UI组件-名称
   .ui-l-bar
     width: 100%;
-    height: rem(42)
+    height: rpx(42)
     border: 1px solid #e4e4e4;
     border-left-style: none;
     border-right-style: none;
@@ -18,14 +18,14 @@
     color: #ababab;
     text-align: center;
     i 
-      font-size: rem(42)
-      line-height rem(42)
+      font-size: rpx(42)
+      line-height rpx(42)
   .vha_UI-scrollview
-    min-height rem(50)
-    max-height rem(300)
+    min-height rpx(50)
+    max-height rpx(300)
     background-color #f8f8f8
   .ui-l-pre
-    padding rem(20)
+    padding rpx(20)
     color red
     white-space pre-wrap
     word-wrap break-word
@@ -73,7 +73,7 @@ export default {
     //实例创建完成后
   },
   mounted() {
-    //挂载实例后 - this.el存在
+    //挂载实例后 - this.$el存在
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用

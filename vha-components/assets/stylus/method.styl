@@ -1,0 +1,50 @@
+
+// ------------------------- 公共方法 -------------------------
+border-1px-top($color)
+  position: relative;
+  &::after
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-color: $color;
+    height: 1px;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+      transform-origin: 50% 0%;
+    }
+
+border-1px-bottom($color)
+  position: relative;
+  &::after
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-color: $color;
+    height: 1px;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+      transform: scaleY(0.5);
+      transform-origin: 50% 0%;
+    }
+
+// vw($px)
+//   ($px / 2 / 375) * 100vw
+
+// rem($px)
+//   ($px / 2 / 75 ) * 1rem
+
+rpx($px)
+  ($px / 2 / 75 ) * 1rem
+
+w-px($px)
+  "calc(100% - %s)" % rem($px)
+
+h-px($px)
+  "calc(100vh - %s)" % rem($px)
