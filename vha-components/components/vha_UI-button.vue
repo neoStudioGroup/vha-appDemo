@@ -46,17 +46,12 @@
     background-color Success_Focus
 // ------------------------------------------------------------------
 // vhaUI组件 - 按钮-尺寸-小
-vhaButton_size()
-  display flex
 .vhaButton_size-small
-  display flex
   padding rpx(2) rpx(6)
   font-size rpx(16)
 .vhaButton_size-normal
-  display flex
   font-size rpx(24)
 .vhaButton_size-large
-  display flex
   padding rpx(38) rpx(80)
   font-size: rpx(32)
 .vhaButton_size-fullWidth
@@ -76,7 +71,7 @@ vhaButton_size()
   color #aaa !important
   background-color #f5f5f5 !important
   &:active
-    background-color#f5f5f5 !important
+    background-color #f5f5f5 !important
 // ------------------------------------------------------------------
 // vhaUI组件 - 按钮-颜色-信息
 vhaButton_color($color, $backgroundColor, $backgroundActiveColor)
@@ -142,7 +137,7 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
 .vhaButton_type-outline.vhaButton_color-Light
   vhaButton_outlineColor(Light_, black_, Light_Focus)
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-效果-爆炸
+// vhaUI组件 - 按钮-效果-扩散
 vhaButton_effectColor($backgroundColor)
   position relative
   &:after
@@ -185,7 +180,7 @@ vhaButton_effectColor($backgroundColor)
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <button :class="props">
+  <button :class="props" @click="handleClick($event)">
     <i class="_df" :class="icon" v-if="icon"></i>
     <slot></slot>
     <i class="_df" :class="iconRight" v-if="iconRight"></i>
@@ -233,6 +228,9 @@ export default {
   },
   methods: {
     //方法 - 进入页面创建
+    handleClick(event) {
+      this.$emit('click', event);
+    },
     procProps: function () {
       let temp_type = `vhaButton_type-${this.type}${!this.size ? '' : ' vhaButton_size-' + this.size}`
       

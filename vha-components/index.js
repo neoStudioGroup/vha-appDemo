@@ -1,10 +1,15 @@
-import './assets/stylus/global.styl'
+import './assets/stylus/global.styl';
 
-import vhaNavbar from "./components/vha_UI-navbar"
-import vhaRouterview from "./components/vha_UI-routerview"
-import vhaScrollview from "./components/vha_UI-scrollview"
-import vhaButton from "./components/vha_UI-button"
-import vhaTabs from "./components/vha_UI-tabs"
+import vhaApp from "./components/vha_UI-app";
+import vhaRouterview from "./components/vha_UI-routerview";
+
+import vhaView from "./components/vha_UI-view";
+import vhaSubview from "./components/vha_UI-subview";
+import vhaButton from "./components/vha_UI-button";
+
+import vhaNavbar from "./components/vha_UI-navbar";
+import vhaScrollview from "./components/vha_UI-scrollview";
+import vhaTabs from "./components/vha_UI-tabs";
 
 const vha = {
   install(Vue) {
@@ -17,10 +22,15 @@ const vha = {
     Vue.mixin({
       components: {
         //组件 - 引入或定义
-        vhaNavbar,
+        vhaApp,
         vhaRouterview,
-        vhaScrollview,
+        
+        vhaView,
+        vhaSubview,
         vhaButton,
+        
+        vhaNavbar,
+        vhaScrollview,
         vhaTabs
       },
       created: function () {

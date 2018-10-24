@@ -72,9 +72,9 @@ export default {
       this.$vhaComponents.keepscroll = this.$refs.vhaUIScrollview.scrollTop
       // console.log(this.$vhaComponents.keepscroll)
     },
-    // touchmove (event) {
-    //   // console.log(event)
-    // }
+    touchmove (event) {
+      // console.log(event)
+    }
   },
   watch: {
     //观察 - 数据或方法

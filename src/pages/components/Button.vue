@@ -1,10 +1,10 @@
 <style lang="stylus">
 .components_PG-Button
   .ui-s-content
-    padding rpx(60)
+    background-color #f5f5f5
   .ui-b-button
-    display flex
-    margin-bottom rpx(10)
+    padding rpx(40) rpx(60)
+    background-color #fff
     .vha_UI-button
       margin-right rpx(10)
       
@@ -23,7 +23,7 @@
 <template>
   <vha-scrollview class="components_PG-Button">
     
-    <p class="_UI-note">类型type - 无 / 基本 / 正常 / 外框 / 效果-爆炸</p>
+    <p class="_UI-note">类型type - 无 / 基本 / 正常 / 外框 / 效果-扩散</p>
 
     <div class="ui-b-button">
       <vha-button type="none">
@@ -43,64 +43,67 @@
       </vha-button>
     </div>
     
-    <p class="_UI-note">尺寸size - 小 / 正常(块) / 大 / 全宽 / 撑满(父)</p>
+    <p class="_UI-note">尺寸size - 小 / 正常 / 大 / 全宽 / 撑满(父)</p>
 
-    <vha-button color="Success" size="small">
-      <span>small</span>
-    </vha-button>
-    <div class="_framebox"></div>
-    <vha-button color="Info" size="normal">
-      <span>normal</span>
-    </vha-button>
-    <div class="_framebox"></div>
-    <vha-button color="Warning" size="large">
-      <span>large</span>
-    </vha-button>
-    <div class="_framebox"></div>
-    <vha-button color="Error" size="fullWidth">
-      <span class="_fm0a">fullWidth</span>
-    </vha-button>
-    <div class="_framebox"></div>
-    <div style="width:60px;height:60px">
-      <vha-button color="Dark" size="full">
-        <span class="_fma">full</span>
+    <div class="ui-b-button">
+      <vha-button color="Success" size="small">
+        <span>small</span>
       </vha-button>
+      <vha-button color="Info" size="normal">
+        <span>normal</span>
+      </vha-button>
+      <vha-button color="Warning" size="large">
+        <span>large</span>
+      </vha-button>
+      <div class="_framebox"></div>
+      <vha-button color="Error" size="fullWidth">
+        <span class="_fm0a">fullWidth</span>
+      </vha-button>
+      <div class="_framebox"></div>
+      <div style="width:100px;height:70px">
+        <vha-button color="Dark" size="full">
+          <span class="_fma">full</span>
+        </vha-button>
+      </div>
     </div>
   
     <p class="_UI-note">颜色color - 信息 & 基本</p>
 
     <div class="ui-b-button">
-      <vha-button color="Success">
-        <span>Success</span>
-      </vha-button>
-      <vha-button color="Info">
-        <span>Info</span>
-      </vha-button>
-      <vha-button color="Warning">
-        <span>Warning</span>
-      </vha-button>
-      <vha-button color="Error">
-        <span>Error</span>
-      </vha-button>
-    </div>
-    <div class="ui-b-button">
-      <vha-button color="Dark">
-        <span>Dark</span>
-      </vha-button>
-      <vha-button color="Royal">
-        <span>Royal</span>
-      </vha-button>
-      <vha-button color="Stable">
-        <span>Stable</span>
-      </vha-button>
-      <vha-button color="Light">
-        <span>Light</span>
-      </vha-button>
+      <div>
+        <vha-button color="Success">
+          <span>Success</span>
+        </vha-button>
+        <vha-button color="Info">
+          <span>Info</span>
+        </vha-button>
+        <vha-button color="Warning">
+          <span>Warning</span>
+        </vha-button>
+        <vha-button color="Error">
+          <span>Error</span>
+        </vha-button>
+      </div>
+      <div class="_framebox"></div>
+      <div>
+        <vha-button color="Dark">
+          <span>Dark</span>
+        </vha-button>
+        <vha-button color="Royal">
+          <span>Royal</span>
+        </vha-button>
+        <vha-button color="Stable">
+          <span>Stable</span>
+        </vha-button>
+        <vha-button color="Light">
+          <span>Light</span>
+        </vha-button>
+      </div>
     </div>
     
     <p class="_UI-note">图标icon</p>
     
-    <div class="ui-b-button">
+    <div class="ui-b-button _df">
       <vha-button icon="fa fa-link">
         <span>链接</span>
       </vha-button>
@@ -117,13 +120,15 @@
     
     <p class="_UI-note">状态status</p>
     
-    <vha-button @click.native="test" disabled>
-      <span>disabled</span>
-    </vha-button>
+    <div class="ui-b-button">
+      <vha-button @click="test()" disabled>
+        <span>disabled</span>
+      </vha-button>
+    </div>    
     
     <p class="_UI-note">自定义</p>
     
-    <div class="ui-b-button">
+    <div class="ui-b-button _df">
       <vha-button class="ui-b-diyButtonA">
         <span>diyA</span>
       </vha-button>

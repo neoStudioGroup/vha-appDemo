@@ -15,6 +15,8 @@
 --------------------------------------------------------------------------------
 <template>
   <div class="vha_UI-tabs">
+<!--     组件 API 实例(特效 效果) 关于 -->
+    
     <div class="ui-t-tab">
       <router-link to="/components">
         <a>/components</a>

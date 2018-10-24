@@ -1,43 +1,34 @@
-direction方向: vertical(垂直), horizontal(水平)
-form形态: block(块), inline(内联)
+fullView撑满视图: height(高度), width(宽度)
 
 <style scoped lang="stylus">
-.vha_UI-view
-  width 100%
-  height 100%
+.vha_UI-subview
+  overflow hidden
 // ------------------------------------------------------------------
-// vhaUI组件 - 视图区域-方向
-.vhaView_direction-vertical
-  flex-direction row
-.vhaView_direction-horizontal
-  flex-direction column
-// ------------------------------------------------------------------
-// vhaUI组件 - 视图区域-形态
-.vhaView_form-inline
-  display inline-flex
-.vhaView_form-block
-  display flex
-
+// vhaUI组件 - 子视图-撑满视图
+.vhaView_fullView-height
+  max-height 100%
+  overflow-y auto
+  flex 1
+.vhaView_fullView-width
+  max-width 100%
+  overflow-x auto
+  flex 1
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="vha_UI-view" :class="`vhaView_direction-${this.direction} vhaView_form-${this.form}`">
+  <div class="vha_UI-subview" :class="this.fullView ? `vhaView_fullView-${this.fullView}` : ``">
     <slot></slot>
   </div>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'vhaUIview',
+  name: 'vhaUIsubview',
   props: {
     //父组件参数
-    direction: {
+    fullView: {
       type: String,
-      default: 'vertical'
-    },
-    form: {
-      type: String,
-      default: 'block'
+      default: ''
     }
   },
   data() {
@@ -53,6 +44,7 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    console.log(this.fullView)
   }
 }
 </script>

@@ -54,6 +54,7 @@
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
+import vhaButton from "./vha_UI-button";
 export default {
   name: 'vha_UI-navbar',
   beforeCreate() {
@@ -78,6 +79,7 @@ export default {
   },
   components: {
     //组件 - 引入或定义
+    vhaButton
   },
   computed: {
     //计算 - 缓存结果,变动时执行
