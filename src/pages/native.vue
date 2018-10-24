@@ -2,8 +2,8 @@
 ._PG-native
   // UI组件-LOGO
   .p_UI-logo
-    padding-top rpx(50)
-    padding-bottom rpx(80)
+    margin-top rpx(50)
+    margin-bottom rpx(80)
     top 0
     width 100%
     height rpx(250)

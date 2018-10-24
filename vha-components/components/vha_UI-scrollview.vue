@@ -19,7 +19,9 @@
 --------------------------------------------------------------------------------
 <template>
   <div class="vha_UI-scrollview" :style="{height: calcHeight}" ref="vhaUIScrollview" @touchmove="touchmove">
-    <slot></slot>
+    <div class="ui-s-content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 --------------------------------------------------------------------------------
@@ -70,9 +72,9 @@ export default {
       this.$vhaComponents.keepscroll = this.$refs.vhaUIScrollview.scrollTop
       // console.log(this.$vhaComponents.keepscroll)
     },
-    touchmove (event) {
-      // console.log(event)
-    }
+    // touchmove (event) {
+    //   // console.log(event)
+    // }
   },
   watch: {
     //观察 - 数据或方法

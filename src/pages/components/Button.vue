@@ -1,35 +1,73 @@
 <style lang="stylus">
 .components_PG-Button
-  padding rpx(30)
+  .ui-s-content
+    padding rpx(60)
   .ui-b-button
+    display flex
+    margin-bottom rpx(10)
     .vha_UI-button
-      display inline-block
       margin-right rpx(10)
-      margin-bottom rpx(10)
+      
+  .ui-b-diyButtonA
+    color #fff !important
+    background-color #886aea !important
+    &:active
+      background-color #6b46e5 !important
+      
+  .ui-b-diyButtonB
+    width rpx(220)
+    border-style dashed !important
+  
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="components_PG-Button">
-    <vha-scrollview class="components_PG-Button">
+  <vha-scrollview class="components_PG-Button">
     
-    <p class="_UI-note">模式 - 无/正常/外框</p>
+    <p class="_UI-note">类型type - 无 / 基本 / 正常 / 外框 / 效果-爆炸</p>
 
     <div class="ui-b-button">
-      <vha-button mode="none">
+      <vha-button type="none">
         <span>none</span>
       </vha-button>
-      <vha-button mode="base">
+      <vha-button type="base">
         <span>base</span>
       </vha-button>
       <vha-button>
         <span>normal</span>
       </vha-button>
-      <vha-button mode="outline">
+      <vha-button type="outline">
         <span>outline</span>
+      </vha-button>
+      <vha-button color="Success" effect="boom">
+        <span>Success</span>
+      </vha-button>
+    </div>
+    
+    <p class="_UI-note">尺寸size - 小 / 正常(块) / 大 / 全宽 / 撑满(父)</p>
+
+    <vha-button color="Success" size="small">
+      <span>small</span>
+    </vha-button>
+    <div class="_framebox"></div>
+    <vha-button color="Info" size="normal">
+      <span>normal</span>
+    </vha-button>
+    <div class="_framebox"></div>
+    <vha-button color="Warning" size="large">
+      <span>large</span>
+    </vha-button>
+    <div class="_framebox"></div>
+    <vha-button color="Error" size="fullWidth">
+      <span class="_fm0a">fullWidth</span>
+    </vha-button>
+    <div class="_framebox"></div>
+    <div style="width:60px;height:60px">
+      <vha-button color="Dark" size="full">
+        <span class="_fma">full</span>
       </vha-button>
     </div>
   
-    <p class="_UI-note">颜色 - 信息&基本</p>
+    <p class="_UI-note">颜色color - 信息 & 基本</p>
 
     <div class="ui-b-button">
       <vha-button color="Success">
@@ -60,26 +98,42 @@
       </vha-button>
     </div>
     
-    <p class="_UI-note">图标</p>
+    <p class="_UI-note">图标icon</p>
     
     <div class="ui-b-button">
-      <vha-button icon="fa-link">
-        <span>按钮</span>
+      <vha-button icon="fa fa-link">
+        <span>链接</span>
       </vha-button>
-      <vha-button icon="fa-spinner fa-spin">
-        <span>按钮</span>
+      <vha-button icon="fa fa-spinner fa-pulse" disabled>
+        <span>Loading..</span>
+      </vha-button>
+      <vha-button type="base" icon="fa fa-chevron-left">
+        <span>返回</span>
+      </vha-button>
+      <vha-button type="base" icon-right="fa fa-chevron-right">
+        <span>下一步</span>
       </vha-button>
     </div>
     
-    <p class="_UI-note">状态</p>
+    <p class="_UI-note">状态status</p>
     
-    <vha-button disabled>
+    <vha-button @click.native="test" disabled>
       <span>disabled</span>
     </vha-button>
-
-    </vha-scrollview>
-
-  </div>
+    
+    <p class="_UI-note">自定义</p>
+    
+    <div class="ui-b-button">
+      <vha-button class="ui-b-diyButtonA">
+        <span>diyA</span>
+      </vha-button>
+      <vha-button type="outline" color="Info" class="ui-b-diyButtonB">
+        <img src="../../assets/images/logo.png" height="20" width="20">
+        <span class="_ownRowHide">diyBBBBBBBBBBBB</span>
+      </vha-button>
+    </div>    
+    
+  </vha-scrollview>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
@@ -95,6 +149,9 @@ export default {
   },
   methods: {
     //方法 - 进入页面创建
+    test: function () {
+      console.log('test button disabled')
+    }
   },
   watch: {
     //观察 - 数据或方法变动
