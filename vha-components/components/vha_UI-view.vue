@@ -1,23 +1,19 @@
-direction方向: vertical(垂直), horizontal(水平)
-form形态: block(块), inline(内联)
-
-<style scoped lang="stylus">
+<style lang="stylus">
 .vha_UI-view
   width 100%
   height 100%
 // ------------------------------------------------------------------
-// vhaUI组件 - 视图区域-方向
+// UI组件 - 视图区域-方向
 .vhaView_direction-vertical
   flex-direction row
 .vhaView_direction-horizontal
   flex-direction column
 // ------------------------------------------------------------------
-// vhaUI组件 - 视图区域-形态
+// UI组件 - 视图区域-形态
 .vhaView_form-inline
   display inline-flex
 .vhaView_form-block
   display flex
-
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
@@ -27,6 +23,8 @@ form形态: block(块), inline(内联)
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
+// direction方向: vertical(垂直), horizontal(水平)
+// form形态: block(块), inline(内联)
 export default {
   name: 'vhaUIview',
   props: {

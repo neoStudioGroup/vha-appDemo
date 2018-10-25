@@ -1,40 +1,50 @@
-<style lang="stylus">
+<style scoped lang="stylus">
 @import "../assets/stylus/method.styl"
+@import "../assets/stylus/mixin.styl"
+// UI组件 - 导航栏
+// .vha_UI-navbar
 
-// UI组件-底部购物车信息组件
-.vha_UI-navbar
-  border-1px-bottom(#ddd)
-  display flex
-  height rpx(90)
-  font-size rpx(28)
-  background-color #fff
-  z-index 1
-  .ui-n-title
-    flex 1
-    span
-      transition opacity 200ms
-    .fade-enter, .fade-leave-to
-      opacity 0
+
+
+  // border-1px-bottom(#ddd)
+  // display flex
+  // height rpx(90)
+  // font-size rpx(28)
+  // background-color #fff
+  // z-index 1
+  // .ui-n-title
+  //   flex 1
+  //   span
+  //     transition opacity 200ms
+  //   .fade-enter, .fade-leave-to
+  //     opacity 0
   
-  .ui-n-lefttext, .ui-n-righttext
-    cursor pointer
-    width rpx(140)
-    div
-      width 100%
-      height 100%
-      font-size rpx(24)
-  .ui-n-lefttext
-    i
-      margin-top -1px
-      margin-right rpx(12)
-      font-size rpx(46)
-    div
-      color #38f
+  // .ui-n-lefttext, .ui-n-righttext
+  //   cursor pointer
+  //   width rpx(140)
+  //   div
+  //     width 100%
+  //     height 100%
+  //     font-size rpx(24)
+  // .ui-n-lefttext
+  //   i
+  //     margin-top -1px
+  //     margin-right rpx(12)
+  //     font-size rpx(46)
+  //   div
+  //     color #38f
 
 </style>
 --------------------------------------------------------------------------------
 <template>
   <div class="vha_UI-navbar">
+    
+    
+    
+    
+    
+    
+    
     <div class="ui-n-lefttext">
       <div class="" @click="goBack()" v-show="this.$route.path != '/'">
         <i class="ion-ios-arrow-back"></i>{{leftText}}
@@ -56,7 +66,7 @@
 <script type="text/ecmascript-6">
 import vhaButton from "./vha_UI-button";
 export default {
-  name: 'vha_UI-navbar',
+  name: 'vhaUInavbar',
   beforeCreate() {
     //实例创建之前
   },

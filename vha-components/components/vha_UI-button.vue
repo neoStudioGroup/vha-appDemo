@@ -1,7 +1,7 @@
-<style scoped lang="stylus">
+<style lang="stylus">
 @import "../assets/stylus/method.styl"
 @import "../assets/stylus/mixin.styl"
-// vhaUI组件 - 按钮
+// UI组件 - 按钮
 .vha_UI-button
   i
     &:first-child
@@ -9,7 +9,7 @@
     &:last-child
       margin-left rpx(8)
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-类型-无
+// UI组件 - 按钮-类型-无
 .vhaButton_type-none
   cursor pointer
   margin 0
@@ -21,7 +21,7 @@
   align-items center
   // transition all .1s
 
-// vhaUI组件 - 按钮-类型-基本
+// UI组件 - 按钮-类型-基本
 .vhaButton_type-base
   @extend .vhaButton_type-none
   color black_
@@ -29,13 +29,13 @@
   &:active
     color white_
 
-// vhaUI组件 - 按钮-类型-正常
+// UI组件 - 按钮-类型-正常
 .vhaButton_type-normal
   @extend .vhaButton_type-none
   padding rpx(28) rpx(32)
   border-radius rpx(8)
 
-// vhaUI组件 - 按钮-类型-线框
+// UI组件 - 按钮-类型-线框
 .vhaButton_type-outline
   @extend .vhaButton_type-none
   // background-color transparent !important
@@ -45,7 +45,7 @@
   &:active
     background-color Success_Focus
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-尺寸-小
+// UI组件 - 按钮-尺寸-小
 .vhaButton_size-small
   padding rpx(2) rpx(6)
   font-size rpx(16)
@@ -65,7 +65,7 @@
   height 100%
   border-radius 0
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-状态-禁止
+// UI组件 - 按钮-状态-禁止
 .vhaButton_status-disabled
   cursor not-allowed
   color #aaa !important
@@ -73,7 +73,7 @@
   &:active
     background-color #f5f5f5 !important
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-颜色-信息
+// UI组件 - 按钮-颜色-信息
 vhaButton_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
   background-color $backgroundColor
@@ -116,7 +116,7 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
 // .vhaButton_color-Calm
 //   vhaButton_color(white_, Calm_, Calm_Focus)
 
-// vhaUI组件 - 按钮-颜色-基本
+// UI组件 - 按钮-颜色-基本
 .vhaButton_color-Dark
   vhaButton_color(white_, Dark_, Dark_Focus)
 .vhaButton_type-outline.vhaButton_color-Dark
@@ -137,7 +137,7 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
 .vhaButton_type-outline.vhaButton_color-Light
   vhaButton_outlineColor(Light_, black_, Light_Focus)
 // ------------------------------------------------------------------
-// vhaUI组件 - 按钮-效果-扩散
+// UI组件 - 按钮-效果-扩散
 vhaButton_effectColor($backgroundColor)
   position relative
   &:after
@@ -180,7 +180,19 @@ vhaButton_effectColor($backgroundColor)
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <button :class="props" @click="handleClick($event)">
+  <button 
+    class="vha_UI-button" 
+    :class="[
+      'vhaButton_type-' + this.type,
+      'vhaButton_size-' + this.size,
+      this.temp_effect ? 'vhaButton_effect-' + this.temp_effect : '',
+      this.temp_color ? 'vhaButton_color-' + this.temp_color : '',
+      this.disabled ? 'vhaButton_status-disabled' : ''
+    ]" 
+    @click="handleClick($event)"
+    :type="nativeType"
+    :disabled="disabled"
+  >
     <i class="_df" :class="icon" v-if="icon"></i>
     <slot></slot>
     <i class="_df" :class="iconRight" v-if="iconRight"></i>
@@ -194,33 +206,66 @@ export default {
     //父组件参数
     type: {
       type: String,
-      default: 'normal'
+      default: 'normal',
+      validator(value) {
+        return [
+          'none',
+          'base',
+          'normal',
+          'outline'
+        ].indexOf(value) > -1;
+      }
     },
     size: {
       type: String,
-      default: ''
+      default: 'normal',
+      validator(value) {
+        return [
+          'small',
+          'normal',
+          'large',
+          'fullWidth',
+          'full'
+        ].indexOf(value) > -1;
+      }
     },
     effect: {
       type: String,
-      default: ''
+      default: '',
+      validator(value) {
+        return [
+          '',
+          'spread'
+        ].indexOf(value) > -1;
+      }
     },
     color: {
       type: String,
-      default: ''
+      default: '',
+      validator(value) {
+        return [
+          '',
+          'Success',
+          'Info',
+          'Warning',
+          'Error',
+          'Dark',
+          'Royal',
+          'Stable',
+          'Light'
+        ].indexOf(value) > -1;
+      }
     },
-    icon: {
-      type: String,
-      default: ''
-    },
-    iconRight: {
-      type: String,
-      default: ''
-    }
+    nativeType: String,
+    disabled: Boolean,
+    icon: String,
+    iconRight: String
   },
   data() {
     //动态数据
     return {
-      props: ''
+      temp_effect: '', 
+      temp_color: ''
     }
   },
   computed: {
@@ -230,41 +275,34 @@ export default {
     //方法 - 进入页面创建
     handleClick(event) {
       this.$emit('click', event);
-    },
-    procProps: function () {
-      let temp_type = `vhaButton_type-${this.type}${!this.size ? '' : ' vhaButton_size-' + this.size}`
-      
-      switch (this.type) {
-        case 'none': {
-          break
-        }
-        case 'base': {
-          break
-        }
-        case 'normal': {
-          temp_type += `${!this.effect ? '' : ' vhaButton_effect-' + this.effect} vhaButton_color-${!this.color ? 'Stable' : this.color}`
-          break
-        }
-        case 'outline': {
-          temp_type += `${!this.effect ? '' : ' vhaButton_effect-' + this.effect}  vhaButton_color-${!this.color ? 'Royal' : this.color}`
-          break
-        }
-      }
-      
-      this.props = `vha_UI-button ${temp_type}`
     }
   },
   watch: {
     //观察 - 数据或方法变动
   },
+  created() {
+    //实例创建完成后
+    switch (this.type) {
+      case 'none': {
+        break
+      }
+      case 'base': {
+        break
+      }
+      case 'normal': {
+        this.temp_effect = this.effect || ''
+        this.temp_color = this.color || 'Stable'
+        break
+      }
+      case 'outline': {
+        this.temp_effect = this.effect || ''
+        this.temp_color = this.color || 'Royal'
+        break
+      }
+    }
+  },
   mounted() {
     //挂载实例后 - this.$el存在
-    this.procProps()
-    
-    if (this.$el.disabled) {
-      console.log(this.props)
-      this.props += ' vhaButton_status-disabled'
-    }
   }
 }
 </script>

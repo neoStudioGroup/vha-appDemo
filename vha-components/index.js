@@ -33,9 +33,9 @@ const vha = {
         vhaScrollview,
         vhaTabs
       },
-      created: function () {
-        // 逻辑...
-      },
+      methods: {
+        //方法 - 进入页面创建
+      }
     })
     
     

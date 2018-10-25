@@ -1,7 +1,5 @@
 <style lang="stylus">
 .components_PG-Button
-  .ui-s-content
-    background-color #f5f5f5
   .ui-b-button
     padding rpx(40) rpx(60)
     background-color #fff
@@ -38,7 +36,7 @@
       <vha-button type="outline">
         <span>outline</span>
       </vha-button>
-      <vha-button color="Success" effect="boom">
+      <vha-button color="Success" effect="spread">
         <span>Success</span>
       </vha-button>
     </div>
