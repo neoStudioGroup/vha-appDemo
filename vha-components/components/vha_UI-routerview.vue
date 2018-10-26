@@ -1,6 +1,5 @@
 <style lang="stylus">
 @import "../assets/stylus/method.styl"
-
 // UI组件-内容
 .vha_UI-routerview
   height 100%
@@ -21,54 +20,57 @@
       top 0
       width 100%
       height 100%
-      box-shadow 0 0 40px rgba(0,0,0,0.3)
+      box-shadow 0 0 20px rgba(0,0,0,0.16)
+      background-color inherit
       // transition transform 10000ms
 
-    .slide-in-enter-active //过程中保持的状态
-      transition transform 300ms cubic-bezier(0,0,0,1)
-    .slide-in-enter //进场开始值
-      transform translate(100vw, 0)
-    .slide-in-enter-to //进场目标值
+// transition transform 300ms cubic-bezier(0,0,0,1)
+
+    .routerViewSlide-in-enter-active //过程中保持的状态
+      transition transform 400ms cubic-bezier(0,1,1,1)
+    .routerViewSlide-in-enter //进场开始值
+      transform translate(90vw, 0)
+    .routerViewSlide-in-enter-to //进场目标值
       // box-shadow 0 0 50px rgba(0,0,0,0.3)
       transform translate(0, 0)
-    .slide-in-leave-active //过程中保持的状态
-      transition transform 300ms cubic-bezier(0,0,0,1)
-    .slide-in-leave //退场开始值
+    .routerViewSlide-in-leave-active //过程中保持的状态
+      transition transform 500ms cubic-bezier(.2,0,.6,1)
+    .routerViewSlide-in-leave //退场开始值
       transform translate(0, 0)
-    .slide-in-leave-to //退场目标值
-      transform translate(rpx(-200), 0)
+    .routerViewSlide-in-leave-to //退场目标值
+      transform translate(rpx(-300), 0)
     
-    .slide-out-enter-active //过程中保持的状态
-      transition transform 300ms cubic-bezier(0,0,0,1)
-    .slide-out-enter //进场开始值
-      transform translate(rpx(-200), 0)
-    .slide-out-enter-to //进场目标值
+    .routerViewSlide-out-enter-active //过程中保持的状态
+      transition transform 200ms cubic-bezier(0,1,1,1)
+    .routerViewSlide-out-enter //进场开始值
+      transform translate(rpx(-300), 0)
+    .routerViewSlide-out-enter-to //进场目标值
       // box-shadow 0 0 50px rgba(0,0,0,0.3)
       transform translate(0, 0)
-    .slide-out-leave //退场开始值
+    .routerViewSlide-out-leave-active //过程中保持的状态
+      transition transform 300ms cubic-bezier(.2,0,.6,1)
+      z-index 9999999
+    .routerViewSlide-out-leave //退场开始值
       transform translate(0, 0)
-    .slide-out-leave-active //过程中保持的状态
-      transition transform 300ms cubic-bezier(0,0,0,1)
-      z-index 1
-    .slide-out-leave-to //退场目标值
+    .routerViewSlide-out-leave-to //退场目标值
       transform translate(100vw, 0)
 
-    // .slide-in-enter //进场开始值
+    // .routerViewSlide-in-enter //进场开始值
     //   transform translate(100%, 0)
-    // .slide-in-enter-to //进场目标值
+    // .routerViewSlide-in-enter-to //进场目标值
     //   // box-shadow 0 0 50px rgba(0,0,0,0.3)
-    // .slide-in-leave //退场开始值
+    // .routerViewSlide-in-leave //退场开始值
     //   // transform translate(rpx(-200), 0)
-    // .slide-in-leave-to //退场目标值
+    // .routerViewSlide-in-leave-to //退场目标值
     //   transform translate(rpx(-200), 0)
     
-    // .slide-out-enter //进场开始值
+    // .routerViewSlide-out-enter //进场开始值
     //   transform translate(-100%, 0)
-    // .slide-out-enter-to //进场目标值
+    // .routerViewSlide-out-enter-to //进场目标值
     //   // box-shadow 0 0 50px rgba(0,0,0,0.3)
-    // .slide-out-leave //退场开始值
+    // .routerViewSlide-out-leave //退场开始值
     //   // transform translate(rpx(200), 0)
-    // .slide-out-leave-to //退场目标值
+    // .routerViewSlide-out-leave-to //退场目标值
     //   transform translate(rpx(200), 0)
       
 
@@ -100,7 +102,7 @@ export default {
   data() {
     //动态数据
     return {
-      transitionName: 'slide-in'
+      transitionName: 'routerViewSlide-in'
     }
   },
   components: {
@@ -116,11 +118,11 @@ export default {
     //观察 - 数据或方法
     '$route' (to, from) {
       // console.log('现在路由:',to.path.split('/')[1],'来自路由:',from.path.split('/')[1],'现在的动画:',this.transitionName)
-      const toDepth = to.path.split('/').length
-      const fromDepth = from.path.split('/').length
+      let toDepth = to.path.split('/').length
+      let fromDepth = from.path.split('/').length
       
-      // this.transitionName = to.path.split('/')[1] != "" ? 'slide-in' : 'slide-out'
-      this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'slide-out' : 'slide-in'
+      // this.transitionName = to.path.split('/')[1] != "" ? 'routerViewSlide-in' : 'routerViewSlide-out'
+      this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'routerViewSlide-out' : 'routerViewSlide-in'
     }
   },
   created() {

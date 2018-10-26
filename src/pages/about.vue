@@ -1,20 +1,42 @@
 <style lang="stylus">
 ._PG-about
-
-  // UI组件-名称
-  ._UI-name
-    background-color red
-
+  padding-top rpx(60)
+  line-height 1.2
+  ._UI-logo
+    height rpx(220)
+  p
+    font-size rpx(36)
+    text-align center
+    strong
+      font-weight bold
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="_PG-about">
 
-    <!-- UI组件-名称 -->
-    <div class="_UI-name">
-      11111
+    <div class="_UI-logo _df">
+      <img src="../assets/images/logo.png">
     </div>
-
+    
+    <div class="_UI-logo _df">
+      <img src="../assets/images/components.png">
+    </div>
+    
+    <div class="_UI-logo _df">
+      <img src="../assets/images/native.png">
+    </div>
+    
+    <br>
+    <br>
+    <p><strong>vha-appDemo</strong></p>
+    <p><strong>v0.5.0</strong></p>
+    <br>
+    <br>
+    <br>
+    <p>neoStudioGroup</p>
+    <p>email：neoStudioGroup@163.com</p>
+    <p>web：http://neoStudioGroup.com</p>
+    
   </div>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－

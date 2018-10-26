@@ -1,64 +1,18 @@
 <style lang="stylus">
-._PG-native
-  // UI组件-LOGO
-  .p_UI-logo
-    margin-top rpx(50)
-    margin-bottom rpx(80)
-    top 0
-    width 100%
-    height rpx(250)
-    background-color #fff
-    img
-      margin 0 auto
-      height rpx(250)
-    p
-      margin 0 auto
-      color #888
-      
-  // UI组件-标题
-  .p_UI-title
-    position sticky
-    top -1px
-    padding rpx(20) rpx(14)
-    font-size rpx(24)
-    font-weight bold
-    border-left 2px solid #919191
-    color #919191
-    background-color #f2f2f2
-    z-index 99
-    
-  // UI组件-列表
-  .p_UI-list
-    li
-      display flex
-      align-items center
-      height rpx(100)
-      padding 0 rpx(40)
-      border-1px-bottom(#ddd)
-      font-size rpx(30)
-      color #444
-      span 
-        margin-left rpx(10)
-        font-size rpx(26)
-        color #aaa
-      i
-        position absolute
-        right rpx(30)
-        width rpx(60)
-        font-size rpx(60)
-        color #444
+// ._PG-native
+
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="_PG-native">
     <vha-scrollview :keep-scroll="true">
       <!-- UI组件-LOGO -->
-      <div class="p_UI-logo _df">
-        <img src="../assets/images/logo.png">
+      <div class="_UI-logo _df">
+        <img src="../assets/images/native.png">
       </div>
 
-      <p class="p_UI-title" style="">系统 System</p>
-      <ul class="p_UI-list">
+      <p class="_UI-title" style="">系统 System</p>
+      <ul class="_UI-list">
         <li @click.once="goto('Splashscreen/')">启动屏幕<span>Splashscreen</span><i class="ion-md-phone-portrait"></i></li>
         <li @click.once="goto('StatusBar/')">状态栏<span>StatusBar</span><i class="ion-md-remove"></i></li>
         <!-- <li @click.once="goto('Badge/')">角标提示<span>Badge</span><i class="ion-md-bookmark"></i></li> -->
@@ -89,8 +43,8 @@
         <li @click.once="goto('AppPreferences/')">应用配置项<span>App Preferences</span><i class="ion-ios-cog"></i></li>
       </ul>
       
-      <p class="p_UI-title">设备 Device</p>
-      <ul class="p_UI-list">
+      <p class="_UI-title">设备 Device</p>
+      <ul class="_UI-list">
         <li @click.once="goto('Device/')">设备信息<span>Device</span><i class="ion-ios-phone-portrait"></i></li>
         <li @click.once="goto('BatteryStatus/')">电池信息<span>Battery Status</span><i class="ion-ios-battery-full"></i></li>
         <li @click.once="goto('Globalization/')">地区/时区<span>Globalization</span><i class="ion-ios-globe"></i></li>
@@ -109,8 +63,8 @@
 <!-- <li @click.once="goto('LaunchNavigator/')">导航<span>Launch Navigator</span><i class="ion-ios-navigate"></i></li> -->
       </ul>
       
-      <p class="p_UI-title">其它 Other</p>
-      <ul class="p_UI-list">
+      <p class="_UI-title">其它 Other</p>
+      <ul class="_UI-list">
         <li @click.once="goto('AppLogin/')">QQ 微信登陆<span>App Login</span><i class="ion-ios-chatbubbles"></i></li>
         <li @click.once="goto('SQLite/')">本地数据库<span>SQLite</span><i class="ion-ios-stats"></i></li>
 <!-- <li @click.once="goto('Keychain/')">私密信息<span>Keychain</span><i class="ion-ios-analytics"></i></li> -->

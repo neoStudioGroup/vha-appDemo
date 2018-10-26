@@ -105,7 +105,10 @@ export default new Router({
     {
       path: '/Button',
       name: 'Button',
-      component: Button
+      component: Button,
+      meta: {
+        navBarTitle: 'Button 按钮'
+      }
     },
     
     

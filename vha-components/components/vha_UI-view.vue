@@ -2,40 +2,64 @@
 .vha_UI-view
   width 100%
   height 100%
+  background-color transparent
+// ------------------------------------------------------------------
+// UI组件 - 视图区域-显示方式
+// .vha_UI-view.display-flex
+//   display flex
+// .vha_UI-view.display-inline-flex
+//   display inline-flex
 // ------------------------------------------------------------------
 // UI组件 - 视图区域-方向
-.vhaView_direction-vertical
-  flex-direction row
-.vhaView_direction-horizontal
-  flex-direction column
-// ------------------------------------------------------------------
-// UI组件 - 视图区域-形态
-.vhaView_form-inline
-  display inline-flex
-.vhaView_form-block
-  display flex
+// .vha_UI-view.direction-horizontal
+//   flex-direction row
+// .vha_UI-view.direction-vertical
+//   flex-direction column
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="vha_UI-view" :class="`vhaView_direction-${this.direction} vhaView_form-${this.form}`">
+  <!-- :class="[
+    'display-' + this.display,
+    this.direction ? 'direction-' + this.direction : ''
+  ]" 废弃 -->
+  <div 
+    class="vha_UI-view" 
+    :class="[
+      this.display === 'flex' ? '_df' : '_dif',
+      this.direction === '' ? '' : (this.direction === 'horizontal' ? '_fdr' : '_fdc')
+    ]"
+  >
     <slot></slot>
   </div>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
-// direction方向: vertical(垂直), horizontal(水平)
-// form形态: block(块), inline(内联)
+// direction方向: horizontal(水平), vertical(垂直)
+// display显示方式: flex(块), inline-flex(内联)
 export default {
   name: 'vhaUIview',
   props: {
     //父组件参数
+    display: {
+      type: String,
+      default: 'flex',
+      validator(value) {
+        return [
+          'flex',
+          'inline-flex'
+        ].indexOf(value) > -1;
+      }
+    },
     direction: {
       type: String,
-      default: 'vertical'
-    },
-    form: {
-      type: String,
-      default: 'block'
+      default: '',
+      validator(value) {
+        return [
+          '',
+          'horizontal',
+          'vertical'
+        ].indexOf(value) > -1;
+      }
     }
   },
   data() {

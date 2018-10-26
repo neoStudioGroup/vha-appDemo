@@ -3,22 +3,19 @@
 @import "./assets/stylus/global.styl"
 // .vha_UI-view
   // background url(./assets/images/HTML5.png)
-  
-.vha_UI-subview
-  >.vha_UI-routerview
-    >.ui-r-center
-      background-color #f5f5f5
-  
+  // .vha_UI-subview
+  //   >.vha_UI-routerview
+  //     >.ui-r-center
+  //       background-color #f5f5f5
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <vha-app>
-    <vha-view direction="horizontal">
+    <vha-view direction="vertical">
       <vha-subview>
-        <vha-navbar></vha-navbar>
+        <vha-navbar sideButton="left"></vha-navbar>
       </vha-subview>
-      <vha-subview full-view="height">
-        2222
+      <vha-subview fullView="height">
         <vha-routerview></vha-routerview>
       </vha-subview>
       <vha-subview>

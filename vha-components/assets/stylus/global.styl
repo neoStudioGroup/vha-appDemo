@@ -49,10 +49,18 @@
 ._bdc-000 {border-color: #000 !important;}
 ._bdc-fff {border-color: #fff !important;}
 
-._bdc-success {border-color: #66cc00 !important;}
-._bdc-info {border-color: #56adec !important;}
-._bdc-warning {border-color: #ffc107 !important;}
-._bdc-error {border-color: #ff2200 !important;}
+._cl-success {color: Success_ !important;}
+._cl-info {color: Info_ !important;}
+._cl-warning {color: Warning_ !important;}
+._cl-error {color: Error_ !important;}
+._bc-success {background-color: Success_ !important;}
+._bc-info {background-color: Info_ !important;}
+._bc-warning {background-color: Warning_ !important;}
+._bc-error {background-color: Error_ !important;}
+._bdc-success {border-color: Success_ !important;}
+._bdc-info {border-color: Info_ !important;}
+._bdc-warning {border-color: Warning_ !important;}
+._bdc-error {border-color: Error_ !important;}
 
 
 ._pa {position: absolute}
@@ -82,54 +90,60 @@
 ._oh {overflow: hidden;}
 
 
-// ========== 盒子常用 ========== start
-// 盒子
+/* ========== 盒子常用 ========== start */
+/* 盒子 */
 ._df {display: flex;}
-// 内联盒子
+/* 内联盒子 */
 ._dif {display: inline-flex;}
-// 水平方向轴线 (默认)
+/* 水平方向轴线 (默认) */
 ._fdr {flex-direction: row;}
-// 垂直方向轴线
+/* 垂直方向轴线 */
 ._fdc {flex-direction: column;}
-// 盒子水平自动宽度撑满
+/* 盒子水平自动宽度撑满 */
 ._flexXauto {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1;
 }
-// 盒子垂直自动高度撑满
+/* 盒子垂直自动高度撑满 */
 ._flexYauto {
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   flex: 1;
 }
-// 内容-紧密-分布 - 不可用于居中
+/* 内容-开头-分布 */
+._jcfs {justify-content: flex-start;}
+/* 内容-紧密-分布 - 居中时注意 */
 ._jcc {justify-content: center;}
-// 内容-贴边-平均-分布
+/* 内容-结尾-分布 */
+._jcfe {justify-content: flex-end;}
+/* 内容-贴边-平均-分布 */
 ._jcsb {justify-content: space-between;}
-// 内容-平均-分布
+/* 内容-平均-分布 */
 ._jssa {justify-content: space-around;}
-// 轴线-居中
+/* 轴线-居中 */
 ._aic {align-items: center;}
-// 轴线-居底
+/* 轴线-居底 */
 ._aife {align-items: flex-end;}
-// 自动换行 多行+起始位置
+/* 自动换行 多行+起始位置 */
 ._fwwacf {flex-wrap: wrap; align-content: flex-start;}
-// 子元素-水平居中
+/* 元素-撑满-用于居中 */
+._wh11 {width:100%;height:100%;}
+/* 子元素-水平居中 */
 ._fm0a {margin: 0 auto;}
-// 子元素-垂直居中
+/* 子元素-垂直居中 */
 ._fma0 {margin:auto 0;}
-// 子元素-绝对居中
+/* 子元素-绝对居中 */
 ._fma {margin:auto;}
-// 子元素-居中 --废弃--
+/* 子元素-居中 --废弃-- */
 ._asc {align-self: center;}
-// 子元素-居底 --废弃--
+/* 子元素-居底 --废弃-- */
 ._asfe {align-self: flex-end;}
-// 子元素-填充 --废弃--
+/* 子元素-填充 --废弃-- */
 ._ass {align-self: stretch;}
-// ========== 盒子常用 ========== end
+/* ========== 盒子常用 ========== end */
 
 // ========== 文本常用 ========== start
 // -----------------------------------强制不换行

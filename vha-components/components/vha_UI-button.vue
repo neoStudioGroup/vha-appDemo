@@ -3,75 +3,79 @@
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 按钮
 .vha_UI-button
-  i
+  >i
     &:first-child
       margin-right rpx(8)
     &:last-child
       margin-left rpx(8)
 // ------------------------------------------------------------------
 // UI组件 - 按钮-类型-无
-.vhaButton_type-none
+.vha_UI-button.type-none
   cursor pointer
   margin 0
   padding 0
   border none
-  font-size rpx(24)
+  color inherit
   background-color transparent
-  display inline-flex
-  align-items center
-  // transition all .1s
+  display inline-block
+  transition all .08s
 
 // UI组件 - 按钮-类型-基本
-.vhaButton_type-base
-  @extend .vhaButton_type-none
+.vha_UI-button.type-base
+  @extend .vha_UI-button.type-none
   color black_
   background-color transparent
   &:active
     color white_
 
 // UI组件 - 按钮-类型-正常
-.vhaButton_type-normal
-  @extend .vhaButton_type-none
-  padding rpx(28) rpx(32)
+.vha_UI-button.type-normal
+  @extend .vha_UI-button.type-none
+  padding 0 rpx(30)
+  height rpx(90)
   border-radius rpx(8)
 
 // UI组件 - 按钮-类型-线框
-.vhaButton_type-outline
-  @extend .vhaButton_type-none
-  // background-color transparent !important
+.vha_UI-button.type-outline
+  @extend .vha_UI-button.type-normal
   border 2px solid red
-  padding rpx(28) rpx(32)
-  border-radius rpx(8)
   &:active
     background-color Success_Focus
 // ------------------------------------------------------------------
 // UI组件 - 按钮-尺寸-小
-.vhaButton_size-small
-  padding rpx(2) rpx(6)
+.vha_UI-button.size-small
+  padding rpx(4) rpx(6)
+  height auto
   font-size rpx(16)
-.vhaButton_size-normal
+.vha_UI-button.size-normal
+  // padding 0 rpx(30)
+  // height rpx(90)
   font-size rpx(24)
-.vhaButton_size-large
-  padding rpx(38) rpx(80)
+.vha_UI-button.size-large
+  padding 0 rpx(60)
+  height rpx(120)
   font-size: rpx(32)
-.vhaButton_size-fullWidth
-  display flex
+.vha_UI-button.size-fullWidth
+  @extend .vha_UI-button.size-normal
   width 100%
-  border-radius 0
-.vhaButton_size-full
-  display flex
+.vha_UI-button.size-full
+  // @extend .vha_UI-button.size-normal
   padding 0
   width 100%
   height 100%
   border-radius 0
 // ------------------------------------------------------------------
 // UI组件 - 按钮-状态-禁止
-.vhaButton_status-disabled
+.vha_UI-button.status-disabled
   cursor not-allowed
   color #aaa !important
   background-color #f5f5f5 !important
   &:active
     background-color #f5f5f5 !important
+// ------------------------------------------------------------------
+// UI组件 - 按钮-display-块
+.vha_UI-button.display-block
+  display block
 // ------------------------------------------------------------------
 // UI组件 - 按钮-颜色-信息
 vhaButton_color($color, $backgroundColor, $backgroundActiveColor)
@@ -86,55 +90,55 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
   &:active
     color $activeColor
     background-color $backgroundActiveColor
-.vhaButton_color-Success
+.vha_UI-button.color-Success
   vhaButton_color(white_, Success_, Success_Focus)
-.vhaButton_type-outline.vhaButton_color-Success
+.vha_UI-button.type-outline.vha_UI-button.color-Success
   vhaButton_outlineColor(Success_, white_, Success_Focus)
 
-.vhaButton_color-Info
+.vha_UI-button.color-Info
   vhaButton_color(white_, Info_, Info_Focus)
-.vhaButton_type-outline.vhaButton_color-Info
+.vha_UI-button.type-outline.vha_UI-button.color-Info
   vhaButton_outlineColor(Info_, white_, Info_Focus)
 
-.vhaButton_color-Warning
+.vha_UI-button.color-Warning
   vhaButton_color(white_, Warning_, Warning_Focus)
-.vhaButton_type-outline.vhaButton_color-Warning
+.vha_UI-button.type-outline.vha_UI-button.color-Warning
   vhaButton_outlineColor(Warning_, white_, Warning_Focus)
 
-.vhaButton_color-Error
+.vha_UI-button.color-Error
   vhaButton_color(white_, Error_, Error_Focus)
-.vhaButton_type-outline.vhaButton_color-Error
+.vha_UI-button.type-outline.vha_UI-button.color-Error
   vhaButton_outlineColor(Error_, white_, Error_Focus)
-// .vhaButton_color-Assertive
+// .vha_UI-button.color-Assertive
 //   vhaButton_color(white_, Assertive_, Assertive_Focus)
-// .vhaButton_color-Positive
+// .vha_UI-button.color-Positive
 //   vhaButton_color(white_, Positive_, Positive_Focus)
-// .vhaButton_color-Balanced
+// .vha_UI-button.color-Balanced
 //   vhaButton_color(white_, Balanced_, Balanced_Focus)
-// .vhaButton_color-Energized
+// .vha_UI-button.color-Energized
 //   vhaButton_color(white_, Energized_, Energized_Focus)
-// .vhaButton_color-Calm
+// .vha_UI-button.color-Calm
 //   vhaButton_color(white_, Calm_, Calm_Focus)
 
 // UI组件 - 按钮-颜色-基本
-.vhaButton_color-Dark
+.vha_UI-button.color-Dark
   vhaButton_color(white_, Dark_, Dark_Focus)
-.vhaButton_type-outline.vhaButton_color-Dark
+.vha_UI-button.type-outline.vha_UI-button.color-Dark
   vhaButton_outlineColor(Dark_, white_, Dark_Focus)
 
-.vhaButton_color-Royal
+.vha_UI-button.color-Royal
   vhaButton_color(white_, Royal_, Royal_Focus)
-.vhaButton_type-outline.vhaButton_color-Royal
+.vha_UI-button.type-outline.vha_UI-button.color-Royal
   vhaButton_outlineColor(Royal_, white_, Royal_Focus)
 
-.vhaButton_color-Stable
+.vha_UI-button.color-Stable
   vhaButton_color(black_, Stable_, Stable_Focus)
-.vhaButton_type-outline.vhaButton_color-Stable
+.vha_UI-button.type-outline.vha_UI-button.color-Stable
   vhaButton_outlineColor(Stable_, black_, Stable_Focus)
 
-.vhaButton_color-Light
+.vha_UI-button.color-Light
   vhaButton_color(black_, Light_, Light_Focus)
-.vhaButton_type-outline.vhaButton_color-Light
+.vha_UI-button.type-outline.vha_UI-button.color-Light
   vhaButton_outlineColor(Light_, black_, Light_Focus)
 // ------------------------------------------------------------------
 // UI组件 - 按钮-效果-扩散
@@ -161,21 +165,21 @@ vhaButton_effectColor($backgroundColor)
       right 0
       bottom 0
       transition 0s
-.vhaButton_effect-boom.vhaButton_color-Success
+.vha_UI-button.effect-spread.vha_UI-button.color-Success
   vhaButton_effectColor(Success_Focus)
-.vhaButton_effect-boom.vhaButton_color-Info
+.vha_UI-button.effect-spread.vha_UI-button.color-Info
   vhaButton_effectColor(Info_Focus)
-.vhaButton_effect-boom.vhaButton_color-Warning
+.vha_UI-button.effect-spread.vha_UI-button.color-Warning
   vhaButton_effectColor(Warning_Focus)
-.vhaButton_effect-boom.vhaButton_color-Error
+.vha_UI-button.effect-spread.vha_UI-button.color-Error
   vhaButton_effectColor(Error_Focus)
-.vhaButton_effect-boom.vhaButton_color-Dark
+.vha_UI-button.effect-spread.vha_UI-button.color-Dark
   vhaButton_effectColor(Dark_)
-.vhaButton_effect-boom.vhaButton_color-Royal
+.vha_UI-button.effect-spread.vha_UI-button.color-Royal
   vhaButton_effectColor(Royal_)
-.vhaButton_effect-boom.vhaButton_color-Stable
+.vha_UI-button.effect-spread.vha_UI-button.color-Stable
   vhaButton_effectColor(#dbdbdb)
-.vhaButton_effect-boom.vhaButton_color-Light
+.vha_UI-button.effect-spread.vha_UI-button.color-Light
   vhaButton_effectColor(Light_Focus)
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -183,19 +187,20 @@ vhaButton_effectColor($backgroundColor)
   <button 
     class="vha_UI-button" 
     :class="[
-      'vhaButton_type-' + this.type,
-      'vhaButton_size-' + this.size,
-      this.temp_effect ? 'vhaButton_effect-' + this.temp_effect : '',
-      this.temp_color ? 'vhaButton_color-' + this.temp_color : '',
-      this.disabled ? 'vhaButton_status-disabled' : ''
+      'type-' + this.type,
+      this.type != 'none' ? 'size-' + this.size : '',
+      this.temp_effect ? 'effect-' + this.temp_effect : '',
+      this.temp_color ? 'color-' + this.temp_color : '',
+      this.block ? 'display-block' : '',
+      this.disabled ? 'status-disabled' : ''
     ]" 
     @click="handleClick($event)"
     :type="nativeType"
     :disabled="disabled"
   >
-    <i class="_df" :class="icon" v-if="icon"></i>
+    <i :class="icon" v-if="icon"></i>
     <slot></slot>
-    <i class="_df" :class="iconRight" v-if="iconRight"></i>
+    <i :class="iconRight" v-if="iconRight"></i>
   </button>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -256,6 +261,7 @@ export default {
         ].indexOf(value) > -1;
       }
     },
+    block: Boolean,
     nativeType: String,
     disabled: Boolean,
     icon: String,

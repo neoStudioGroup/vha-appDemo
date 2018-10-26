@@ -1,11 +1,12 @@
 <style lang="stylus">
 .vha_UI-app
+  color #444
   height 100%
   background url('../assets/images/bg.png')
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div id="app" class="vha_UI-app _df _fdc">
+  <div id="app" class="vha_UI-app">
     <slot></slot>
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
     //父组件参数
     nobg: {
       type: Boolean,
-      default: undefined
+      default: false
     }
   },
   data() {

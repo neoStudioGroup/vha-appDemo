@@ -38,8 +38,6 @@ const vha = {
       }
     })
     
-    
-    
   }
 }
 export default vha

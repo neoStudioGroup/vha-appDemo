@@ -1,19 +1,19 @@
-<style scoped lang="stylus">
+<style lang="stylus">
 .vha_UI-subview
   overflow hidden
 // ------------------------------------------------------------------
 // UI组件 - 子视图-撑满视图
-.vhaView_fullView-height
+.vha_UI-subview.fullView-height
   max-height 100%
   flex 1
-.vhaView_fullView-width
+.vha_UI-subview.fullView-width
   max-width 100%
   flex 1
 // ------------------------------------------------------------------
 // UI组件 - 滚动条-开启&关闭
-.vhaView_scroll-Yon
+.vha_UI-subview.scroll-Yon
   overflow-y auto
-.vhaView_scroll-Xon
+.vha_UI-subview.scroll-Xon
   overflow-x auto
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -21,8 +21,8 @@
   <div 
     class="vha_UI-subview" 
     :class="[
-      this.fullView ? 'vhaView_fullView-' + this.fullView : '',
-      this.scroll && this.fullView ? ('vhaView_scroll-' + (this.fullView === 'height' ? 'Yon' : 'Xon')) : '',
+      this.fullView ? 'fullView-' + this.fullView : '',
+      this.scroll && this.fullView ? ('scroll-' + (this.fullView === 'height' ? 'Yon' : 'Xon')) : '',
     ]"
   >
     <slot></slot>

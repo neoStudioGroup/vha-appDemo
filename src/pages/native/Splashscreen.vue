@@ -3,7 +3,7 @@
   box-sizing border-box
   display flex
   flex-direction column
-  .p_UI-content
+  .p_UI-contents
     flex 1
 </style>
 --------------------------------------------------------------------------------
