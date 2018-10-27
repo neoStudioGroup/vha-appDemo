@@ -1,6 +1,6 @@
 <style lang="stylus">
 ._PG-about
-  padding-top rpx(60)
+  padding-top rpx(20)
   line-height 1.2
   ._UI-logo
     height rpx(220)
@@ -9,6 +9,8 @@
     text-align center
     strong
       font-weight bold
+  h4
+    text-align center
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
@@ -27,10 +29,9 @@
     </div>
     
     <br>
+    <p><strong>vha-appDemo </strong> v0.5.0</p>
     <br>
-    <p><strong>vha-appDemo</strong></p>
-    <p><strong>v0.5.0</strong></p>
-    <br>
+    <h4>高度自由、定制化、实用性的前端库</h4>
     <br>
     <br>
     <p>neoStudioGroup</p>

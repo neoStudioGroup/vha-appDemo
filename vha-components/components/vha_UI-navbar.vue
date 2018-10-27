@@ -7,7 +7,7 @@
     .vha_UI-button
       padding-left rpx(18)
       font-size rpx(26)
-      color Info_
+      color inherit
   .ui-n-middleBox
     position relative
     >.ui-n-m-box
@@ -27,7 +27,6 @@
     .navbarSlide-in-leave-to //退场目标值
       transform translate(rpx(-200), 0)
       opacity 0
-    
     .navbarSlide-out-enter-active //进场过程中保持的状态
       // transition all 5000ms
     .navbarSlide-out-enter //进场开始值
@@ -46,7 +45,6 @@
     .navbarSlide-in-enter-to //进场目标值
       transform translate(0, 0)
       opacity 1
-      
     .navbarSlide-out-leave-active //退场过程中保持的状态
       // transition all 5000ms
     .navbarSlide-out-leave //退场开始值
@@ -65,7 +63,6 @@
 vhaNavbar_type()
   height rpx(90)
   font-size rpx(28)
-  background-color #fff
   z-index 1
   .vha_UI-subview
     &:first-child, &:last-child
@@ -81,14 +78,38 @@ vhaNavbar_type()
 // UI组件 - 导航栏-类型-正常
 .vha_UI-navbar.type-normal
   vhaNavbar_type()
-
+// ------------------------------------------------------------------
+// UI组件 - 导航栏-颜色
+vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
+  color $color
+  background-color $backgroundColor
+.vha_UI-navbar.color-Success
+  vhaNavbar_color(white_, Success_, Success_Focus)
+.vha_UI-navbar.color-Info
+  vhaNavbar_color(white_, Info_, Info_Focus)
+.vha_UI-navbar.color-Warning
+  vhaNavbar_color(white_, Warning_, Warning_Focus)
+.vha_UI-navbar.color-Error
+  vhaNavbar_color(white_, Error_, Error_Focus)
+.vha_UI-navbar.color-Dark
+  vhaNavbar_color(white_, Dark_, Dark_Focus)
+.vha_UI-navbar.color-Royal
+  vhaNavbar_color(white_, Royal_, Royal_Focus)
+.vha_UI-navbar.color-Stable
+  vhaNavbar_color(black_, Stable_, Stable_Focus)
+.vha_UI-navbar.color-Light
+  vhaNavbar_color(black_, Light_, Light_Focus)
+  .vha_UI-button
+    color Info_
+  
 </style>
 --------------------------------------------------------------------------------
 <template>
   <div 
     class="vha_UI-navbar" 
     :class="[
-      'type-' + this.type
+      'type-' + this.type,
+      'color-' + this.color
     ]"
   >
     <slot>
@@ -157,6 +178,23 @@ export default {
         ].indexOf(value) > -1;
       }
     },
+    color: {
+      type: String,
+      default: 'Light',
+      validator(value) {
+        return [
+          'none',
+          'Success',
+          'Info',
+          'Warning',
+          'Error',
+          'Dark',
+          'Royal',
+          'Stable',
+          'Light'
+        ].indexOf(value) > -1;
+      }
+    },
     sideButton: {
       type: String,
       default: 'both',
@@ -166,23 +204,6 @@ export default {
           'left',
           'right',
           'both'
-        ].indexOf(value) > -1;
-      }
-    },
-    color: {
-      type: String,
-      default: '',
-      validator(value) {
-        return [
-          '',
-          'Success',
-          'Info',
-          'Warning',
-          'Error',
-          'Dark',
-          'Royal',
-          'Stable',
-          'Light'
         ].indexOf(value) > -1;
       }
     }

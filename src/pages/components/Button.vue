@@ -1,8 +1,11 @@
 <style lang="stylus">
 .components_PG-Button
   .ui-b-button
+    position relative
+    z-index 1
     padding rpx(40) rpx(60)
     background-color #fff
+    box-shadow 0 0 15px rgba(0,0,0,0.04)
     >.vha_UI-button
       margin-right rpx(10)
       
@@ -68,6 +71,7 @@
     <p class="_UI-note">颜色color：信息 & 基本</p>
 
     <div class="ui-b-button">
+
       <vha-button color="Success">
         <span>Success</span>
       </vha-button>
@@ -92,6 +96,9 @@
       </vha-button>
       <vha-button color="Light">
         <span>Light</span>
+      </vha-button>
+      <vha-button color="none">
+        <span>none</span>
       </vha-button>
     </div>
     

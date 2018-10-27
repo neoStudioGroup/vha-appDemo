@@ -250,6 +250,7 @@ export default {
       validator(value) {
         return [
           '',
+          'none',
           'Success',
           'Info',
           'Warning',
