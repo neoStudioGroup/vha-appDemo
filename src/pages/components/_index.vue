@@ -11,10 +11,10 @@
 
     <p class="_UI-title" style="">基础 Base</p>
     <ul class="_UI-list">
-      <li @click.once="$router.push('Button/')">按钮<span>Button</span><i class="fa fa-square"></i></li>
-      <li @click.once="$router.push('buttonGroup/')">按钮组<span>Button Group</span><i class="fa fa-th-large"></i></li>
-      <li @click.once="$router.push('navBar/')">导航栏<span>Nav Bar</span><i class="fa fa-minus"></i></li>
-      <li @click.once="$router.push('tabBar/')">标签栏<span>Tab Bar</span><i class="fa fa-ellipsis-h"></i></li>
+      <li @click.once="$router.push('components/Button')">按钮<span>Button</span><i class="fa fa-square-o"></i></li>
+      <li @click.once="$router.push('components/buttonGroup')">按钮组<span>Button Group</span><i class="fa fa-th-large"></i></li>
+      <li @click.once="$router.push('components/navBar')">导航栏<span>Nav Bar</span><i class="fa fa-minus"></i></li>
+      <li @click.once="$router.push('components/tabBar')">标签栏<span>Tab Bar</span><i class="fa fa-ellipsis-h"></i></li>
     </ul>
     
   </vha-scrollview>

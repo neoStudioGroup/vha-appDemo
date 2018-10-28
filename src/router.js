@@ -82,8 +82,7 @@ export default new Router({
       redirect: '/components/index',
       children: [
         {
-          path: 'index',
-          name: 'components_index',
+          path: '',
           component: components_index,
           meta: {
             vhaNavbar: {
@@ -124,8 +123,7 @@ export default new Router({
       redirect: '/native/index',
       children: [
         {
-          path: 'index',
-          name: 'native_index',
+          path: '',
           component: native_index,
           meta: {
             vhaNavbar: {

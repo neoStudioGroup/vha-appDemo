@@ -25,12 +25,12 @@
       transform translate(0, 0)
       opacity 1
     .navbarSlide-in-leave-to //退场目标值
-      transform translate(rpx(-200), 0)
+      transform translate(rpx(-300), 0)
       opacity 0
     .navbarSlide-out-enter-active //进场过程中保持的状态
       // transition all 5000ms
     .navbarSlide-out-enter //进场开始值
-      transform translate(rpx(-200), 0)
+      transform translate(rpx(-300), 0)
       opacity 0
     .navbarSlide-out-enter-to //进场目标值
       transform translate(0, 0)
@@ -40,7 +40,7 @@
     .navbarSlide-in-enter-active //进场过程中保持的状态
       // transition all 5000ms
     .navbarSlide-in-enter //进场开始值
-      transform translate(rpx(200), 0)
+      transform translate(rpx(300), 0)
       opacity 0
     .navbarSlide-in-enter-to //进场目标值
       transform translate(0, 0)
@@ -51,7 +51,7 @@
       transform translate(0, 0)
       opacity 1
     .navbarSlide-out-leave-to //退场目标值
-      transform translate(rpx(200), 0)
+      transform translate(rpx(300), 0)
       opacity 0
       
   .ui-n-rightBox
@@ -63,7 +63,6 @@
 vhaNavbar_type()
   height rpx(90)
   font-size rpx(28)
-  z-index 1
   .vha_UI-subview
     &:first-child, &:last-child
       width rpx(80)
@@ -72,32 +71,37 @@ vhaNavbar_type()
 
 // UI组件 - 导航栏-类型-基本
 .vha_UI-navbar.type-base
-  border-1px-bottom(#ddd)
   vhaNavbar_type()
+  border-1px-bottom(rgba(0,0,0,0.2))
+  z-index 10000000
 
 // UI组件 - 导航栏-类型-正常
 .vha_UI-navbar.type-normal
   vhaNavbar_type()
+  position relative
+  box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
+  z-index 10000000
+
 // ------------------------------------------------------------------
 // UI组件 - 导航栏-颜色
 vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
   background-color $backgroundColor
-.vha_UI-navbar.color-Success
+.vha_UI-navbar.color-success
   vhaNavbar_color(white_, Success_, Success_Focus)
-.vha_UI-navbar.color-Info
+.vha_UI-navbar.color-info
   vhaNavbar_color(white_, Info_, Info_Focus)
-.vha_UI-navbar.color-Warning
+.vha_UI-navbar.color-warning
   vhaNavbar_color(white_, Warning_, Warning_Focus)
-.vha_UI-navbar.color-Error
+.vha_UI-navbar.color-error
   vhaNavbar_color(white_, Error_, Error_Focus)
-.vha_UI-navbar.color-Dark
+.vha_UI-navbar.color-dark
   vhaNavbar_color(white_, Dark_, Dark_Focus)
-.vha_UI-navbar.color-Royal
+.vha_UI-navbar.color-royal
   vhaNavbar_color(white_, Royal_, Royal_Focus)
-.vha_UI-navbar.color-Stable
+.vha_UI-navbar.color-stable
   vhaNavbar_color(black_, Stable_, Stable_Focus)
-.vha_UI-navbar.color-Light
+.vha_UI-navbar.color-light
   vhaNavbar_color(black_, Light_, Light_Focus)
   .vha_UI-button
     color Info_
@@ -114,8 +118,8 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   >
     <slot>
       <vha-view>
-        <vha-subview class="ui-n-leftBox" v-if="this.temp_sideButton != 'none'">
-          <slot name="leftBox">
+        <vha-subview class="ui-n-leftBox">
+          <slot name="leftBox" v-if="this.temp_sideButton != 'none'">
             <vha-button
               type="base" 
               size="full" 
@@ -131,19 +135,19 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
             <transition :name="transitionName">
               <div class="ui-n-m-box" v-if="routeAction" key="oldTitle">
                 <vha-view class="_jcc _aic">
-                  <span class="_ownRowHide">{{newTitle}}</span>
+                  <span class="_ownRowHide">{{new_Title}}</span>
                 </vha-view>
               </div>
-              <span class="ui-n-m-box" v-else key="newTitle">
+              <span class="ui-n-m-box" v-else key="new_Title">
                 <vha-view class="_jcc _aic">
-                  <span class="_ownRowHide">{{newTitle}}</span>
+                  <span class="_ownRowHide">{{new_Title}}</span>
                 </vha-view>
               </span>
             </transition>
           </slot>
         </vha-subview>
-        <vha-subview class="ui-n-rightBox" v-if="this.temp_sideButton != 'none'">
-          <slot name="rightBox">
+        <vha-subview class="ui-n-rightBox">
+          <slot name="rightBox" v-if="this.temp_sideButton != 'none'">
             <vha-button 
               type="base" 
               size="full" 
@@ -182,18 +186,18 @@ export default {
     },
     color: {
       type: String,
-      default: 'Light',
+      default: 'light',
       validator(value) {
         return [
           'none',
-          'Success',
-          'Info',
-          'Warning',
-          'Error',
-          'Dark',
-          'Royal',
-          'Stable',
-          'Light'
+          'success',
+          'info',
+          'warning',
+          'error',
+          'dark',
+          'royal',
+          'stable',
+          'light'
         ].indexOf(value) > -1;
       }
     },
@@ -215,7 +219,7 @@ export default {
     return {
       transitionName: 'navbarSlide-in',
       routeAction: true,
-      newTitle: '',
+      new_Title: '',
       temp_sideButton: ''
     }
   },
@@ -230,23 +234,29 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
+    getProps: function (source) {
+      try {
+        if (source.meta.vhaNavbar) {
+          this.new_Title = source.meta.vhaNavbar.title
+          
+          if (source.meta.vhaNavbar.sideButton) {
+            this.temp_sideButton = source.meta.vhaNavbar.sideButton
+          } else {
+            this.temp_sideButton = this.sideButton
+          }
+        } else {
+          throw 0
+        }
+      } catch (error) {
+        this.new_Title = source.name
+        this.temp_sideButton = this.sideButton
+      }
+    }
   },
   watch: {
     //观察 - 数据或方法
     '$route' (to, from) {
-      try {
-        this.newTitle = to.meta.vhaNavbar.title
-        this.temp_sideButton = to.meta.vhaNavbar.sideButton
-        
-    console.log(11, this.temp_sideButton)
-        
-      } catch (error) {
-        this.newTitle = to.name
-        this.temp_sideButton = this.type
-        
-    console.log(22, this.temp_sideButton)
-        
-      }
+      this.getProps(to)
       this.routeAction = !this.routeAction
       
       let toDepth = to.path.split('/').length
@@ -256,25 +266,10 @@ export default {
   },
   created() {
     //实例创建完成后
-    try {
-      this.newTitle = this.$route.meta.vhaNavbar.title
-      this.temp_sideButton = this.$route.meta.vhaNavbar.sideButton
-    } catch (error) {
-      this.newTitle = this.$route.name
-      this.temp_sideButton = this.type
-    }
-    
-    
+    this.getProps(this.$route)
   },
   mounted() {
     //挂载实例后 - this.$el存在
-    
-    if (this.type === 'normal') {
-      var parentNode = this.$el.parentNode
-      parentNode.style.position = 'relative'
-      parentNode.style.boxShadow = '0 0 10px rgba(0,0,0,0.15)'
-      parentNode.style.zIndex = '100000000'
-    }
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用

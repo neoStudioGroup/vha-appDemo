@@ -2,19 +2,19 @@
 @import "../assets/stylus/method.styl"
 
 // UI组件-内容
-.vha_UI-tabs
-  border-1px-bottom-top(#ddd)
-  height rpx(90)
-  background-color #fff
-  display flex
-  justify-content: space-between
-  .ui-t-tab
-    flex 1
+.vha_UI-tab
+  // border-1px-bottom-top(#ddd)
+  // height rpx(90)
+  // background-color #fff
+  // display flex
+  // justify-content: space-between
+  // .ui-t-tab
+  //   flex 1
 
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="vha_UI-tabs">
+  <div class="vha_UI-tab">
 <!--     组件 API 实例(特效 效果) 关于 -->
     
     <div class="ui-t-tab">
@@ -37,7 +37,7 @@
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
 export default {
-  name: 'vha_UI-tabs',
+  name: 'vha_UI-tab',
   beforeCreate() {
     //实例创建之前
   },

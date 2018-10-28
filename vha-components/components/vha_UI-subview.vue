@@ -1,6 +1,5 @@
 <style lang="stylus">
-.vha_UI-subview
-  overflow hidden
+// .vha_UI-subview
 // ------------------------------------------------------------------
 // UI组件 - 子视图-撑满视图
 .vha_UI-subview.fullView-height
@@ -12,9 +11,11 @@
 // ------------------------------------------------------------------
 // UI组件 - 滚动条-开启&关闭
 .vha_UI-subview.scroll-Yon
+  overflow-x hidden
   overflow-y auto
 .vha_UI-subview.scroll-Xon
   overflow-x auto
+  overflow-y hidden
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>

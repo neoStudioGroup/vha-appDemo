@@ -51,14 +51,25 @@
 //   color #919191
 //   background-color #f2f2f2
 ._UI-title
+  position: relative
   margin-top rpx(60)
-  padding rpx(14)
+  padding rpx(16) rpx(18)
   font-size rpx(28)
   font-weight bold
-  border-left 3px solid #65a1e6
-  border-top 4px solid transparent
-  border-bottom 4px solid transparent
+  // border-left 3px solid #65a1e6
+  // border-top 3px solid transparent
+  // border-bottom 3px solid transparent
   color #65a1e6
+  &:before
+    position: absolute
+    left: 0
+    top: 0
+    content ' '
+    width 3px
+    height 100%
+    border-radius: 0 6px 6px 0
+    background-color #65a1e6
+  
   
 // UI组件-列表
 ._UI-list
@@ -68,7 +79,7 @@
     align-items center
     height rpx(100)
     padding 0 rpx(40)
-    font-size rpx(30)
+    font-size rpx(28)
     color #444
     .fa
       display inline-flex
@@ -80,7 +91,7 @@
       position absolute
       right rpx(30)
       width rpx(60)
-      font-size rpx(60)
+      font-size rpx(50)
       color #444
     &:last-child
       &:after
@@ -120,7 +131,7 @@
 
 ._buttonB
 	cursor pointer
-	color #666
+	color red
 	user-select none
 	transition background-color 150ms, color 300ms
 	&:hover

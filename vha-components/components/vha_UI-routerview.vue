@@ -22,7 +22,7 @@
       width 100%
       height 100%
       background-color transparent
-      z-index 10000001
+      z-index 1000001
     >*
       position absolute
       top 0
@@ -32,24 +32,11 @@
       box-shadow 0 0 20px rgba(0,0,0,0.16)
       background-color inherit
       // transition transform 30000ms
-      // z-index 10000002
-      
-    // .routerViewSlide-mask-enter-active //从隐藏到显示 过程中保持的状态
-    //   transition opacity 0s
-    // .routerViewSlide-mask-enter //进场开始值
-    //   opacity 0
-    // .routerViewSlide-mask-enter-to //进场目标值
-    //   opacity 1
-    // .routerViewSlide-mask-leave-active //从显示到隐藏 过程中保持的状态
-    //   transition opacity 3300ms
-    // .routerViewSlide-mask-leave //退场开始值
-    //   opacity 1
-    // .routerViewSlide-mask-leave-to //退场目标值
-    //   opacity 0
+      // z-index 1000002
 
     .routerViewSlide-in-enter-active //进入路由-上层-进场 过程中保持的状态
       transition transform 400ms cubic-bezier(0,1,1,1)
-      // z-index 10000002
+      // z-index 1000002
     .routerViewSlide-in-enter //进场开始值
       transform translate(90vw, 0)
     .routerViewSlide-in-enter-to //进场目标值
@@ -57,7 +44,7 @@
       transform translate(0, 0)
     .routerViewSlide-in-leave-active //进入路由-下层-退场 过程中保持的状态
       transition transform 500ms cubic-bezier(.2,0,.6,1)
-      // z-index 10000000
+      // z-index 1000000
     .routerViewSlide-in-leave //退场开始值
       transform translate(0, 0)
     .routerViewSlide-in-leave-to //退场目标值
@@ -65,7 +52,7 @@
     
     .routerViewSlide-out-enter-active //返回路由-上层-进场 过程中保持的状态
       transition transform 200ms cubic-bezier(0,1,1,1)
-      // z-index 10000000
+      // z-index 1000000
     .routerViewSlide-out-enter //进场开始值
       transform translate(rpx(-300), 0)
     .routerViewSlide-out-enter-to //进场目标值
@@ -73,30 +60,15 @@
       transform translate(0, 0)
     .routerViewSlide-out-leave-active //返回路由-下层-退场 过程中保持的状态
       transition transform 300ms cubic-bezier(.2,0,.6,1)
-      z-index 10000000
+      // z-index 1000002
+      z-index 1000000
     .routerViewSlide-out-leave //退场开始值
       transform translate(0, 0)
     .routerViewSlide-out-leave-to //退场目标值
       transform translate(100vw, 0)
 
-    // .routerViewSlide-in-enter //进场开始值
-    //   transform translate(100%, 0)
-    // .routerViewSlide-in-enter-to //进场目标值
-    //   // box-shadow 0 0 50px rgba(0,0,0,0.3)
-    // .routerViewSlide-in-leave //退场开始值
-    //   // transform translate(rpx(-200), 0)
-    // .routerViewSlide-in-leave-to //退场目标值
-    //   transform translate(rpx(-200), 0)
-    
-    // .routerViewSlide-out-enter //进场开始值
-    //   transform translate(-100%, 0)
-    // .routerViewSlide-out-enter-to //进场目标值
-    //   // box-shadow 0 0 50px rgba(0,0,0,0.3)
-    // .routerViewSlide-out-leave //退场开始值
-    //   // transform translate(rpx(200), 0)
-    // .routerViewSlide-out-leave-to //退场目标值
-    //   transform translate(rpx(200), 0)
-      
+
+// 过渡效果 - 平滑 - ios - 向后
 
 </style>
 --------------------------------------------------------------------------------
@@ -106,14 +78,13 @@
     <div class="ui-r-center">
       <!-- <div class="ui-r-c-mask" :style="maskStyle"></div> -->
       <div class="ui-r-c-mask" v-if="maskShow"></div>
-      <transition :name="transitionName" v-on:before-enter="beforeEnter">
+      <transition :name="transitionName" @before-enter="beforeEnter">
         <router-view></router-view>
         <!-- <keep-alive>
           <router-view v-if='$route.meta.keepAlive'></router-view> 
         </keep-alive>
         <router-view v-if='!$route.meta.keepAlive'></router-view> -->
       </transition>
-      
     </div>
     </slot>
   </div>

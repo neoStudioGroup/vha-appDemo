@@ -48,6 +48,15 @@ const vha = {
     Vue.directive('vhaRouter', {
       bind: function (el, binding) {
         console.log(el, binding)
+        
+        
+        let myEvent = new CustomEvent('event_name', {
+          detail: {el}
+        })
+        
+        
+        
+        
       }
     })
     

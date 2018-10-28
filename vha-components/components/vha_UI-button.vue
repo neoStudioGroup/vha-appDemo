@@ -92,55 +92,55 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
   &:active
     color $activeColor
     background-color $backgroundActiveColor
-.vha_UI-button.color-Success
+.vha_UI-button.color-success
   vhaButton_color(white_, Success_, Success_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Success
+.vha_UI-button.type-outline.vha_UI-button.color-success
   vhaButton_outlineColor(Success_, white_, Success_Focus)
 
-.vha_UI-button.color-Info
+.vha_UI-button.color-info
   vhaButton_color(white_, Info_, Info_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Info
+.vha_UI-button.type-outline.vha_UI-button.color-info
   vhaButton_outlineColor(Info_, white_, Info_Focus)
 
-.vha_UI-button.color-Warning
+.vha_UI-button.color-warning
   vhaButton_color(white_, Warning_, Warning_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Warning
+.vha_UI-button.type-outline.vha_UI-button.color-warning
   vhaButton_outlineColor(Warning_, white_, Warning_Focus)
 
-.vha_UI-button.color-Error
+.vha_UI-button.color-error
   vhaButton_color(white_, Error_, Error_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Error
+.vha_UI-button.type-outline.vha_UI-button.color-error
   vhaButton_outlineColor(Error_, white_, Error_Focus)
-// .vha_UI-button.color-Assertive
+// .vha_UI-button.color-assertive
 //   vhaButton_color(white_, Assertive_, Assertive_Focus)
-// .vha_UI-button.color-Positive
+// .vha_UI-button.color-positive
 //   vhaButton_color(white_, Positive_, Positive_Focus)
-// .vha_UI-button.color-Balanced
+// .vha_UI-button.color-balanced
 //   vhaButton_color(white_, Balanced_, Balanced_Focus)
-// .vha_UI-button.color-Energized
+// .vha_UI-button.color-energized
 //   vhaButton_color(white_, Energized_, Energized_Focus)
-// .vha_UI-button.color-Calm
+// .vha_UI-button.color-calm
 //   vhaButton_color(white_, Calm_, Calm_Focus)
 
 // UI组件 - 按钮-颜色-基本
-.vha_UI-button.color-Dark
+.vha_UI-button.color-dark
   vhaButton_color(white_, Dark_, Dark_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Dark
+.vha_UI-button.type-outline.vha_UI-button.color-dark
   vhaButton_outlineColor(Dark_, white_, Dark_Focus)
 
-.vha_UI-button.color-Royal
+.vha_UI-button.color-royal
   vhaButton_color(white_, Royal_, Royal_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Royal
+.vha_UI-button.type-outline.vha_UI-button.color-royal
   vhaButton_outlineColor(Royal_, white_, Royal_Focus)
 
-.vha_UI-button.color-Stable
+.vha_UI-button.color-stable
   vhaButton_color(black_, Stable_, Stable_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Stable
+.vha_UI-button.type-outline.vha_UI-button.color-stable
   vhaButton_outlineColor(Stable_, black_, Stable_Focus)
 
-.vha_UI-button.color-Light
+.vha_UI-button.color-light
   vhaButton_color(black_, Light_, Light_Focus)
-.vha_UI-button.type-outline.vha_UI-button.color-Light
+.vha_UI-button.type-outline.vha_UI-button.color-light
   vhaButton_outlineColor(Light_, black_, Light_Focus)
 // ------------------------------------------------------------------
 // UI组件 - 按钮-效果-扩散
@@ -255,14 +255,14 @@ export default {
         return [
           '',
           'none',
-          'Success',
-          'Info',
-          'Warning',
-          'Error',
-          'Dark',
-          'Royal',
-          'Stable',
-          'Light'
+          'success',
+          'info',
+          'warning',
+          'error',
+          'dark',
+          'royal',
+          'stable',
+          'light'
         ].indexOf(value) > -1;
       }
     },
@@ -302,12 +302,12 @@ export default {
       }
       case 'normal': {
         this.temp_effect = this.effect || ''
-        this.temp_color = this.color || 'Stable'
+        this.temp_color = this.color || 'stable'
         break
       }
       case 'outline': {
         this.temp_effect = this.effect || ''
-        this.temp_color = this.color || 'Royal'
+        this.temp_color = this.color || 'royal'
         break
       }
     }

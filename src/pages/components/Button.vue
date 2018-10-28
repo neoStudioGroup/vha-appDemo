@@ -19,7 +19,7 @@
 <template>
   <vha-scrollview class="components_PG-Button">
     
-    <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
+    <p class="_UI-note">类型样式 type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
 
     <div class="_UI-showBox">
       <vha-button type="none" size="none">
@@ -34,61 +34,61 @@
       <vha-button type="outline">
         <span>outline</span>
       </vha-button>
-      <vha-button color="Success" effect="spread">
+      <vha-button color="success" effect="spread">
         <span>Success</span>
       </vha-button>
     </div>
     
-    <p class="_UI-note">尺寸size：小 / 正常 / 大 / 全宽 / 撑满(父)</p>
+    <p class="_UI-note">尺寸 size：小 / 正常 / 大 / 全宽 / 撑满(父)</p>
 
     <div class="_UI-showBox">
-      <vha-button color="Success" size="small">
+      <vha-button color="success" size="small">
         <span>small</span>
       </vha-button>
-      <vha-button color="Info" size="normal">
+      <vha-button color="info" size="normal">
         <span>normal</span>
       </vha-button>
-      <vha-button color="Warning" size="large">
+      <vha-button color="warning" size="large">
         <span>large</span>
       </vha-button>
       <div class="_framebox"></div>
-      <vha-button color="Error" size="fullWidth">
+      <vha-button color="error" size="fullWidth">
         <span>fullWidth</span>
       </vha-button>
       <div class="_framebox"></div>
       <div style="width:100px;height:70px">
-        <vha-button color="Dark" size="full">
+        <vha-button color="dark" size="full">
           <span>full</span>
         </vha-button>
       </div>
     </div>
   
-    <p class="_UI-note">颜色color：信息 & 基本</p>
+    <p class="_UI-note">颜色 color：信息 & 基本</p>
 
     <div class="_UI-showBox">
-      <vha-button color="Success">
+      <vha-button color="success">
         <span>Success</span>
       </vha-button>
-      <vha-button color="Info">
+      <vha-button color="info">
         <span>Info</span>
       </vha-button>
-      <vha-button color="Warning">
+      <vha-button color="warning">
         <span>Warning</span>
       </vha-button>
-      <vha-button color="Error">
+      <vha-button color="error">
         <span>Error</span>
       </vha-button>
       <div class="_framebox"></div>
-      <vha-button color="Dark">
+      <vha-button color="dark">
         <span>Dark</span>
       </vha-button>
-      <vha-button color="Royal">
+      <vha-button color="royal">
         <span>Royal</span>
       </vha-button>
-      <vha-button color="Stable">
+      <vha-button color="stable">
         <span>Stable</span>
       </vha-button>
-      <vha-button color="Light">
+      <vha-button color="light">
         <span>Light</span>
       </vha-button>
       <vha-button color="none">
@@ -96,7 +96,7 @@
       </vha-button>
     </div>
     
-    <p class="_UI-note">图标icon：</p>
+    <p class="_UI-note">图标 icon：</p>
     
     <div class="_UI-showBox">
       <vha-button icon="fa fa-link">
@@ -105,10 +105,10 @@
       <vha-button icon="fa fa-spinner fa-pulse" disabled>
         <span>Loading..</span>
       </vha-button>
-      <vha-button type="base" icon="fa fa-chevron-left">
+      <vha-button type="base" size="none" icon="fa fa-chevron-left">
         <span>返回</span>
       </vha-button>
-      <vha-button type="base" icon-right="fa fa-chevron-right">
+      <vha-button type="base" size="none" icon-right="fa fa-chevron-right">
         <span>下一步</span>
       </vha-button>
       <div class="_framebox"></div>
@@ -122,7 +122,7 @@
       </div>
     </div>
     
-    <p class="_UI-note">状态status：</p>
+    <p class="_UI-note">状态 status：</p>
     
     <div class="_UI-showBox">
       <vha-button @click="test()" disabled>
@@ -130,14 +130,14 @@
       </vha-button>
     </div>
     
-    <p class="_UI-note">自定义：</p>
+    <p class="_UI-note">自定义 ：</p>
     
     <div class="_UI-showBox _df">
       <vha-button class="ui-b-diyButtonA">
         <span>diyA</span>
       </vha-button>
       <!-- 用view接管视图区域,自由设置内容与对齐方式 -->
-      <vha-button type="outline" color="Info" class="ui-b-diyButtonB">
+      <vha-button type="outline" color="info" class="ui-b-diyButtonB">
         <vha-view class="_aic">
           <img src="../../assets/images/logo.png" height="20" width="20">
           <span class="_ownRowHide">diyBBBBBBBBBBBB</span>
