@@ -1,6 +1,6 @@
 # vha-native-demo
 
-vue Hybrid App演示程序源码
+vue Hybrid App演示程序
 
 vha-components
 
