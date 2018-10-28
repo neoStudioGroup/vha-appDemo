@@ -255,7 +255,7 @@ export default {
   },
   watch: {
     //观察 - 数据或方法
-    '$route' (to, from) {
+    '$route': function (to, from) {
       this.getRouteProps(to)
       this.routeAction = !this.routeAction
       

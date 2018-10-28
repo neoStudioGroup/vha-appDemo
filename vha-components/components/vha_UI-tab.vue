@@ -5,6 +5,14 @@
 .vha_UI-tab
   width 100%
   height 100%
+  .vha_UI-view
+    padding rpx(6)
+  i
+    flex 6
+    display inline-flex
+  span
+    flex 4
+    display block
   // a
   //   margin-right 10px
 // ------------------------------------------------------------------
@@ -119,7 +127,7 @@ export default {
   },
   watch: {
     //观察 - 数据或方法
-    '$route' (to, from) {
+    '$route': function (to, from) {
       this.procColor()
     }
   },

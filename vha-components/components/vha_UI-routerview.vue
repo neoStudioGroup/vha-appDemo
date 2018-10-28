@@ -145,7 +145,7 @@ export default {
   },
   watch: {
     //观察 - 数据或方法
-    '$route' (to, from) {
+    '$route': function (to, from) {
       // console.log('现在路由:',to.path.split('/')[1],'来自路由:',from.path.split('/')[1],'现在的动画:',this.transitionName)
       let toDepth = to.path.split('/').length
       let fromDepth = from.path.split('/').length

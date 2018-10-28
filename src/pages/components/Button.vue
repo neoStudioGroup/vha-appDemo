@@ -164,7 +164,7 @@ export default {
   methods: {
     //方法 - 进入页面创建
     test: function () {
-      console.log('test button disabled')
+      window.console.log('test button disabled')
     }
   },
   watch: {
