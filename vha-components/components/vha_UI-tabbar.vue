@@ -1,34 +1,25 @@
 <style lang="stylus">
 @import "../assets/stylus/method.styl"
 @import "../assets/stylus/mixin.styl"
-
-// UI组件-内容
-// .vha_UI-tabbar
-//   border-1px-bottom-top(#ddd)
-//   height rpx(90)
-//   background-color #fff
-//   display flex
-//   justify-content: space-between
-//   .ui-t-tab
-//     flex 1
+// UI组件 - 标签栏
+.vha_UI-tabbar
+  // a
+  //   margin-right 10px
 // ------------------------------------------------------------------
-// UI组件 - 标题栏-类型-无
+// UI组件 - 标签栏-类型-无
 vhaTabbar_type()
   height rpx(100)
   font-size rpx(28)
-  // .vha_UI-subview
-  //   &:first-child, &:last-child
-  //     width rpx(80)
 // .vha_UI-tabbar.type-none
   // transition all .1s
 
-// UI组件 - 标题栏-类型-基本
+// UI组件 - 标签栏-类型-基本
 .vha_UI-tabbar.type-base
   vhaTabbar_type()
   border-1px-top(rgba(0,0,0,0.2))
   z-index 10000000
 
-// UI组件 - 标题栏-类型-正常
+// UI组件 - 标签栏-类型-正常
 .vha_UI-tabbar.type-normal
   vhaTabbar_type()
   position relative
@@ -36,7 +27,7 @@ vhaTabbar_type()
   z-index 10000000
 
 // ------------------------------------------------------------------
-// UI组件 - 标题栏-颜色
+// UI组件 - 标签栏-颜色
 vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
   background-color $backgroundColor
@@ -61,59 +52,61 @@ vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
 --------------------------------------------------------------------------------
 <template>
   <div 
-    class="vha_UI-tabbar"
+    class="vha_UI-tabbar" 
     :class="[
       'type-' + this.type,
       'color-' + this.color
-    ]"
+    ]" 
+    v-if="this.temp_show"
   >
-<!--     组件 API 实例(特效 效果) 关于 -->
-    <!-- <vha-view>
+    <!--
+        组件 API 实例(特效 效果) 关于
+        处理显示隐藏
+    -->
+    
+    <vha-view>
+      <slot></slot>
       
-      <vha-button type="none" size="full" v-vhaRouter="{to:'/components', animate:'none'}">
+      <!--       
+      <vha-button type="none" size="full" v-vhaRouter="{push: '/components', animate:'none'}">
         <vha-view class="_jcc" direction="vertical">
           <i class="fa fa-th fa-2x"></i>
           <span>主页</span>
         </vha-view>
       </vha-button>
       
-      <vha-button type="none" size="full">
+      <vha-button type="none" size="full" v-vhaRouter="{push: '/native', animate:'none'}">
         <vha-view class="_jcc" direction="vertical">
           <i class="fa fa-mobile-phone fa-2x"></i>
           <span>功能</span>
         </vha-view>
       </vha-button>
       
-      <vha-button type="none" size="full">
+      
+      <vha-button type="none" size="full" v-vhaRouter="{push: '/about', animate:'none'}">
         <vha-view class="_jcc" direction="vertical">
           <i class="fa fa-info-circle fa-2x"></i>
           <span>关于</span>
         </vha-view>
       </vha-button>
+      -->
       
-    </vha-view> -->
-    
-    <div class="ui-t-tab">
-      <router-link to="/components">
-        <a>组件</a>
-      </router-link>
-    </div>
-    <div class="ui-t-tab">
-      <router-link tag="li" to="/native">
-        <a>功能</a>
-      </router-link>
-    </div>
-    <div class="ui-t-tab">
-      <router-link tag="li" to="/about">
-        <a>关于</a>
-      </router-link>
-    </div>
+      <!-- 
+      实例(特效 效果)
+      <a v-vhaRouter="{go: -1, animate:'none'}">返回</a>
+      <a v-vhaRouter="{go: 1, animate:'none'}">前进</a>
+      <a v-vhaRouter="{push: '/components', animate:'none'}">组件</a>
+      <a v-vhaRouter="{push: '/native', animate:'in'}">功能</a>
+      <a v-vhaRouter="{push: {path: '/about', query: { plan: 'private' }}, animate:'none'}">关于</a>
+      -->
+    </vha-view>
+
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
 export default {
-  name: 'vha_UI-tabbar',
+  name: 'vhaUItabbar',
   beforeCreate() {
     //实例创建之前
   },
@@ -151,6 +144,7 @@ export default {
   data() {
     //动态数据
     return {
+      temp_show: true
     }
   },
   components: {
@@ -161,15 +155,35 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
+    getRouteProps: function (source) {
+      try {
+        if (typeof source.meta.vhaTabbar != 'undefined') {
+          if (typeof source.meta.vhaTabbar.show != 'undefined') {
+            this.temp_show = source.meta.vhaTabbar.show
+          } else {
+            this.temp_show = true
+          }
+        } else {
+          throw 0
+        }
+      } catch (error) {
+        this.temp_show = true
+      }
+    }
   },
   watch: {
     //观察 - 数据或方法
+    //观察 - 数据或方法
+    '$route' (to, from) {
+      this.getRouteProps(to)
+    }
   },
   created() {
     //实例创建完成后
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    this.getRouteProps(this.$route)
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用

@@ -34,6 +34,17 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    
+    // vhaAppEvent事件 处理路由转跳
+    window.addEventListener('vhaAppEvent', (event) => {
+      // console.log('vhaAppEvent：', event.detail)
+      if (event.detail.func === 'push') {
+        this.$router.push(event.detail.value)
+      } else if (event.detail.func === 'go') {
+        this.$router.go(event.detail.value)
+      }
+    })
+    
     if (this.nobg) {
       this.$el.style.background = 'none'
     }

@@ -19,7 +19,11 @@
         <vha-routerview></vha-routerview>
       </vha-subview>
       <vha-subview>
-        <vha-tabbar></vha-tabbar>
+        <vha-tabbar>
+          <vha-tab icon="fa fa-th fa-2x" push="/components">主页</vha-tab>
+          <vha-tab icon="fa fa-mobile-phone fa-2x" push="/native">功能</vha-tab>
+          <vha-tab icon="fa fa-info-circle fa-2x" push="/about">关于</vha-tab>
+        </vha-tabbar>
       </vha-subview>
     </vha-view>
   </vha-app>

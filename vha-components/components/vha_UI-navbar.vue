@@ -14,43 +14,42 @@
       position absolute
       width 100%
       height 100%
-      transition all 400ms
       span
         font-weight 700
 
     // 原标题
-    .navbarSlide-in-leave-active //退场过程中保持的状态
-      // transition all 5000ms
-    .navbarSlide-in-leave //退场开始值
+    .vhaNavbarAnimate-in-leave-active //退场过程中保持的状态
+      transition all 400ms
+    .vhaNavbarAnimate-in-leave //退场开始值
       transform translate(0, 0)
       opacity 1
-    .navbarSlide-in-leave-to //退场目标值
+    .vhaNavbarAnimate-in-leave-to //退场目标值
       transform translate(rpx(-300), 0)
       opacity 0
-    .navbarSlide-out-enter-active //进场过程中保持的状态
-      // transition all 5000ms
-    .navbarSlide-out-enter //进场开始值
+    .vhaNavbarAnimate-out-enter-active //进场过程中保持的状态
+      transition all 400ms
+    .vhaNavbarAnimate-out-enter //进场开始值
       transform translate(rpx(-300), 0)
       opacity 0
-    .navbarSlide-out-enter-to //进场目标值
+    .vhaNavbarAnimate-out-enter-to //进场目标值
       transform translate(0, 0)
       opacity 1
     
     // 新标题
-    .navbarSlide-in-enter-active //进场过程中保持的状态
-      // transition all 5000ms
-    .navbarSlide-in-enter //进场开始值
+    .vhaNavbarAnimate-in-enter-active //进场过程中保持的状态
+      transition all 400ms
+    .vhaNavbarAnimate-in-enter //进场开始值
       transform translate(rpx(300), 0)
       opacity 0
-    .navbarSlide-in-enter-to //进场目标值
+    .vhaNavbarAnimate-in-enter-to //进场目标值
       transform translate(0, 0)
       opacity 1
-    .navbarSlide-out-leave-active //退场过程中保持的状态
-      // transition all 5000ms
-    .navbarSlide-out-leave //退场开始值
+    .vhaNavbarAnimate-out-leave-active //退场过程中保持的状态
+      transition all 400ms
+    .vhaNavbarAnimate-out-leave //退场开始值
       transform translate(0, 0)
       opacity 1
-    .navbarSlide-out-leave-to //退场目标值
+    .vhaNavbarAnimate-out-leave-to //退场目标值
       transform translate(rpx(300), 0)
       opacity 0
       
@@ -132,7 +131,7 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
         </vha-subview>
         <vha-subview class="ui-n-middleBox" full-view="width">
           <slot name="titleBox">
-            <transition :name="transitionName">
+            <transition :name="this.transitionName === 'none' ? '' : 'vhaNavbarAnimate-' + this.transitionName">
               <div class="ui-n-m-box" v-if="routeAction" key="oldTitle">
                 <vha-view class="_jcc _aic">
                   <span class="_ownRowHide">{{new_Title}}</span>
@@ -217,10 +216,11 @@ export default {
   data() {
     //动态数据
     return {
-      transitionName: 'navbarSlide-in',
+      transitionName: 'in',
       routeAction: true,
       new_Title: '',
-      temp_sideButton: ''
+      temp_sideButton: '',
+      animate: ''
     }
   },
   components: {
@@ -234,12 +234,12 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    getProps: function (source) {
+    getRouteProps: function (source) {
       try {
-        if (source.meta.vhaNavbar) {
+        if (typeof source.meta.vhaNavbar != 'undefined') {
           this.new_Title = source.meta.vhaNavbar.title
           
-          if (source.meta.vhaNavbar.sideButton) {
+          if (typeof source.meta.vhaNavbar.sideButton != 'undefined') {
             this.temp_sideButton = source.meta.vhaNavbar.sideButton
           } else {
             this.temp_sideButton = this.sideButton
@@ -256,20 +256,35 @@ export default {
   watch: {
     //观察 - 数据或方法
     '$route' (to, from) {
-      this.getProps(to)
+      this.getRouteProps(to)
       this.routeAction = !this.routeAction
       
       let toDepth = to.path.split('/').length
       let fromDepth = from.path.split('/').length
-      this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'navbarSlide-out' : 'navbarSlide-in'
+      
+      // 如果转跳有设置路由动画方式就选择, 否则自行判断
+      if (this.animate) {
+        this.transitionName = this.animate
+      } else {
+        this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'out' : 'in'
+      }
+      setTimeout(() => {
+        this.animate = ''
+      }, 500)
     }
   },
   created() {
     //实例创建完成后
-    this.getProps(this.$route)
+    this.getRouteProps(this.$route)
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    // vhaRouterviewEvent事件 处理路由转跳动画
+    window.addEventListener('vhaRouterviewEvent', (event) => {
+      // console.log('vha_UI-navbar vhaRouterviewEvent：', event.detail)
+      // 将接收的值保存
+      this.animate = event.detail.animate
+    })
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用

@@ -86,7 +86,7 @@ export default new Router({
           component: components_index,
           meta: {
             vhaNavbar: {
-              title: 'components 组件',
+              title: 'Components 组件',
               sideButton: 'none'
             },
             keepAlive: true
@@ -101,7 +101,8 @@ export default new Router({
           meta: {
             vhaNavbar: {
               title: 'Button 按钮'
-            }
+            },
+            vhaTabbar: {show: false}
           }
         },
         {
@@ -111,7 +112,8 @@ export default new Router({
           meta: {
             vhaNavbar: {
               title: 'Button Group 按钮组'
-            }
+            },
+            vhaTabbar: {show: false}
           }
         }
       ]
@@ -127,7 +129,7 @@ export default new Router({
           component: native_index,
           meta: {
             vhaNavbar: {
-              title: 'native 设备接口',
+              title: 'Native 设备接口',
               sideButton: 'none'
             },
             keepAlive: true
@@ -138,241 +140,382 @@ export default new Router({
         {
           path: 'Splashscreen',
           name: 'Splashscreen',
-          component: Splashscreen
+          component: Splashscreen, 
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'StatusBar',
           name: 'StatusBar',
-          component: StatusBar
+          component: StatusBar,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Badge',
           name: 'Badge',
-          component: Badge
+          component: Badge,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Network',
           name: 'Network',
-          component: Network
+          component: Network,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Clipboard',
           name: 'Clipboard',
-          component: Clipboard
+          component: Clipboard,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'LocalNotification',
           name: 'LocalNotification',
-          component: LocalNotification
+          component: LocalNotification,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'JPush',
           name: 'JPush',
-          component: JPush
+          component: JPush,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Toast',
           name: 'Toast',
-          component: Toast
+          component: Toast,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Dialogs',
           name: 'Dialogs',
-          component: Dialogs
+          component: Dialogs,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'PinDialog',
           name: 'PinDialog',
-          component: PinDialog
+          component: PinDialog,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'ActionSheet',
           name: 'ActionSheet',
-          component: ActionSheet
+          component: ActionSheet,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'ProgressIndicator',
           name: 'ProgressIndicator',
-          component: ProgressIndicator
+          component: ProgressIndicator,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'SpinnerDialog',
           name: 'SpinnerDialog',
-          component: SpinnerDialog
+          component: SpinnerDialog,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'DatePicker',
           name: 'DatePicker',
-          component: DatePicker
+          component: DatePicker,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'File',
           name: 'File',
-          component: File
+          component: File,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'FileTransfer',
           name: 'FileTransfer',
-          component: FileTransfer
+          component: FileTransfer,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'FileOpener2',
           name: 'FileOpener2',
-          component: FileOpener2
+          component: FileOpener2,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'NativeAudio',
           name: 'NativeAudio',
-          component: NativeAudio
+          component: NativeAudio,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'ImagePicker',
           name: 'ImagePicker',
-          component: ImagePicker
+          component: ImagePicker,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'SMS',
           name: 'SMS',
-          component: SMS
+          component: SMS,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Contacts',
           name: 'Contacts',
-          component: Contacts
+          component: Contacts,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'InAppBrowser',
           name: 'InAppBrowser',
-          component: InAppBrowser
+          component: InAppBrowser,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Keyboard',
           name: 'Keyboard',
-          component: Keyboard
+          component: Keyboard,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Zip',
           name: 'Zip',
-          component: Zip
+          component: Zip,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'AppVersion',
           name: 'AppVersion',
-          component: AppVersion
+          component: AppVersion,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'AppAvailability',
           name: 'AppAvailability',
-          component: AppAvailability
+          component: AppAvailability,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'AppRate',
           name: 'AppRate',
-          component: AppRate
+          component: AppRate,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'AppPreferences',
           name: 'AppPreferences',
-          component: AppPreferences
+          component: AppPreferences,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         
         // 设备 Device
         {
           path: 'Device',
           name: 'Device',
-          component: Device
+          component: Device,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'BatteryStatus',
           name: 'BatteryStatus',
-          component: BatteryStatus
+          component: BatteryStatus,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Globalization',
           name: 'Globalization',
-          component: Globalization
+          component: Globalization,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Geolocation',
           name: 'Geolocation',
-          component: Geolocation
+          component: Geolocation,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Camera',
           name: 'Camera',
-          component: Camera
+          component: Camera,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Capture',
           name: 'Capture',
-          component: Capture
+          component: Capture,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Media',
           name: 'Media',
-          component: Media
+          component: Media,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'BarcodeScanner',
           name: 'BarcodeScanner',
-          component: BarcodeScanner
+          component: BarcodeScanner,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'DeviceOrientation',
           name: 'DeviceOrientation',
-          component: DeviceOrientation
+          component: DeviceOrientation,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'DeviceMotion',
           name: 'DeviceMotion',
-          component: DeviceMotion
+          component: DeviceMotion,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Flashlight',
           name: 'Flashlight',
-          component: Flashlight
+          component: Flashlight,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Vibration',
           name: 'Vibration',
-          component: Vibration
+          component: Vibration,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'iBeacon',
           name: 'iBeacon',
-          component: iBeacon
+          component: iBeacon,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Bluetooth',
           name: 'Bluetooth',
-          component: Bluetooth
+          component: Bluetooth,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'TouchID',
           name: 'TouchID',
-          component: TouchID
+          component: TouchID,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'LaunchNavigator',
           name: 'LaunchNavigator',
-          component: LaunchNavigator
+          component: LaunchNavigator,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         
         // 其它 Other
         {
           path: 'AppLogin',
           name: 'AppLogin',
-          component: AppLogin
+          component: AppLogin,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'SQLite',
           name: 'SQLite',
-          component: SQLite
+          component: SQLite,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Keychain',
           name: 'Keychain',
-          component: Keychain
+          component: Keychain,
+          meta: {
+            vhaTabbar: {show: false}
+          }
         }
       ]
     },
@@ -382,7 +525,7 @@ export default new Router({
       component: about,
       meta: {
         vhaNavbar: {
-          title: '关于',
+          title: 'About 关于',
           sideButton: 'none'
         },
         keepAlive: true
