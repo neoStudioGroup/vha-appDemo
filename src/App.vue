@@ -3,6 +3,7 @@
 @import "./assets/stylus/global.styl"
 .vha_UI-view
   .vha_UI-tabbar
+    height rpx(150) !important
     .fa-th
       font-size 1.6em
     .fa-info-circle
@@ -26,7 +27,7 @@
       <vha-subview>
         <vha-tabbar>
           <vha-tab icon="fa fa-th fa-2x" push="/components">组件</vha-tab>
-          <vha-tab icon="fa fa-mobile-phone fa-2x" push="/native">功能</vha-tab>
+          <vha-tab icon="fa fa-mobile-phone fa-2x" push="/native">设备</vha-tab>
           <vha-tab icon="fa fa-info-circle fa-2x" push="/about">关于</vha-tab>
         </vha-tabbar>
       </vha-subview>

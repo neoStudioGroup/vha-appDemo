@@ -78,7 +78,7 @@ vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
       <vha-button type="none" size="full" v-vhaRouter="{push: '/native', animate:'none'}">
         <vha-view class="_jcc" direction="vertical">
           <i class="fa fa-mobile-phone fa-2x"></i>
-          <span>功能</span>
+          <span>设备</span>
         </vha-view>
       </vha-button>
       
@@ -96,7 +96,7 @@ vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
       <a v-vhaRouter="{go: -1, animate:'none'}">返回</a>
       <a v-vhaRouter="{go: 1, animate:'none'}">前进</a>
       <a v-vhaRouter="{push: '/components', animate:'none'}">组件</a>
-      <a v-vhaRouter="{push: '/native', animate:'in'}">功能</a>
+      <a v-vhaRouter="{push: '/native', animate:'in'}">设备</a>
       <a v-vhaRouter="{push: {path: '/about', query: { plan: 'private' }}, animate:'none'}">关于</a>
       -->
     </vha-view>
