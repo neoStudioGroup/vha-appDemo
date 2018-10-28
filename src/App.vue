@@ -19,7 +19,7 @@
         <vha-routerview></vha-routerview>
       </vha-subview>
       <vha-subview>
-        <vha-tabs></vha-tabs>
+        <vha-tabbar></vha-tabbar>
       </vha-subview>
     </vha-view>
   </vha-app>

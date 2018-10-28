@@ -1,11 +1,6 @@
 <style lang="stylus">
 .components_PG-Button
-  .ui-b-button
-    position relative
-    z-index 1
-    padding rpx(40) rpx(60)
-    background-color #fff
-    box-shadow 0 0 15px rgba(0,0,0,0.04)
+  ._UI-showBox
     >.vha_UI-button
       margin-right rpx(10)
       
@@ -26,11 +21,11 @@
     
     <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
 
-    <div class="ui-b-button">
-      <vha-button type="none">
+    <div class="_UI-showBox">
+      <vha-button type="none" size="none">
         <span>none</span>
       </vha-button>
-      <vha-button type="base">
+      <vha-button type="base" size="none">
         <span>base</span>
       </vha-button>
       <vha-button>
@@ -46,7 +41,7 @@
     
     <p class="_UI-note">尺寸size：小 / 正常 / 大 / 全宽 / 撑满(父)</p>
 
-    <div class="ui-b-button">
+    <div class="_UI-showBox">
       <vha-button color="Success" size="small">
         <span>small</span>
       </vha-button>
@@ -70,8 +65,7 @@
   
     <p class="_UI-note">颜色color：信息 & 基本</p>
 
-    <div class="ui-b-button">
-
+    <div class="_UI-showBox">
       <vha-button color="Success">
         <span>Success</span>
       </vha-button>
@@ -104,7 +98,7 @@
     
     <p class="_UI-note">图标icon：</p>
     
-    <div class="ui-b-button">
+    <div class="_UI-showBox">
       <vha-button icon="fa fa-link">
         <span>链接</span>
       </vha-button>
@@ -130,7 +124,7 @@
     
     <p class="_UI-note">状态status：</p>
     
-    <div class="ui-b-button">
+    <div class="_UI-showBox">
       <vha-button @click="test()" disabled>
         <span>disabled</span>
       </vha-button>
@@ -138,14 +132,14 @@
     
     <p class="_UI-note">自定义：</p>
     
-    <div class="ui-b-button _df">
+    <div class="_UI-showBox _df">
       <vha-button class="ui-b-diyButtonA">
         <span>diyA</span>
       </vha-button>
       <!-- 用view接管视图区域,自由设置内容与对齐方式 -->
       <vha-button type="outline" color="Info" class="ui-b-diyButtonB">
         <vha-view class="_aic">
-          <img src="../../assets/images/logo.png" height="30" width="30">
+          <img src="../../assets/images/logo.png" height="20" width="20">
           <span class="_ownRowHide">diyBBBBBBBBBBBB</span>
         </vha-view>
       </vha-button>

@@ -25,6 +25,7 @@
       this.scroll && this.fullView ? ('scroll-' + (this.fullView === 'height' ? 'Yon' : 'Xon')) : '',
     ]"
   >
+  <!-- 添加felx参数 -->
     <slot></slot>
   </div>
 </template>

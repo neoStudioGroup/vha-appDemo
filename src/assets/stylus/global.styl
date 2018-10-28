@@ -7,6 +7,15 @@
   color #999
   background-color #f5f5f5
 
+._UI-showBox
+  position relative
+  z-index 1
+  padding rpx(40) rpx(60)
+  background-color #fff
+  box-shadow 0 0 15px rgba(0,0,0,0.04)
+
+
+
 // 公共组件-空行空格
 ._framebox{
   height: rpx(10)
@@ -31,27 +40,38 @@
     max-height 100%
     
 // UI组件-标题
+// ._UI-title
+//   // position sticky
+//   // top -1px
+//   // z-index 99
+//   padding rpx(20) rpx(14)
+//   font-size rpx(24)
+//   font-weight bold
+//   border-left 2px solid #bbb
+//   color #919191
+//   background-color #f2f2f2
 ._UI-title
-  // position sticky
-  // top -1px
-  padding rpx(20) rpx(14)
-  font-size rpx(24)
+  margin-top rpx(60)
+  padding rpx(14)
+  font-size rpx(28)
   font-weight bold
-  border-left 2px solid #bbb
-  color #919191
-  background-color #f2f2f2
-  z-index 99
+  border-left 3px solid #65a1e6
+  border-top 4px solid transparent
+  border-bottom 4px solid transparent
+  color #65a1e6
   
 // UI组件-列表
 ._UI-list
   li
+    // border-1px-bottom(#eee)
     display flex
     align-items center
     height rpx(100)
     padding 0 rpx(40)
-    border-1px-bottom(#d7d7d7)
     font-size rpx(30)
     color #444
+    .fa
+      display inline-flex
     span 
       margin-left rpx(10)
       font-size rpx(26)
@@ -62,6 +82,9 @@
       width rpx(60)
       font-size rpx(60)
       color #444
+    &:last-child
+      &:after
+        display none
 
 
 

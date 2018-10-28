@@ -114,13 +114,13 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   >
     <slot>
       <vha-view>
-        <vha-subview class="ui-n-leftBox" v-if="this.sideButton != 'none'">
+        <vha-subview class="ui-n-leftBox" v-if="this.temp_sideButton != 'none'">
           <slot name="leftBox">
             <vha-button
               type="base" 
               size="full" 
               icon="fa fa-angle-left fa-2x" 
-              v-if="this.sideButton === 'left' || this.sideButton === 'both'"
+              v-if="this.temp_sideButton === 'left' || this.temp_sideButton === 'both'"
               @click="$router.go(-1)"
             >
             </vha-button>
@@ -131,7 +131,7 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
             <transition :name="transitionName">
               <div class="ui-n-m-box" v-if="routeAction" key="oldTitle">
                 <vha-view class="_jcc _aic">
-                  <span class="_ownRowHide">{{oldTitle}}</span>
+                  <span class="_ownRowHide">{{newTitle}}</span>
                 </vha-view>
               </div>
               <span class="ui-n-m-box" v-else key="newTitle">
@@ -142,13 +142,13 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
             </transition>
           </slot>
         </vha-subview>
-        <vha-subview class="ui-n-rightBox" v-if="this.sideButton != 'none'">
+        <vha-subview class="ui-n-rightBox" v-if="this.temp_sideButton != 'none'">
           <slot name="rightBox">
             <vha-button 
               type="base" 
               size="full" 
               icon="fa fa-bars fa-2x" 
-              v-if="this.sideButton === 'right' || this.sideButton === 'both'"
+              v-if="this.temp_sideButton === 'right' || this.temp_sideButton === 'both'"
             >
             </vha-button>
           </slot>
@@ -159,6 +159,8 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
+import vhaView from "./vha_UI-view";
+import vhaSubview from "./vha_UI-subview";
 import vhaButton from "./vha_UI-button";
 export default {
   name: 'vhaUInavbar',
@@ -213,12 +215,14 @@ export default {
     return {
       transitionName: 'navbarSlide-in',
       routeAction: true,
-      oldTitle: '',
-      newTitle: ''
+      newTitle: '',
+      temp_sideButton: ''
     }
   },
   components: {
     //组件 - 引入或定义
+    vhaView,
+    vhaSubview,
     vhaButton
   },
   computed: {
@@ -230,8 +234,19 @@ export default {
   watch: {
     //观察 - 数据或方法
     '$route' (to, from) {
-      this.oldTitle = this.$route.meta.navBarTitle || from.name
-      this.newTitle = this.$route.meta.navBarTitle || to.name
+      try {
+        this.newTitle = to.meta.vhaNavbar.title
+        this.temp_sideButton = to.meta.vhaNavbar.sideButton
+        
+    console.log(11, this.temp_sideButton)
+        
+      } catch (error) {
+        this.newTitle = to.name
+        this.temp_sideButton = this.type
+        
+    console.log(22, this.temp_sideButton)
+        
+      }
       this.routeAction = !this.routeAction
       
       let toDepth = to.path.split('/').length
@@ -241,7 +256,15 @@ export default {
   },
   created() {
     //实例创建完成后
-    this.oldTitle = this.$route.meta.navBarTitle || this.$route.name
+    try {
+      this.newTitle = this.$route.meta.vhaNavbar.title
+      this.temp_sideButton = this.$route.meta.vhaNavbar.sideButton
+    } catch (error) {
+      this.newTitle = this.$route.name
+      this.temp_sideButton = this.type
+    }
+    
+    
   },
   mounted() {
     //挂载实例后 - this.$el存在
@@ -250,7 +273,7 @@ export default {
       var parentNode = this.$el.parentNode
       parentNode.style.position = 'relative'
       parentNode.style.boxShadow = '0 0 10px rgba(0,0,0,0.15)'
-      parentNode.style.zIndex = '1'
+      parentNode.style.zIndex = '100000000'
     }
   },
   beforeDestroy() {

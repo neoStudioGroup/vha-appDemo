@@ -1,27 +1,9 @@
 <style lang="stylus">
+// ._PG-components
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <!-- <div class="_PG-components _bc-fff"> -->
-    <vha-scrollview class="_PG-components" :keep-scroll="true">
-      <!-- UI组件-LOGO -->
-      <div class="_UI-logo _df">
-        <img src="../assets/images/components.png">
-      </div>
-
-      <p class="_UI-title" style="">基础 Base</p>
-      <ul class="_UI-list">
-        <li @click.once="goto('Button/')">按钮<span>Button</span><i class="fa fa-square"></i></li>
-      </ul>
-      
-      <p class="_UI-title">其它 Other</p>
-      <ul class="_UI-list">
-        <li @click.once="goto('AppLogin/')">QQ 微信登陆<span>App Login</span><i class="ion-ios-chatbubbles"></i></li>
-        <li @click.once="goto('SQLite/')">本地数据库<span>SQLite</span><i class="ion-ios-stats"></i></li>
-      </ul>
-      
-    </vha-scrollview>
-  <!-- </div> -->
+  <vha-routerview class="_PG-components _bc-fff"></vha-routerview>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
@@ -37,10 +19,6 @@ export default {
   },
   methods: {
     //方法 - 进入页面创建
-    goto: function (page) {
-      this.$router.push(page)
-      this.$store.state.navbarTitle = page.replace("/","")
-    }
   },
   watch: {
     //观察 - 数据或方法变动
