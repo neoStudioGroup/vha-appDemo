@@ -11,7 +11,7 @@
       box-sizing border-box
       transition all 300ms
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="native_PG-deviceorientation">
 
@@ -27,7 +27,7 @@
 
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 import UIlog from "../../components/_UI-log"
 

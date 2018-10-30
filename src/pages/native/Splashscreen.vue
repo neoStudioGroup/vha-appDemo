@@ -6,21 +6,73 @@
   .p_UI-contents
     flex 1
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="native_PG-splashscreen">
     
     <vha-scrollview class="p_UI-content">
+      <label class="_UI-input">
+        <span class="input-label">复制内容：</span>
+        <input type="text">
+      </label>
+      
       <div class="_UI-button" @click="buttona">
         显示启动屏幕(3秒后隐藏)
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </vha-scrollview>
     
     <UIlog :text="logText"></UIlog>
 
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 import UIlog from "../../components/_UI-log"
 
@@ -65,6 +117,7 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    // console.log(this.$el)
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用
