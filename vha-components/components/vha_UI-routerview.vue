@@ -1,6 +1,6 @@
 <style lang="stylus">
 @import "../assets/stylus/method.styl"
-// UI组件-内容
+// UI组件-路由视图
 .vha_UI-routerview
   height 100%
   background-color #fcfcfc
@@ -16,11 +16,6 @@
     overflow hidden
     box-shadow 0 0 34px rgba(0,0,0,0.1)
     .ui-r-c-mask
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
       background-color transparent
       z-index 1000001
     >*
@@ -67,47 +62,67 @@
     .vhaRouterviewAnimate-out-leave-to //退场目标值
       transform translate(100vw, 0)
 
-
 // 过渡效果 - 平滑 - ios - 向后
-
+.aaaa
+  position absolute !important
+  top 0 !important
+  left 0 !important
+  width 30px !important
+  height 40px !important
+  z-index 999999999999 !important
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="vha_UI-routerview">
-    <slot>
     <div class="ui-r-center">
       <!-- <div class="ui-r-c-mask" :style="maskStyle"></div> -->
       <div class="ui-r-c-mask" v-if="maskShow"></div>
+      <div @click="savePosition" class="aaaa">11111</div>
+      
       <transition 
         :name="this.transitionName === 'none' ? '' : 'vhaRouterviewAnimate-' + this.transitionName" 
-        @before-enter="beforeEnter"
+        @before-enter="beforeEnter" 
       >
-        <router-view></router-view>
-        <!-- <keep-alive>
-          <router-view v-if='$route.meta.keepAlive'></router-view> 
+        <keep-alive 
+          :include="this.include || this.$vhaComponents.routerview.include" 
+          :exclude="this.exclude || this.$vhaComponents.routerview.exclude"
+          :max="this.max"
+        >
+        
+          <router-view></router-view>
         </keep-alive>
-        <router-view v-if='!$route.meta.keepAlive'></router-view> -->
       </transition>
     </div>
-    </slot>
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'vha_UI-routerview',
+  name: 'vhaUIrouterview',
   beforeCreate() {
     //实例创建之前
   },
   props: {
     //父组件参数
+    include: {
+      type: String,
+      default: ''
+    },
+    exclude: {
+      type: String,
+      default: ''
+    },
+    max: {
+      type: Number,
+      default: 0
+    }
   },
   data() {
     //动态数据
     return {
       transitionName: 'in',
       maskShow: false,
-      animate: ''
+      nextAnimate: ''
       // maskStyle: {opacity: 0, transition: 'opacity 0s'},
     }
   },
@@ -119,14 +134,36 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
+    savePosition: function (fromRoute) {
+      // 如果当前路由设置了缓存, 就将下面每个vha_UI-scrollview的position记录到路由内
+      let temp_meta = fromRoute.meta
+      if (typeof temp_meta.keepAlive != 'undefined') {
+        if (temp_meta.keepAlive) {
+          let temp_scrollview = this.$el.querySelectorAll('.vha_UI-scrollview')
+          let temp_els = []
+          
+          temp_scrollview.forEach((element, index) => {
+            if (element.scrollLeft + element.scrollTop > 0) {
+              temp_els.push({id:index , x: element.scrollLeft, y: element.scrollTop})
+            }
+          })
+          temp_meta.keepAlivePosition = temp_els
+          console.log(temp_meta.keepAlivePosition)
+        }
+      }
+      
+    },
     transitionEnd: function () {
       // this.maskStyle = {opacity: 0, transition: 'opacity 0s'}
+      this.nextAnimate = ''
+      this.maskShow = false
+      // 广播动画结束事件
+      window.dispatchEvent(new CustomEvent('vhaRouterviewAnimateEnd'))
     },
     beforeEnter: function (el) {
-      this.maskShow = true
-      setTimeout(() => {
-        this.maskShow = false
-      }, 500)
+      if (this.nextAnimate != 'none') {
+        this.maskShow = true
+      }
       // this.maskStyle = {opacity: 1, transition: 'opacity 0s'}
       // setTimeout(() => {
       //   this.maskStyle = {opacity: 0, transition: 'opacity 30000ms'}
@@ -138,29 +175,32 @@ export default {
       //   this.showMaskTime = 3000
       // }
       
-      // el.addEventListener("transitionend", () => {
-      //   this.transitionEnd()
-      // })
+      el.addEventListener("transitionend", () => {
+        this.transitionEnd()
+      })
     }
   },
   watch: {
     //观察 - 数据或方法
     '$route': function (to, from) {
+      // this.savePosition(from)
+      
+      // setTimeout(() => {
+      // console.log(this.$el.querySelectorAll('.vha_UI-scrollview'))
+      // }, 500)
+      
+      
       // console.log('现在路由:',to.path.split('/')[1],'来自路由:',from.path.split('/')[1],'现在的动画:',this.transitionName)
       let toDepth = to.path.split('/').length
       let fromDepth = from.path.split('/').length
-      
       // this.transitionName = to.path.split('/')[1] != "" ? 'in' : 'out'
       // this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'navbarSlide-out' : 'navbarSlide-in'
       // 如果转跳有设置路由动画方式就选择, 否则自行判断
-      if (this.animate) {
-        this.transitionName = this.animate
+      if (this.nextAnimate) {
+        this.transitionName = this.nextAnimate
       } else {
         this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'out' : 'in'
       }
-      setTimeout(() => {
-        this.animate = ''
-      }, 500)
     }
   },
   created() {
@@ -172,9 +212,12 @@ export default {
     // vhaRouterviewEvent事件 处理路由转跳动画
     window.addEventListener('vhaRouterviewEvent', (event) => {
       // console.log('vhaRouterviewEvent：', event.detail)
-      // 如果路由没有转跳(bug) 将接收的值保存
-      if (this.$route.path != event.detail.routerValue) {
-        this.animate = event.detail.animate
+      this.nextAnimate = event.detail.animate
+      if (this.nextAnimate === 'none') {
+        // 如果设置为空, 10毫秒后清空避免影响下次动画, 否则设置了动画或自动判断动画则在动画结束后清空
+        setTimeout(() => {
+          this.nextAnimate = ''
+        }, 10)
       }
     })
   },

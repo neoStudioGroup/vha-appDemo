@@ -8,7 +8,7 @@
       margin-right rpx(8)
     &:last-child
       margin-left rpx(8)
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-类型-无
 .vha_UI-buttonGroup.type-none
   cursor pointer

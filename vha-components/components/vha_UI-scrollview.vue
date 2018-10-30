@@ -9,7 +9,7 @@
 // 自动滚动到临近元素
 // XY滚动
 
-// UI组件-内容
+// UI组件-滚动视图
 .vha_UI-scrollview
   height 100%
   overflow-x hidden
@@ -17,15 +17,15 @@
   background-color inherit
 
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="vha_UI-scrollview" :style="{height: calcHeight}" ref="vhaUIScrollview" @touchmove="touchmove">
+  <div class="vha_UI-scrollview" :style="{height: calcHeight}" @touchmove="touchmove">
     <div class="ui-s-content">
       <slot></slot>
     </div>
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
   name: 'vha_UI-scrollview',
@@ -52,6 +52,7 @@ export default {
   data() {
     //动态数据
     return {
+      aaa: ''
     }
   },
   components: {
@@ -69,8 +70,10 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    handleScroll () {
-      this.$vhaComponents.keepscroll = this.$refs.vhaUIScrollview.scrollTop
+    handleScroll (event) {
+      this.aaa = event.target.scrollTop
+      
+      // this.$vhaComponents.keepscroll = this.$refs.vhaUIScrollview.scrollTop
       // console.log(this.$vhaComponents.keepscroll)
     },
     touchmove (event) {
@@ -85,26 +88,70 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
-    if(this.keepScroll){
-      this.$refs.vhaUIScrollview.addEventListener('scroll', this.handleScroll)
-      if(this.$vhaComponents.keepscroll > 0){
-        this.$refs.vhaUIScrollview.scrollTo(0, this.$vhaComponents.keepscroll)
-      }
-    }
+    // if(this.keepScroll){
+      // this.$el.addEventListener('scroll', this.handleScroll)
+      // if(this.$vhaComponents.keepscroll > 0){
+      //   this.$el.scrollTo(0, this.$vhaComponents.keepscroll)
+      // }
+    // }
+    
   },
   updated() {
     // 数据变动更新后 - 最好使用计算属性或 watch
-    if(this.fixedBottom){
-      this.$nextTick(function(){
-        this.$refs.vhaUIScrollview.scrollTop = this.$refs.vhaUIScrollview.scrollHeight
-      })
-    }
+    // if(this.fixedBottom){
+    //   this.$nextTick(function(){
+    //     this.$el.scrollTop = this.$el.scrollHeight
+    //   })
+    // }
+  },
+  activated() {
+    //keep-alive组件激活时
+    
+    
+    // // 如果当前路由设置了缓存, 就从路由读取position到每个vha_UI-scrollview
+    // let temp_meta = this.$route.meta
+    // console.log(this.$route.meta)
+    // if (typeof temp_meta.keepAlive != 'undefined') {
+    //   if (temp_meta.keepAlive) {
+    //     if (typeof temp_meta.keepAlivePosition != 'undefined') {
+    //       temp_meta.keepAlivePosition.forEach(element => {
+    //         console.log(111, element.el.html)
+    //         if (element.el === this.$el) {
+    //           console.log(element.x, element.y)
+    //           this.$el.scrollLeft = element.x
+    //           this.$el.scrollTop = element.y
+    //         }
+    //       })
+    //     }
+        
+        
+        
+    //     // if (typeof temp_meta.keepAlive != 'undefined') {
+        
+        
+        
+    //     // let temp_scrollview = this.$el.querySelectorAll('.vha_UI-scrollview')
+    //     // let temp_els = []
+        
+    //     // temp_scrollview.forEach(element => {
+    //     //   if (element.scrollLeft + element.scrollTop > 0) {
+    //     //     temp_els.push({el:element , x: element.scrollLeft, y: element.scrollTop})
+    //     //   }
+    //     // })
+    //     // temp_meta.keepAlivePosition = temp_els
+    //   }
+    // }
+    // // 
+    // // console.log(123, temp_meta.keepAlivePosition)
+    
+    
+    
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用
-    if(this.keepScroll){
-      this.$refs.vhaUIScrollview.removeEventListener('scroll', this.handleScroll)
-    }    
+    // if(this.keepScroll){
+      // this.$el.removeEventListener('scroll', this.handleScroll)
+    // }    
   },
   destroyed() {
     //销毁后

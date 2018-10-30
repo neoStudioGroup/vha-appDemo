@@ -17,11 +17,23 @@ const vha = {
   install(Vue) {
     
     Vue.prototype.$vhaComponents = {
+      routerview: {
+        include: [],
+        exclude: []
+      },
       // mode: typeof options != "undefined" ? options.mode : "normal",
       keepscroll: 0
     }
     
     Vue.mixin({
+      beforeCreate() {
+        //实例创建之前
+      },
+      data() {
+        //动态数据
+        return {
+        }
+      },
       components: {
         //组件 - 引入或定义
         vhaApp,
@@ -37,11 +49,19 @@ const vha = {
         vhaTabbar,
         vhaTab
         
-        
-        
       },
       methods: {
         //方法 - 进入页面创建
+      },
+      watch: {
+        //观察 - 数据或方法变动
+      },
+      mounted() {
+        //挂载实例后 - this.$el存在
+        // console.log(this.$el)
+      },
+      beforeDestroy() {
+        //销毁前 - 实例仍然完全可用
       }
     })
     

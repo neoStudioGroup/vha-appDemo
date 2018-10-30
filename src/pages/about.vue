@@ -34,7 +34,6 @@
     <h4>高度自由、定制化、实用性的前端库</h4>
     <br>
     <br>
-    <p>neoStudioGroup</p>
     <p>email：neoStudioGroup@163.com</p>
     <p>web：http://neoStudioGroup.com</p>
     

@@ -21,8 +21,8 @@
       <vha-subview>
         <vha-navbar sideButton="left"></vha-navbar>
       </vha-subview>
-      <vha-subview fullView="height">
-        <vha-routerview></vha-routerview>
+      <vha-subview full="height">
+        <vha-routerview>1111</vha-routerview>
       </vha-subview>
       <vha-subview>
         <vha-tabbar>
@@ -82,7 +82,7 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
-    
+
     // 监听返回键
     document.addEventListener('deviceready', () => {
       document.addEventListener("backbutton", this.onBackButton, false)

@@ -1,14 +1,15 @@
 <style lang="stylus">
+// UI组件 - 子视图
 // .vha_UI-subview
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 子视图-撑满视图
-.vha_UI-subview.fullView-height
+.vha_UI-subview.full-height
   max-height 100%
   flex 1
-.vha_UI-subview.fullView-width
+.vha_UI-subview.full-width
   max-width 100%
   flex 1
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 滚动条-开启&关闭
 .vha_UI-subview.scroll-Yon
   overflow-x hidden
@@ -22,8 +23,8 @@
   <div 
     class="vha_UI-subview" 
     :class="[
-      this.fullView ? 'fullView-' + this.fullView : '',
-      this.scroll && this.fullView ? ('scroll-' + (this.fullView === 'height' ? 'Yon' : 'Xon')) : '',
+      this.full ? 'full-' + this.full : '',
+      this.scroll && this.full ? ('scroll-' + (this.full === 'height' ? 'Yon' : 'Xon')) : '',
     ]"
   >
   <!-- 添加felx参数 -->
@@ -32,13 +33,13 @@
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
-// fullView撑满视图: height(高度), width(宽度)
+// full撑满视图: height(高度), width(宽度)
 // scroll滚动条: false(不开启), true(开启)
 export default {
   name: 'vhaUIsubview',
   props: {
     //父组件参数
-    fullView: {
+    full: {
       type: String,
       default: '',
       validator(value) {

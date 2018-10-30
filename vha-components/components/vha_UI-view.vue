@@ -1,15 +1,16 @@
 <style lang="stylus">
+// UI组件 - 视图区域
 .vha_UI-view
   width 100%
   height 100%
   background-color transparent
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 视图区域-显示方式
 // .vha_UI-view.display-flex
 //   display flex
 // .vha_UI-view.display-inline-flex
 //   display inline-flex
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 视图区域-方向
 // .vha_UI-view.direction-horizontal
 //   flex-direction row

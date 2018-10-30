@@ -83,6 +83,7 @@ export default new Router({
       children: [
         {
           path: '',
+          name: 'componentsindex',
           component: components_index,
           meta: {
             vhaNavbar: {
@@ -102,7 +103,7 @@ export default new Router({
             vhaNavbar: {
               title: 'Button 按钮'
             },
-            vhaTabbar: {show: false}
+            // vhaTabbar: {show: false}
           }
         },
         {
@@ -126,13 +127,13 @@ export default new Router({
       children: [
         {
           path: '',
+          name: 'nativeindex',
           component: native_index,
           meta: {
             vhaNavbar: {
               title: 'Native 设备接口',
               sideButton: 'none'
-            },
-            keepAlive: true
+            }
           }
         },
         
@@ -142,7 +143,8 @@ export default new Router({
           name: 'Splashscreen',
           component: Splashscreen, 
           meta: {
-            vhaTabbar: {show: false}
+            vhaTabbar: {show: false},
+            keepAlive: true
           }
         },
         {
@@ -150,7 +152,8 @@ export default new Router({
           name: 'StatusBar',
           component: StatusBar,
           meta: {
-            vhaTabbar: {show: false}
+            vhaTabbar: {show: false},
+            keepAlive: true
           }
         },
         {
@@ -174,7 +177,7 @@ export default new Router({
           name: 'Clipboard',
           component: Clipboard,
           meta: {
-            vhaTabbar: {show: false}
+            vhaTabbar: {show: false},
           }
         },
         {

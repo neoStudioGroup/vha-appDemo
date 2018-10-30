@@ -31,14 +31,14 @@
     word-wrap break-word
 
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="_UI-log">
     <div class="ui-l-bar"><i class="ion-md-menu"></i></div>
     <vha-scrollview :fixed-bottom="true"><pre class="ui-l-pre">{{text}}</pre></vha-scrollview>
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
   name: 'UI-log',

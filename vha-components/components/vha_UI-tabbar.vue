@@ -5,7 +5,7 @@
 .vha_UI-tabbar
   // a
   //   margin-right 10px
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 标签栏-类型-无
 vhaTabbar_type()
   height rpx(100)
@@ -25,8 +25,7 @@ vhaTabbar_type()
   position relative
   box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
   z-index 10000000
-
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 标签栏-颜色
 vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
@@ -47,9 +46,8 @@ vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
   vhaTabbar_color(black_, Stable_, Stable_Focus)
 .vha_UI-tabbar.color-light
   vhaTabbar_color(black_, Light_, Light_Focus)
-
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div 
     class="vha_UI-tabbar" 
@@ -103,7 +101,7 @@ vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)
 
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
   name: 'vhaUItabbar',

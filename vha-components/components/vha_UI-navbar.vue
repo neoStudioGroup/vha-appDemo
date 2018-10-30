@@ -14,6 +14,7 @@
       position absolute
       width 100%
       height 100%
+      pointer-events none
       span
         font-weight 700
 
@@ -57,14 +58,15 @@
     .vha_UI-button
       padding-right rpx(18)
       font-size rpx(26)
-// ------------------------------------------------------------------
-// UI组件 - 导航栏-类型-无
+// ------------------------------
 vhaNavbar_type()
   height rpx(90)
   font-size rpx(28)
   .vha_UI-subview
     &:first-child, &:last-child
       width rpx(80)
+
+// UI组件 - 导航栏-类型-无
 // .vha_UI-navbar.type-none
   // transition all .1s
 
@@ -80,12 +82,12 @@ vhaNavbar_type()
   position relative
   box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
   z-index 10000000
-
-// ------------------------------------------------------------------
-// UI组件 - 导航栏-颜色
+// ------------------------------
 vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
   background-color $backgroundColor
+
+// UI组件 - 导航栏-颜色
 .vha_UI-navbar.color-success
   vhaNavbar_color(white_, Success_, Success_Focus)
 .vha_UI-navbar.color-info
@@ -104,9 +106,8 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   vhaNavbar_color(black_, Light_, Light_Focus)
   .vha_UI-button
     color Info_
-  
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div 
     class="vha_UI-navbar" 
@@ -129,7 +130,7 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
             </vha-button>
           </slot>
         </vha-subview>
-        <vha-subview class="ui-n-middleBox" full-view="width">
+        <vha-subview class="ui-n-middleBox" full="width">
           <slot name="titleBox">
             <transition :name="this.transitionName === 'none' ? '' : 'vhaNavbarAnimate-' + this.transitionName">
               <div class="ui-n-m-box" v-if="routeAction" key="oldTitle">
@@ -160,7 +161,7 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
     </slot>
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 import vhaView from "./vha_UI-view";
 import vhaSubview from "./vha_UI-subview";
@@ -220,7 +221,7 @@ export default {
       routeAction: true,
       new_Title: '',
       temp_sideButton: '',
-      animate: ''
+      nextAnimate: ''
     }
   },
   components: {
@@ -235,6 +236,7 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     getRouteProps: function (source) {
+      // 获取路由navbar的标题和信息
       try {
         if (typeof source.meta.vhaNavbar != 'undefined') {
           this.new_Title = source.meta.vhaNavbar.title
@@ -263,14 +265,11 @@ export default {
       let fromDepth = from.path.split('/').length
       
       // 如果转跳有设置路由动画方式就选择, 否则自行判断
-      if (this.animate) {
-        this.transitionName = this.animate
+      if (this.nextAnimate) {
+        this.transitionName = this.nextAnimate
       } else {
         this.transitionName = toDepth === fromDepth ? '' : toDepth < fromDepth ? 'out' : 'in'
       }
-      setTimeout(() => {
-        this.animate = ''
-      }, 500)
     }
   },
   created() {
@@ -279,11 +278,21 @@ export default {
   },
   mounted() {
     //挂载实例后 - this.$el存在
+    
     // vhaRouterviewEvent事件 处理路由转跳动画
     window.addEventListener('vhaRouterviewEvent', (event) => {
-      // console.log('vha_UI-navbar vhaRouterviewEvent：', event.detail)
-      // 将接收的值保存
-      this.animate = event.detail.animate
+      this.nextAnimate = event.detail.animate
+      if (this.nextAnimate === 'none') {
+        // 如果设置为空, 10毫秒后清空避免影响下次动画, 否则设置了动画或自动判断动画则在动画结束后清空
+        setTimeout(() => {
+          this.nextAnimate = ''
+        }, 10)
+      }
+    })
+    
+    // vhaRouterviewAnimateEnd事件 路由动画结束事件
+    window.addEventListener('vhaRouterviewAnimateEnd', (event) => {
+      this.nextAnimate = ''
     })
   },
   beforeDestroy() {

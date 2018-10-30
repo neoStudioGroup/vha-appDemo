@@ -15,7 +15,7 @@
     display block
   // a
   //   margin-right 10px
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 标签-类型-无
 // vhaTab_type()
 //   height rpx(100)
@@ -35,8 +35,7 @@
 //   position relative
 //   box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
 //   z-index 10000000
-
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 标签-颜色
 vhaTab_color($color, $backgroundColor, $backgroundActiveColor)
   color $backgroundColor
@@ -56,9 +55,8 @@ vhaTab_color($color, $backgroundColor, $backgroundActiveColor)
   vhaTab_color(black_, Stable_, Stable_Focus)
 .vha_UI-tab.color-light
   vhaTab_color(black_, Light_, Light_Focus)
-
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div
     class="vha_UI-tab" 
@@ -74,7 +72,7 @@ vhaTab_color($color, $backgroundColor, $backgroundActiveColor)
     </vha-button>
   </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
   name: 'vhaUItab',

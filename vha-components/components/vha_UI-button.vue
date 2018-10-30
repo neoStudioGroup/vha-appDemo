@@ -8,7 +8,7 @@
       margin-right rpx(8)
     &:last-child
       margin-left rpx(8)
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-类型-无
 .vha_UI-button.type-none
   cursor pointer
@@ -39,7 +39,7 @@
   border 2px solid red
   &:active
     background-color Success_Focus
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-尺寸-小
 .vha_UI-button.size-small
   padding rpx(4) rpx(6)
@@ -66,7 +66,7 @@
   width 100%
   height 100%
   border-radius 0
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-状态-禁止
 .vha_UI-button.status-disabled
   cursor not-allowed
@@ -74,12 +74,11 @@
   background-color #f5f5f5 !important
   &:active
     background-color #f5f5f5 !important
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-display-块
 .vha_UI-button.display-block
   display block
-// ------------------------------------------------------------------
-// UI组件 - 按钮-颜色-信息
+// ------------------------------
 vhaButton_color($color, $backgroundColor, $backgroundActiveColor)
   color $color
   background-color $backgroundColor
@@ -92,6 +91,8 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
   &:active
     color $activeColor
     background-color $backgroundActiveColor
+
+// UI组件 - 按钮-颜色-信息
 .vha_UI-button.color-success
   vhaButton_color(white_, Success_, Success_Focus)
 .vha_UI-button.type-outline.vha_UI-button.color-success
@@ -142,7 +143,7 @@ vhaButton_outlineColor($color, $activeColor, $backgroundActiveColor)
   vhaButton_color(black_, Light_, Light_Focus)
 .vha_UI-button.type-outline.vha_UI-button.color-light
   vhaButton_outlineColor(Light_, black_, Light_Focus)
-// ------------------------------------------------------------------
+// ------------------------------
 // UI组件 - 按钮-效果-扩散
 vhaButton_effectColor($backgroundColor)
   position relative
@@ -200,7 +201,7 @@ vhaButton_effectColor($backgroundColor)
     :type="nativeType"
     :disabled="disabled"
   >
-  <!-- 支持a标签 -->
+    <!-- 支持a标签 -->
     <i :class="icon" v-if="icon"></i>
     <slot></slot>
     <i :class="iconRight" v-if="iconRight"></i>
