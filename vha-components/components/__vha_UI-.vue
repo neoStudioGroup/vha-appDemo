@@ -1,4 +1,4 @@
-<style scoped lang="stylus">
+<style lang="stylus">
 @import "../assets/stylus/method.styl"
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 按钮

@@ -1,4 +1,4 @@
-<style scoped lang="stylus">
+<style lang="stylus">
 @import "../assets/stylus/method.styl"
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 页面
@@ -6,7 +6,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div>
+  <div class="vha_UI-page">
     <slot></slot>
   </div>
 </template>

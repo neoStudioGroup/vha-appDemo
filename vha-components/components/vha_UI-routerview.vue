@@ -63,13 +63,6 @@
       transform translate(100vw, 0)
 
 // 过渡效果 - 平滑 - ios - 向后
-.aaaa
-  position absolute !important
-  top 0 !important
-  left 0 !important
-  width 30px !important
-  height 40px !important
-  z-index 999999999999 !important
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
@@ -77,7 +70,6 @@
     <div class="ui-r-center">
       <!-- <div class="ui-r-c-mask" :style="maskStyle"></div> -->
       <div class="ui-r-c-mask" v-if="maskShow"></div>
-      
       <transition 
         :name="this.transitionName === 'none' ? '' : 'vhaRouterviewAnimate-' + this.transitionName" 
         @enter="enter" 
@@ -148,7 +140,6 @@ export default {
           }
         })
         temp_meta.keepAlivePosition = temp_els
-        console.log(temp_els)
       }
     },
     setPosition: function (el) {
@@ -157,9 +148,7 @@ export default {
       if (typeof temp_meta.keepAlive != 'undefined' && temp_meta.keepAlive) {
         if (typeof temp_meta.keepAlivePosition != 'undefined') {
           if (temp_meta.keepAlivePosition) {
-            let temp_scrollview = el.parentNode.parentNode.querySelectorAll('.vha_UI-scrollview')
-            
-            console.log(el.parentNode.parentNode, temp_scrollview)
+            let temp_scrollview = el.querySelectorAll('.vha_UI-scrollview')
             temp_meta.keepAlivePosition.forEach(element => {
               temp_scrollview[element.id].scrollLeft = element.x
               temp_scrollview[element.id].scrollTop = element.y
