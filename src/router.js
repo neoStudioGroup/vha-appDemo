@@ -103,7 +103,7 @@ export default new Router({
             vhaNavbar: {
               title: 'Button 按钮'
             },
-            // vhaTabbar: {show: false}
+            vhaTabbar: {show: false}
           }
         },
         {
@@ -143,8 +143,7 @@ export default new Router({
           name: 'Splashscreen',
           component: Splashscreen, 
           meta: {
-            vhaTabbar: {show: false},
-            keepAlive: true
+            vhaTabbar: {show: false}
           }
         },
         {
@@ -152,8 +151,7 @@ export default new Router({
           name: 'StatusBar',
           component: StatusBar,
           meta: {
-            vhaTabbar: {show: false},
-            keepAlive: true
+            vhaTabbar: {show: false}
           }
         },
         {

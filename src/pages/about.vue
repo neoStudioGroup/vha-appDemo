@@ -31,7 +31,7 @@
     <br>
     <p><strong>vha-appDemo </strong> v0.5.0</p>
     <br>
-    <h4>高度自由、定制化、实用性的前端库</h4>
+    <h4>高效、自由、定制化、实用性的前端库</h4>
     <br>
     <br>
     <p>email：neoStudioGroup@163.com</p>

@@ -81,14 +81,14 @@
       
       <transition 
         :name="this.transitionName === 'none' ? '' : 'vhaRouterviewAnimate-' + this.transitionName" 
-        @before-enter="beforeEnter" 
+        @enter="enter" 
+        @leave="leave" 
       >
         <keep-alive 
           :include="this.include || this.$vhaComponents.routerview.include" 
           :exclude="this.exclude || this.$vhaComponents.routerview.exclude"
           :max="this.max"
         >
-        
           <router-view></router-view>
         </keep-alive>
       </transition>
@@ -121,6 +121,8 @@ export default {
     //动态数据
     return {
       transitionName: 'in',
+      enterEnd: false,
+      leaveEnd: false,
       maskShow: false,
       nextAnimate: ''
       // maskStyle: {opacity: 0, transition: 'opacity 0s'},
@@ -153,14 +155,7 @@ export default {
       }
       
     },
-    transitionEnd: function () {
-      // this.maskStyle = {opacity: 0, transition: 'opacity 0s'}
-      this.nextAnimate = ''
-      this.maskShow = false
-      // 广播动画结束事件
-      window.dispatchEvent(new CustomEvent('vhaRouterviewAnimateEnd'))
-    },
-    beforeEnter: function (el) {
+    enter: function (el) {
       if (this.nextAnimate != 'none') {
         this.maskShow = true
       }
@@ -169,15 +164,39 @@ export default {
       //   this.maskStyle = {opacity: 0, transition: 'opacity 30000ms'}
       // }, 10)
       
-      // if (this.transitionName === 'in') {
-      //   this.showMaskTime = 3000
-      // } else {
-      //   this.showMaskTime = 3000
-      // }
+      // 偶尔失效BUG, 可能与元素被删除有关
+      // el.addEventListener("transitionend", () => {})
       
-      el.addEventListener("transitionend", () => {
-        this.transitionEnd()
-      })
+      let temp_timeid = setInterval(() => {
+        let temp_class = el.getAttribute('class')
+        if (temp_class.indexOf('-enter-active') === -1) {
+          this.enterEnd = true
+          this.animateEnd()
+          clearTimeout(temp_timeid)
+        }
+      }, 20)
+    },
+    leave: function (el) {
+      let temp_timeid = setInterval(() => {
+        let temp_class = el.getAttribute('class')
+        if (temp_class.indexOf('-leave-active') === -1) {
+          this.leaveEnd = true
+          this.animateEnd()
+          clearTimeout(temp_timeid)
+        }
+      }, 20)
+    },
+    // 没耐心了addEventListener transitionend 怎么都有偶尔不触发的bug, 改为timeout检测
+    animateEnd: function () {
+      if (this.enterEnd && this.leaveEnd) {
+        this.nextAnimate = ''
+        this.maskShow = false
+        
+        this.enterEnd = false
+        this.leaveEnd = false
+        // 广播动画结束事件
+        window.dispatchEvent(new CustomEvent('vhaRouterviewAnimateEnd'))
+      }
     }
   },
   watch: {
@@ -188,7 +207,6 @@ export default {
       // setTimeout(() => {
       // console.log(this.$el.querySelectorAll('.vha_UI-scrollview'))
       // }, 500)
-      
       
       // console.log('现在路由:',to.path.split('/')[1],'来自路由:',from.path.split('/')[1],'现在的动画:',this.transitionName)
       let toDepth = to.path.split('/').length
