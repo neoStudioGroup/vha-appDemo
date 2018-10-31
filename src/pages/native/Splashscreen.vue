@@ -11,61 +11,9 @@
   <div class="native_PG-splashscreen">
     
     <vha-scrollview class="p_UI-content">
-      <label class="_UI-input">
-        <span class="input-label">复制内容：</span>
-        <input type="text">
-      </label>
-      
       <div class="_UI-button" @click="buttona">
         显示启动屏幕(3秒后隐藏)
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
     </vha-scrollview>
     
     <UIlog :text="logText"></UIlog>

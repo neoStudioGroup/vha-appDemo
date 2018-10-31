@@ -77,7 +77,6 @@
     <div class="ui-r-center">
       <!-- <div class="ui-r-c-mask" :style="maskStyle"></div> -->
       <div class="ui-r-c-mask" v-if="maskShow"></div>
-      <div @click="savePosition" class="aaaa">11111</div>
       
       <transition 
         :name="this.transitionName === 'none' ? '' : 'vhaRouterviewAnimate-' + this.transitionName" 
@@ -137,23 +136,37 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     savePosition: function (fromRoute) {
-      // 如果当前路由设置了缓存, 就将下面每个vha_UI-scrollview的position记录到路由内
+      // 如果离开的路由页面设置了缓存, 就将下面每个vha_UI-scrollview的position记录到路由内
       let temp_meta = fromRoute.meta
-      if (typeof temp_meta.keepAlive != 'undefined') {
-        if (temp_meta.keepAlive) {
-          let temp_scrollview = this.$el.querySelectorAll('.vha_UI-scrollview')
-          let temp_els = []
-          
-          temp_scrollview.forEach((element, index) => {
-            if (element.scrollLeft + element.scrollTop > 0) {
-              temp_els.push({id:index , x: element.scrollLeft, y: element.scrollTop})
-            }
-          })
-          temp_meta.keepAlivePosition = temp_els
-          console.log(temp_meta.keepAlivePosition)
+      if (typeof temp_meta.keepAlive != 'undefined' && temp_meta.keepAlive) {
+        let temp_scrollview = this.$el.querySelectorAll('.vha_UI-scrollview')
+        let temp_els = []
+        
+        temp_scrollview.forEach((element, index) => {
+          if (element.scrollLeft + element.scrollTop > 0) {
+            temp_els.push({id:index , x: element.scrollLeft, y: element.scrollTop})
+          }
+        })
+        temp_meta.keepAlivePosition = temp_els
+        console.log(temp_els)
+      }
+    },
+    setPosition: function (el) {
+      // 如果即将进入的路由页面设置了缓存, 就读取路由内position记录到每个vha_UI-scrollview
+      let temp_meta = this.$route.meta
+      if (typeof temp_meta.keepAlive != 'undefined' && temp_meta.keepAlive) {
+        if (typeof temp_meta.keepAlivePosition != 'undefined') {
+          if (temp_meta.keepAlivePosition) {
+            let temp_scrollview = el.parentNode.parentNode.querySelectorAll('.vha_UI-scrollview')
+            
+            console.log(el.parentNode.parentNode, temp_scrollview)
+            temp_meta.keepAlivePosition.forEach(element => {
+              temp_scrollview[element.id].scrollLeft = element.x
+              temp_scrollview[element.id].scrollTop = element.y
+            })
+          }
         }
       }
-      
     },
     enter: function (el) {
       if (this.nextAnimate != 'none') {
@@ -167,6 +180,10 @@ export default {
       // 偶尔失效BUG, 可能与元素被删除有关
       // el.addEventListener("transitionend", () => {})
       
+      // 读取路由滚动条位置设置到元素
+      this.setPosition(el)
+      
+      // 进入页面动画执行完毕
       let temp_timeid = setInterval(() => {
         let temp_class = el.getAttribute('class')
         if (temp_class.indexOf('-enter-active') === -1) {
@@ -202,11 +219,8 @@ export default {
   watch: {
     //观察 - 数据或方法
     '$route': function (to, from) {
-      // this.savePosition(from)
-      
-      // setTimeout(() => {
-      // console.log(this.$el.querySelectorAll('.vha_UI-scrollview'))
-      // }, 500)
+      // 页面转跳前保存滚动条位置
+      this.savePosition(from)
       
       // console.log('现在路由:',to.path.split('/')[1],'来自路由:',from.path.split('/')[1],'现在的动画:',this.transitionName)
       let toDepth = to.path.split('/').length

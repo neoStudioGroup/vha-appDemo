@@ -79,7 +79,6 @@ export default new Router({
       path: '/components',
       name: 'components',
       component: components,
-      redirect: '/components/index',
       children: [
         {
           path: '',
@@ -123,7 +122,6 @@ export default new Router({
       path: '/native',
       name: 'native',
       component: native,
-      redirect: '/native/index',
       children: [
         {
           path: '',
@@ -133,7 +131,8 @@ export default new Router({
             vhaNavbar: {
               title: 'Native 设备接口',
               sideButton: 'none'
-            }
+            },
+            keepAlive: true
           }
         },
         
@@ -528,8 +527,7 @@ export default new Router({
         vhaNavbar: {
           title: 'About 关于',
           sideButton: 'none'
-        },
-        keepAlive: true
+        }
       }
     }
     

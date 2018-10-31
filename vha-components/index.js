@@ -17,6 +17,7 @@ const vha = {
   install(Vue) {
     
     Vue.prototype.$vhaComponents = {
+      // 被包含和排除的缓存路由表
       routerview: {
         include: [],
         exclude: []

@@ -15,26 +15,8 @@
 <script type="text/ecmascript-6">
 export default {
   name: 'vhaUIapp',
-  props: {
-    //父组件参数
-    nobg: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    //动态数据
-    return {
-    }
-  },
-  methods: {
-    //方法 - 进入页面创建
-  },
-  watch: {
-    //观察 - 数据或方法变动
-  },
-  mounted() {
-    //挂载实例后 - this.$el存在
+  beforeCreate() {
+    //实例创建之前
     
     // 处理所有路由缓存
     let temp_prockeepAlive = () => {
@@ -73,6 +55,27 @@ export default {
       temp_prockeepAlive()
       next()
     })
+  },
+  props: {
+    //父组件参数
+    nobg: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    //动态数据
+    return {
+    }
+  },
+  methods: {
+    //方法 - 进入页面创建
+  },
+  watch: {
+    //观察 - 数据或方法变动
+  },
+  mounted() {
+    //挂载实例后 - this.$el存在
     
     // vhaAppEvent事件 处理路由转跳
     window.addEventListener('vhaAppEvent', (event) => {
