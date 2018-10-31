@@ -8,7 +8,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-dialogs">
+  <vha-page class="native_PG-dialogs">
 
     <vha-scrollview class="p_UI-content">
       <div class="_UI-button"  @click="alert()">
@@ -26,7 +26,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

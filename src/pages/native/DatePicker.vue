@@ -8,7 +8,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-datepicker">
+  <vha-page class="native_PG-datepicker">
 
     <vha-scrollview class="p_UI-content">
       <div class="_UI-button" @click="datepicker()">
@@ -18,7 +18,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

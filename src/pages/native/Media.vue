@@ -8,7 +8,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-media">
+  <vha-page class="native_PG-media">
 
     <vha-scrollview class="p_UI-content">
       <div class="_UI-button" @click="Record()">
@@ -23,7 +23,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

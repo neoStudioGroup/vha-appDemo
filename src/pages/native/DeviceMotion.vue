@@ -28,7 +28,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-devicemotion">
+  <vha-page class="native_PG-devicemotion">
 
     <vha-scrollview class="p_UI-content">
       <div class="native_PG-Motionbg">
@@ -48,7 +48,7 @@
     
     <!-- <UIlog :text="logText"></UIlog> -->
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

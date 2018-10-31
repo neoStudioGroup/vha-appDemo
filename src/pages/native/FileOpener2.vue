@@ -8,7 +8,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-fileopener2">
+  <vha-page class="native_PG-fileopener2">
 
     <vha-scrollview class="p_UI-content">
       
@@ -28,7 +28,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

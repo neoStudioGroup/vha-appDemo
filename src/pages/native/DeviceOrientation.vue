@@ -13,7 +13,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-deviceorientation">
+  <vha-page class="native_PG-deviceorientation">
 
     <vha-scrollview class="p_UI-content">
       <img src="../../assets/images/Orientation.png" :style="intdeg">
@@ -25,7 +25,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

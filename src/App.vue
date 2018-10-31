@@ -1,18 +1,19 @@
 <style lang="stylus">
 @import "./assets/stylus/ionicons.styl"
 @import "./assets/stylus/global.styl"
-.vha_UI-view
-  .vha_UI-tabbar
-    height rpx(150) !important
-    .fa-th
-      font-size 1.6em
-    .fa-info-circle
-      font-size 1.8em
-  // background url(./assets/images/HTML5.png)
-  // .vha_UI-subview
-  //   >.vha_UI-routerview
-  //     >.ui-r-center
-  //       background-color #f5f5f5
+#app
+  >.vha_UI-view
+    .vha_UI-tabbar
+      height rpx(150) !important
+      .fa-th
+        font-size 1.6em
+      .fa-info-circle
+        font-size 1.8em
+    // background url(./assets/images/HTML5.png)
+    // .vha_UI-subview
+    //   >.vha_UI-routerview
+    //     >.ui-r-center
+    //       background-color #f5f5f5
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>

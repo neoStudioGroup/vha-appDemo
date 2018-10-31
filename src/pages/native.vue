@@ -3,7 +3,9 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <vha-routerview class="_PG-native _bc-fff"></vha-routerview>
+  <vha-page class="_PG-native">
+    <vha-routerview class="_bc-fff"></vha-routerview>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

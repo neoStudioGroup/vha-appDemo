@@ -14,7 +14,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="_PG-about">
+  <vha-page class="_PG-about">
 
     <div class="_UI-logo _df">
       <img src="../assets/images/logo.png">
@@ -34,10 +34,10 @@
     <h4>高效、自由、定制化、实用性的前端库</h4>
     <br>
     <br>
+    <p>web：https://neoStudioGroup.com</p>
     <p>email：neoStudioGroup@163.com</p>
-    <p>web：http://neoStudioGroup.com</p>
     
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

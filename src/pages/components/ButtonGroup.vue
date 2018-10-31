@@ -4,35 +4,37 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <vha-scrollview class="components_PG-ButtonGroup">
-    
-    <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
+  <vha-page class="components_PG-ButtonGroup">
+    <vha-scrollview>
+      
+      <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
 
-    <div class="_UI-showBox">
-      <vha-buttongroup>
-        <vha-button type="none">
-          <span>none</span>
-        </vha-button>
-        <vha-button type="base">
-          <span>base</span>
-        </vha-button>
-      </vha-buttongroup>
-    </div>
-    
-    <p class="_UI-note">风格style：1 / 2 / 3 / 4 / 5</p>
+      <div class="_UI-showBox">
+        <vha-buttongroup>
+          <vha-button type="none">
+            <span>none</span>
+          </vha-button>
+          <vha-button type="base">
+            <span>base</span>
+          </vha-button>
+        </vha-buttongroup>
+      </div>
+      
+      <p class="_UI-note">风格style：1 / 2 / 3 / 4 / 5</p>
 
-    <div class="_UI-showBox">
-    </div>
-    
-    <p class="_UI-note">颜色color：信息 & 基本</p>
+      <div class="_UI-showBox">
+      </div>
+      
+      <p class="_UI-note">颜色color：信息 & 基本</p>
 
-    <div class="_UI-showBox">
-    </div>
-    
-    
-    <p class="_UI-note"></p>
-    
-  </vha-scrollview>
+      <div class="_UI-showBox">
+      </div>
+      
+      
+      <p class="_UI-note"></p>
+      
+    </vha-scrollview>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

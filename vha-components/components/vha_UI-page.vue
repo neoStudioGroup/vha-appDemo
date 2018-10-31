@@ -2,7 +2,10 @@
 @import "../assets/stylus/method.styl"
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 页面
-// .vha_UI-page
+.vha_UI-page
+  width 100%
+  height 100%
+  background-color transparent
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>

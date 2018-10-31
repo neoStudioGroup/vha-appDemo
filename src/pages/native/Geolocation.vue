@@ -11,7 +11,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-geolocation">
+  <vha-page class="native_PG-geolocation">
 
     <vha-scrollview class="p_UI-content">
       <div id="baiduMap"></div>
@@ -23,7 +23,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

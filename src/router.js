@@ -525,7 +525,7 @@ export default new Router({
       component: about,
       meta: {
         vhaNavbar: {
-          title: 'About 关于',
+          title: 'About',
           sideButton: 'none'
         }
       }

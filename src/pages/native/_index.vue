@@ -4,6 +4,7 @@
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <vha-page class="native_PG-index">
+    
     <vha-scrollview>
       <div class="_UI-logo _df">
         <img src="../../assets/images/native.png">
@@ -69,6 +70,7 @@
       </ul>
       
     </vha-scrollview>
+    
   </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－

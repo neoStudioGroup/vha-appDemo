@@ -8,7 +8,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-spinnerdialog">
+  <vha-page class="native_PG-spinnerdialog">
 
     <vha-scrollview class="p_UI-content">
       <div class="_UI-button" @click="SpinnerDlgshow()">
@@ -18,7 +18,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

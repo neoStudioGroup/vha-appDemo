@@ -10,7 +10,7 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="native_PG-imagepicker">
+  <vha-page class="native_PG-imagepicker">
 
     <vha-scrollview class="p_UI-content">
       <img :src="imgurl.uri" v-for="imgurl in imgurls" :key="imgurl.index"/>
@@ -28,7 +28,7 @@
     
     <UIlog :text="logText"></UIlog>
 
-  </div>
+  </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
