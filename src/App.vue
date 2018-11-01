@@ -23,7 +23,7 @@
         <vha-navbar sideButton="left"></vha-navbar>
       </vha-subview>
       <vha-subview full="height">
-        <vha-routerview>1111</vha-routerview>
+        <vha-routerview></vha-routerview>
       </vha-subview>
       <vha-subview>
         <vha-tabbar>

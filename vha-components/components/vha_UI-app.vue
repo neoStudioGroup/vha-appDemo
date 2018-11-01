@@ -52,9 +52,11 @@ export default {
     temp_prockeepAlive()
     // 如果路由变动重新处理缓存信息
     this.$router.beforeEach((to, from, next) => {
+      to.meta.keepAlive = this.temp_keepAlive
       temp_prockeepAlive()
       next()
     })
+    
   },
   props: {
     //父组件参数
@@ -66,6 +68,7 @@ export default {
   data() {
     //动态数据
     return {
+      temp_keepAlive: undefined
     }
   },
   methods: {
@@ -80,6 +83,8 @@ export default {
     // vhaAppEvent事件 处理路由转跳
     window.addEventListener('vhaAppEvent', (event) => {
       // console.log('vhaAppEvent：', event.detail)
+      this.temp_keepAlive = event.detail.keepAlive
+      
       if (event.detail.func === 'push') {
         this.$router.push(event.detail.value)
       } else if (event.detail.func === 'go') {

@@ -9,20 +9,21 @@
     &:last-child
       margin-left rpx(8)
 // ------------------------------
-// UI组件 - 按钮-类型-无
-.vha_UI-button.type-none
+vhaButton_type()
   cursor pointer
   margin 0
   padding 0
   border none
   color inherit
   background-color transparent
-  display inline-block
   transition all .08s
+// UI组件 - 按钮-类型-无
+.vha_UI-button.type-none
+  vhaButton_type()
 
 // UI组件 - 按钮-类型-基本
 .vha_UI-button.type-base
-  @extend .vha_UI-button.type-none
+  vhaButton_type()
   color black_
   background-color transparent
   &:active
@@ -30,7 +31,7 @@
 
 // UI组件 - 按钮-类型-正常
 .vha_UI-button.type-normal
-  @extend .vha_UI-button.type-none
+  vhaButton_type()
   border-radius rpx(8)
 
 // UI组件 - 按钮-类型-线框
@@ -255,7 +256,6 @@ export default {
       validator(value) {
         return [
           '',
-          'none',
           'success',
           'info',
           'warning',
@@ -296,9 +296,11 @@ export default {
     //实例创建完成后
     switch (this.type) {
       case 'none': {
+        this.temp_color = this.color || ''
         break
       }
       case 'base': {
+        this.temp_color = this.color || ''
         break
       }
       case 'normal': {

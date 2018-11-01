@@ -157,20 +157,23 @@ export default {
       try {
         if (typeof source.meta.vhaTabbar != 'undefined') {
           if (typeof source.meta.vhaTabbar.show != 'undefined') {
-            this.temp_show = source.meta.vhaTabbar.show
+            this.$nextTick(function () {
+              this.temp_show = source.meta.vhaTabbar.show
+            })
           } else {
-            this.temp_show = true
+            throw 0
           }
         } else {
           throw 0
         }
       } catch (error) {
-        this.temp_show = true
+        this.$nextTick(function () {
+          this.temp_show = true
+        })
       }
     }
   },
   watch: {
-    //观察 - 数据或方法
     //观察 - 数据或方法
     '$route': function (to, from) {
       this.getRouteProps(to)

@@ -71,8 +71,7 @@ const vha = {
     Vue.directive('vhaRouter', {
       bind: (element, binding) => {
         // console.log('vhaRouter', element, binding)
-        let temp_routerFunc = binding.value.push
-        let temp_routerValue = binding.value.push
+        let temp_routerFunc = '', temp_routerValue = ''
         
         if (binding.value.push) {
           temp_routerFunc = 'push'
@@ -83,11 +82,20 @@ const vha = {
         }
         
         let temp_vhaAppEvent = new CustomEvent('vhaAppEvent', {
-          detail: {el: element, func: temp_routerFunc, value: temp_routerValue}
+          detail: {
+            el: element, 
+            func: temp_routerFunc, 
+            value: temp_routerValue, 
+            keepAlive: binding.value.keepAlive
+          }
         })
         
         let temp_vhaRouterviewEvent = new CustomEvent('vhaRouterviewEvent', {
-          detail: {el: element, animate: binding.value.animate, routerValue: temp_routerValue}
+          detail: {
+            el: element, 
+            animate: binding.value.animate, 
+            routerValue: temp_routerValue
+          }
         })
         
         element.addEventListener('click', () => {

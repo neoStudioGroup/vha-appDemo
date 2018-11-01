@@ -4,9 +4,14 @@ import index from './pages/index'
 import components from './pages/components'
   import components_index from './pages/components/_index'
   // 基础 Base
+  import routerView from './pages/components/routerView'
+    import routerView_index from './pages/components/routerView/_index'
+    import routerViewTest from './pages/components/routerView/routerViewTest'
   import Button from './pages/components/Button'
   import ButtonGroup from './pages/components/ButtonGroup'
-
+  import navBar from './pages/components/navBar'
+  import tabBar from './pages/components/tabBar'
+  
 import native from './pages/native'
   import native_index from './pages/native/_index'
   // 系统 System
@@ -95,6 +100,33 @@ export default new Router({
         
         // 基础 Base
         {
+          path: 'routerView',
+          name: 'routerView',
+          component: routerView,
+          children: [
+            {
+              path: '',
+              name: 'routerViewindex',
+              component: routerView_index,
+              meta: {
+                vhaNavbar: {
+                  title: 'Router View 路由视图'
+                }
+              }
+            },
+            {
+              path: 'routerViewTest',
+              name: 'routerViewTest',
+              component: routerViewTest,
+              meta: {
+                vhaNavbar: {
+                  title: 'routerViewTest 路由视图测试'
+                }
+              }
+            }
+          ]
+        },
+        {
           path: 'Button',
           name: 'Button',
           component: Button,
@@ -112,6 +144,28 @@ export default new Router({
           meta: {
             vhaNavbar: {
               title: 'Button Group 按钮组'
+            },
+            vhaTabbar: {show: false}
+          }
+        },
+        {
+          path: 'navBar',
+          name: 'navBar',
+          component: navBar,
+          meta: {
+            vhaNavbar: {
+              title: 'navBar 导航栏'
+            },
+            vhaTabbar: {show: false}
+          }
+        },
+        {
+          path: 'tabBar',
+          name: 'tabBar',
+          component: tabBar,
+          meta: {
+            vhaNavbar: {
+              title: 'tabBar 标签栏'
             },
             vhaTabbar: {show: false}
           }

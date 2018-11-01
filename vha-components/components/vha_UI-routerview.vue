@@ -29,16 +29,21 @@
       // transition transform 30000ms
       // z-index 1000002
 
+    .vhaRouterviewAnimate-none-enter-active //进入路由-上层-进场 过程中保持的状态
+      transition all 40ms
+    .vhaRouterviewAnimate-none-leave-active //进入路由-下层-退场 过程中保持的状态
+      transition all 40ms
+      
     .vhaRouterviewAnimate-in-enter-active //进入路由-上层-进场 过程中保持的状态
-      transition transform 400ms cubic-bezier(0,1,1,1)
+      transition transform 350ms cubic-bezier(0,1,1,1)
       // z-index 1000002
     .vhaRouterviewAnimate-in-enter //进场开始值
-      transform translate(90vw, 0)
+      transform translate(95vw, 0)
     .vhaRouterviewAnimate-in-enter-to //进场目标值
       // box-shadow 0 0 50px rgba(0,0,0,0.3)
       transform translate(0, 0)
     .vhaRouterviewAnimate-in-leave-active //进入路由-下层-退场 过程中保持的状态
-      transition transform 500ms cubic-bezier(.2,0,.6,1)
+      transition transform 450ms cubic-bezier(.2,0,.6,1)
       // z-index 1000000
     .vhaRouterviewAnimate-in-leave //退场开始值
       transform translate(0, 0)
@@ -71,7 +76,7 @@
       <!-- <div class="ui-r-c-mask" :style="maskStyle"></div> -->
       <div class="ui-r-c-mask" v-if="maskShow"></div>
       <transition 
-        :name="this.transitionName === 'none' ? '' : 'vhaRouterviewAnimate-' + this.transitionName" 
+        :name="'vhaRouterviewAnimate-' + this.transitionName" 
         @enter="enter" 
         @leave="leave" 
       >
@@ -140,6 +145,8 @@ export default {
           }
         })
         temp_meta.keepAlivePosition = temp_els
+      } else {
+        delete temp_meta.keepAlivePosition
       }
     },
     setPosition: function (el) {

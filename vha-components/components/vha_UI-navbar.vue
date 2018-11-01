@@ -68,7 +68,7 @@ vhaNavbar_type()
 
 // UI组件 - 导航栏-类型-无
 // .vha_UI-navbar.type-none
-  // transition all .1s
+  // background-color transparent
 
 // UI组件 - 导航栏-类型-基本
 .vha_UI-navbar.type-base
@@ -113,7 +113,7 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
     class="vha_UI-navbar" 
     :class="[
       'type-' + this.type,
-      'color-' + this.color
+      this.temp_color ? 'color-' + this.temp_color : '',
     ]"
   >
     <slot>
@@ -186,10 +186,10 @@ export default {
     },
     color: {
       type: String,
-      default: 'light',
+      default: '',
       validator(value) {
         return [
-          'none',
+          '',
           'success',
           'info',
           'warning',
@@ -217,6 +217,7 @@ export default {
   data() {
     //动态数据
     return {
+      temp_color: '',
       transitionName: 'in',
       routeAction: true,
       new_Title: '',
@@ -274,6 +275,21 @@ export default {
   },
   created() {
     //实例创建完成后
+    switch (this.type) {
+      case 'none': {
+        this.temp_color = this.color || ''
+        break
+      }
+      case 'base': {
+        this.temp_color = this.color || 'light'
+        break
+      }
+      case 'normal': {
+        this.temp_color = this.color || 'light'
+        break
+      }
+    }
+    
     this.getRouteProps(this.$route)
   },
   mounted() {

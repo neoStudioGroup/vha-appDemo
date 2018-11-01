@@ -92,9 +92,6 @@
         <vha-button color="light">
           <span>Light</span>
         </vha-button>
-        <vha-button color="none">
-          <span>none</span>
-        </vha-button>
       </div>
       
       <p class="_UI-note">图标 icon：</p>
