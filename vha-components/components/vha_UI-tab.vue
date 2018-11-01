@@ -3,18 +3,18 @@
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 标签
 .vha_UI-tab
-  width 100%
-  height 100%
-  .vha_UI-view
-    padding rpx(6)
-  i
-    flex 6
-    display inline-flex
-  span
-    flex 4
-    display block
-  // a
-  //   margin-right 10px
+  flex 1
+  overflow hidden
+  >.vha_UI-button
+    >.vha_UI-view
+      padding rpx(10)
+      >.ui-t-i
+        flex 6.5
+        display inline-flex
+        &:before
+          margin auto
+      >.ui-t-span
+        flex 3.5
 // ------------------------------
 // UI组件 - 标签-类型-无
 // vhaTab_type()
@@ -64,10 +64,10 @@ vhaTab_color($color, $backgroundColor, $backgroundActiveColor)
       this.temp_color ? 'color-' + this.temp_color : '',
     ]" 
   >
-    <vha-button type="none" size="full" v-vhaRouter="{push: this.push, animate:'none'}">
-      <vha-view class="_jcc" direction="vertical">
-        <i :class="icon"></i>
-        <span><slot></slot></span>
+    <vha-button :type="type" size="full" v-vhaRouter="{push: this.push, animate:'none'}">
+      <vha-view direction="vertical">
+        <i class="ui-t-i" :class="icon"></i>
+        <span class="ui-t-span _ownRowHide"><slot></slot></span>
       </vha-view>
     </vha-button>
   </div>
@@ -83,6 +83,17 @@ export default {
     //父组件参数
     push: String,
     icon: String,
+    type: {
+      type: String,
+      default: 'none',
+      validator(value) {
+        return [
+          'none',
+          'base',
+          'normal'
+        ].indexOf(value) > -1;
+      }
+    },
     color: {
       type: String,
       default: 'none',

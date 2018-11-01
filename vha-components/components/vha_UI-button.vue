@@ -3,7 +3,7 @@
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 按钮
 .vha_UI-button
-  >i
+  >.ui-b-i
     &:first-child
       margin-right rpx(8)
     &:last-child
@@ -70,7 +70,7 @@ vhaButton_type()
 // ------------------------------
 // UI组件 - 按钮-状态-禁止
 .vha_UI-button.status-disabled
-  cursor not-allowed
+  cursor not-allowed !important
   color #aaa !important
   background-color #f5f5f5 !important
   &:active
@@ -203,9 +203,9 @@ vhaButton_effectColor($backgroundColor)
     :disabled="disabled"
   >
     <!-- 支持a标签 -->
-    <i :class="icon" v-if="icon"></i>
+    <i class="ui-b-i" :class="icon" v-if="icon"></i>
     <slot></slot>
-    <i :class="iconRight" v-if="iconRight"></i>
+    <i class="ui-b-i" :class="iconRight" v-if="iconRight"></i>
   </button>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -291,6 +291,12 @@ export default {
   },
   watch: {
     //观察 - 数据或方法变动
+    'color': function () {
+      this.temp_color = this.color
+    },
+    'effect': function () {
+      this.temp_effect = this.effect
+    }
   },
   created() {
     //实例创建完成后

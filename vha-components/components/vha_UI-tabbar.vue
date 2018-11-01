@@ -3,15 +3,15 @@
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 标签栏
 .vha_UI-tabbar
-  // a
-  //   margin-right 10px
+  transition all 200ms
 // ------------------------------
-// UI组件 - 标签栏-类型-无
 vhaTabbar_type()
   height rpx(100)
   font-size rpx(28)
-// .vha_UI-tabbar.type-none
-  // transition all .1s
+// UI组件 - 标签栏-类型-无
+.vha_UI-tabbar.type-none
+  .vha_UI-tab
+    flex none
 
 // UI组件 - 标签栏-类型-基本
 .vha_UI-tabbar.type-base
@@ -137,6 +137,10 @@ export default {
           'light'
         ].indexOf(value) > -1;
       }
+    },
+    followMeta: {
+      type: Boolean,
+      default: true,
     }
   },
   data() {
@@ -154,6 +158,9 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     getRouteProps: function (source) {
+      if (!this.followMeta) {
+        return
+      }
       try {
         if (typeof source.meta.vhaTabbar != 'undefined') {
           if (typeof source.meta.vhaTabbar.show != 'undefined') {

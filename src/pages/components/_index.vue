@@ -13,8 +13,10 @@
       <p class="_UI-title" style="">基础 Base</p>
       <ul class="_UI-list">
         <li v-vhaRouter="{push:'components/routerView'}">路由视图<span>Router View</span><i class="fa fa-window-maximize"></i></li>
+        <!-- <li v-vhaRouter="{push:'components/scrollView'}">滚动视图<span>Scroll View</span><i class="fa fa-stop"></i></li> -->
+        <li v-vhaRouter="{push:'components/view'}">视图区域<span>View</span><i class="fa fa-stop"></i></li>
         <li v-vhaRouter="{push:'components/Button'}">按钮<span>Button</span><i class="fa fa-square"></i></li>
-        <li v-vhaRouter="{push:'components/ButtonGroup'}">按钮组<span>Button Group</span><i class="fa fa-th-large"></i></li>
+        <!-- <li v-vhaRouter="{push:'components/buttonGroup'}">按钮组<span>Button Group</span><i class="fa fa-th-large"></i></li> -->
         <li v-vhaRouter="{push:'components/navBar'}">导航栏<span>Nav Bar</span><i class="fa fa-minus"></i></li>
         <li v-vhaRouter="{push:'components/tabBar'}">标签栏<span>Tab Bar</span><i class="fa fa-ellipsis-h"></i></li>
       </ul>

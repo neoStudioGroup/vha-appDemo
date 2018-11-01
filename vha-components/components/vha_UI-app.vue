@@ -2,7 +2,9 @@
 // UI组件 - vha主页面
 .vha_UI-app
   color #444
+  width 100%
   height 100%
+  overflow hidden
   background url('../assets/images/bg.png')
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -52,7 +54,9 @@ export default {
     temp_prockeepAlive()
     // 如果路由变动重新处理缓存信息
     this.$router.beforeEach((to, from, next) => {
-      to.meta.keepAlive = this.temp_keepAlive
+      if (typeof this.temp_keepAlive != 'undefined') {
+        to.meta.keepAlive = this.temp_keepAlive
+      }
       temp_prockeepAlive()
       next()
     })

@@ -3,11 +3,13 @@
 @import "../assets/stylus/mixin.styl"
 // UI组件 - 导航栏
 .vha_UI-navbar
+  transition all 200ms
   .ui-n-leftBox
     .vha_UI-button
-      padding-left rpx(18)
+      // width rpx(90)
       font-size rpx(26)
-      color inherit
+      color inherit  
+  
   .ui-n-middleBox
     position relative
     >.ui-n-m-box
@@ -53,18 +55,19 @@
     .vhaNavbarAnimate-out-leave-to //退场目标值
       transform translate(rpx(300), 0)
       opacity 0
-      
+  
   .ui-n-rightBox
     .vha_UI-button
-      padding-right rpx(18)
+      // width rpx(90)
       font-size rpx(26)
+      color inherit
 // ------------------------------
 vhaNavbar_type()
   height rpx(90)
   font-size rpx(28)
   .vha_UI-subview
     &:first-child, &:last-child
-      width rpx(80)
+      width rpx(90)
 
 // UI组件 - 导航栏-类型-无
 // .vha_UI-navbar.type-none
@@ -104,8 +107,12 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   vhaNavbar_color(black_, Stable_, Stable_Focus)
 .vha_UI-navbar.color-light
   vhaNavbar_color(black_, Light_, Light_Focus)
-  .vha_UI-button
-    color Info_
+  .ui-n-leftBox
+    .vha_UI-button
+      color Info_
+  .ui-n-rightBox
+    .vha_UI-button
+      color Info_
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
@@ -135,12 +142,12 @@ vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
             <transition :name="this.transitionName === 'none' ? '' : 'vhaNavbarAnimate-' + this.transitionName">
               <div class="ui-n-m-box" v-if="routeAction" key="oldTitle">
                 <vha-view class="_jcc _aic">
-                  <span class="_ownRowHide">{{new_Title}}</span>
+                  <span class="_ownRowHide">{{title || new_Title}}</span>
                 </vha-view>
               </div>
               <span class="ui-n-m-box" v-else key="new_Title">
                 <vha-view class="_jcc _aic">
-                  <span class="_ownRowHide">{{new_Title}}</span>
+                  <span class="_ownRowHide">{{title || new_Title}}</span>
                 </vha-view>
               </span>
             </transition>
@@ -212,7 +219,8 @@ export default {
           'both'
         ].indexOf(value) > -1;
       }
-    }
+    },
+    title: {type: String}
   },
   data() {
     //动态数据
@@ -258,6 +266,9 @@ export default {
   },
   watch: {
     //观察 - 数据或方法
+    'color': function () {
+      this.temp_color = this.color
+    },
     '$route': function (to, from) {
       this.getRouteProps(to)
       this.routeAction = !this.routeAction

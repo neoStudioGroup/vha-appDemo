@@ -5,26 +5,11 @@
 @import './reset'
 @import './font-awesome'
 
-// 所有UI组件
-*[class*="UI-"]{
-  /* outline: 1px solid red !important; */
-  outline-color: red;
-}
-// 所有UI组件-所有子元素
-*[class*="UI-"] *{
-  /* outline: 1px solid green !important; */
-  outline-color: green;
-}
-// 所有UI组件-子元素
-*[class*="UI-"] *[class*="ui-"]{
-  /* outline: 1px solid blue !important; */
-  outline-color: blue;
-}
-
 // ------------------------- 公共属性 -------------------------
 
 ._cl-000 {color: #000 !important;}
 ._cl-fff {color: #fff !important;}
+._cl-444 {color: #444 !important;}
 ._cl-success {color: Success_ !important;}
 ._cl-info {color: Info_ !important;}
 ._cl-warning {color: Warning_ !important;}
@@ -32,6 +17,7 @@
 // ------
 ._bc-000 {background-color: #000 !important;}
 ._bc-fff {background-color: #fff !important;}
+._bc-444 {background-color: #444 !important;}
 ._bc-success {background-color: Success_ !important;}
 ._bc-info {background-color: Info_ !important;}
 ._bc-warning {background-color: Warning_ !important;}
@@ -39,6 +25,7 @@
 // ------
 ._bdc-000 {border-color: #000 !important;}
 ._bdc-fff {border-color: #fff !important;}
+._bdc-444 {border-color: #444 !important;}
 ._bdc-success {border-color: Success_ !important;}
 ._bdc-info {border-color: Info_ !important;}
 ._bdc-warning {border-color: Warning_ !important;}
@@ -55,10 +42,15 @@
 ._nopd {padding: 0 !important}
 ._nobd {border: 0 !important}
 
+
 ._patlwh
   position absolute
   top 0
   left 0
+  width 100%
+  height 100%
+
+._fullwh
   width 100%
   height 100%
 
@@ -70,6 +62,10 @@
 ._dib {display: inline-block;}
 // 内容超出隐藏
 ._oh {overflow: hidden;}
+// 行高紧凑
+._lh1 {line-height: 1;}
+// 行高正常
+._lhn {line-height: normal;}
 
 /* ========== 盒子常用 ========== start */
 /* 盒子 */
@@ -96,7 +92,7 @@
 }
 /* 内容-开头-分布 */
 ._jcfs {justify-content: flex-start;}
-/* 内容-紧密-分布 - 居中时注意 */
+/* 内容-紧密-分布 - 居中时需注意 */
 ._jcc {justify-content: center;}
 /* 内容-结尾-分布 */
 ._jcfe {justify-content: flex-end;}

@@ -10,6 +10,32 @@
   max-width 100%
   flex 1
 // ------------------------------
+// UI组件 - flex弹性-1-12
+.vha_UI-subview.flex-1
+  flex 1
+.vha_UI-subview.flex-2
+  flex 2
+.vha_UI-subview.flex-3
+  flex 3
+.vha_UI-subview.flex-4
+  flex 4
+.vha_UI-subview.flex-5
+  flex 5
+.vha_UI-subview.flex-6
+  flex 6
+.vha_UI-subview.flex-7
+  flex 7
+.vha_UI-subview.flex-8
+  flex 8
+.vha_UI-subview.flex-9
+  flex 9
+.vha_UI-subview.flex-10
+  flex 10
+.vha_UI-subview.flex-11
+  flex 11
+.vha_UI-subview.flex-12
+  flex 12
+// ------------------------------
 // UI组件 - 滚动条-开启&关闭
 .vha_UI-subview.scroll-Yon
   overflow-x hidden
@@ -24,6 +50,7 @@
     class="vha_UI-subview" 
     :class="[
       this.full ? 'full-' + this.full : '',
+      this.flex ? 'flex-' + this.flex : '',
       this.scroll && this.full ? ('scroll-' + (this.full === 'height' ? 'Yon' : 'Xon')) : '',
     ]"
   >
@@ -47,6 +74,27 @@ export default {
           '',
           'height',
           'width'
+        ].indexOf(value) > -1;
+      }
+    },
+    flex: {
+      type: String,
+      default: '',
+      validator(value) {
+        return [
+          '',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '7',
+          '8',
+          '9',
+          '10',
+          '11',
+          '12'
         ].indexOf(value) > -1;
       }
     },

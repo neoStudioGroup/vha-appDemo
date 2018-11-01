@@ -1,8 +1,6 @@
 <style lang="stylus">
 // UI组件 - 视图区域
 .vha_UI-view
-  width 100%
-  height 100%
   background-color transparent
 // ------------------------------
 // UI组件 - 视图区域-显示方式
@@ -11,11 +9,18 @@
 // .vha_UI-view.display-inline-flex
 //   display inline-flex
 // ------------------------------
-// UI组件 - 视图区域-方向
+// UI组件 - 视图区域-方向 (默认flex-direction row)
 // .vha_UI-view.direction-horizontal
 //   flex-direction row
 // .vha_UI-view.direction-vertical
 //   flex-direction column
+// ------------------------------
+// UI组件 - 视图区域-尺寸
+// .vha_UI-view.size-none
+//   display flex
+.vha_UI-view.size-full
+  width 100%
+  height 100%
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
@@ -27,7 +32,8 @@
     class="vha_UI-view" 
     :class="[
       this.display === 'flex' ? '_df' : '_dif',
-      this.direction === '' ? '' : (this.direction === 'horizontal' ? '_fdr' : '_fdc')
+      this.direction === '' ? '' : (this.direction === 'horizontal' ? '_fdr' : '_fdc'),
+      this.size === 'none' ? '' : 'size-' + this.size
     ]"
   >
     <slot></slot>
@@ -59,6 +65,16 @@ export default {
           '',
           'horizontal',
           'vertical'
+        ].indexOf(value) > -1;
+      }
+    },
+    size: {
+      type: String,
+      default: 'full',
+      validator(value) {
+        return [
+          'none',
+          'full'
         ].indexOf(value) > -1;
       }
     }

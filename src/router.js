@@ -7,8 +7,10 @@ import components from './pages/components'
   import routerView from './pages/components/routerView'
     import routerView_index from './pages/components/routerView/_index'
     import routerViewTest from './pages/components/routerView/routerViewTest'
+  import scrollView from './pages/components/scrollView'
+  import view from './pages/components/view'
   import Button from './pages/components/Button'
-  import ButtonGroup from './pages/components/ButtonGroup'
+  import buttonGroup from './pages/components/buttonGroup'
   import navBar from './pages/components/navBar'
   import tabBar from './pages/components/tabBar'
   
@@ -111,7 +113,8 @@ export default new Router({
               meta: {
                 vhaNavbar: {
                   title: 'Router View 路由视图'
-                }
+                },
+                vhaTabbar: {show: false}
               }
             },
             {
@@ -121,10 +124,33 @@ export default new Router({
               meta: {
                 vhaNavbar: {
                   title: 'routerViewTest 路由视图测试'
-                }
+                },
+                vhaTabbar: {show: false}
               }
             }
           ]
+        },
+        {
+          path: 'scrollView',
+          name: 'scrollView',
+          component: scrollView,
+          meta: {
+            vhaNavbar: {
+              title: 'Scroll View 滚动视图'
+            },
+            vhaTabbar: {show: false}
+          }
+        },
+        {
+          path: 'view',
+          name: 'view',
+          component: view,
+          meta: {
+            vhaNavbar: {
+              title: 'view 视图区域'
+            },
+            vhaTabbar: {show: false}
+          }
         },
         {
           path: 'Button',
@@ -138,9 +164,9 @@ export default new Router({
           }
         },
         {
-          path: 'ButtonGroup',
-          name: 'ButtonGroup',
-          component: ButtonGroup,
+          path: 'buttonGroup',
+          name: 'buttonGroup',
+          component: buttonGroup,
           meta: {
             vhaNavbar: {
               title: 'Button Group 按钮组'

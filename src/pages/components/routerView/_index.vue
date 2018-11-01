@@ -12,6 +12,7 @@
       <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest'}">in动画进入</vha-button>
       <div class="_framebox-20"></div>
       <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', animate: 'out'}">out动画进入</vha-button>
+      
       <div class="_framebox-80"></div>
       <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', keepAlive: false}">从我进入不缓存</vha-button>
       <div class="_framebox-20"></div>

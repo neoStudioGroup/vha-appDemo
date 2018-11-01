@@ -6,61 +6,73 @@
 <template>
   <vha-page class="components_PG-NavBar">
     <vha-scrollview>
-      <vha-navbar type="none">
-      </vha-navbar>
-      <vha-navbar type="none">
-        11111
-      </vha-navbar>
+      <vha-navbar title="我是页内导航栏"></vha-navbar>
       
-      
-      
-      <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
+      <p class="_UI-note">类型type：无 / 基本 / 正常</p>
 
       <div class="_UI-showBox">
-        
-        
-        
-        
-      </div>
-      
-      <p class="_UI-note">风格style：1 / 2 / 3 / 4 / 5</p>
-
-      <div class="_UI-showBox">
+        <vha-navbar title="none" type="none"></vha-navbar>
+        <div class="_framebox-40"></div>
+        <vha-navbar title="base" type="base"></vha-navbar>
+        <div class="_framebox-40"></div>
+        <vha-navbar title="normal"></vha-navbar>
       </div>
       
       <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
-      <p class="_UI-note">颜色color：信息 & 基本</p>
 
       <div class="_UI-showBox">
+        <vha-navbar title="success" color="success"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="info" color="info"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="warning" color="warning"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="error" color="error"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="dark" color="dark"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="royal" color="royal"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="stable" color="stable"></vha-navbar>
+        <div class="_framebox-20"></div>
+        <vha-navbar title="light" color="light"></vha-navbar>
       </div>
       
+      <p class="_UI-note">自定义 ：</p>
+      
+      <div class="_UI-showBox">
+        <vha-navbar>
+          替换全部内容
+        </vha-navbar>
+        <div class="_framebox-40"></div>
+        <vha-navbar>
+          <span slot="leftBox">
+            替换左边内容
+          </span>
+          <span slot="titleBox">
+            替换中间内容
+          </span>
+          <span slot="rightBox">
+            替换右边内容
+          </span>
+        </vha-navbar>
+        <div class="_framebox-40"></div>
+        <vha-navbar>
+          <vha-button slot="leftBox" icon="fa fa-bars fa-2x" size="full">
+          </vha-button>
+          <vha-button slot="titleBox" type="base" color="light" size="full">
+            <vha-view class="_aic _jcc">
+              <img src="../../assets/images/logo.png" height="20" width="20">
+              <span class="_ownRowHide">自定义内容</span>
+            </vha-view>
+          </vha-button>
+          <vha-button slot="rightBox" size="full">
+            <span>Edit</span>
+          </vha-button>
+        </vha-navbar>
+      </div>
       
       <p class="_UI-note"></p>
-      
     </vha-scrollview>
   </vha-page>
 </template>
