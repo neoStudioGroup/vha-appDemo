@@ -11,9 +11,9 @@
 
       <div class="_UI-showBox">
         <div class="_framebox"></div>
-        <div class="_framebox-20"></div>
-        <div class="_framebox-40"></div>
-        <div class="_framebox-80"></div>
+        <div class="_framebox-2x"></div>
+        <div class="_framebox-4x"></div>
+        <div class="_framebox-8x"></div>
       </div>
       
       <p class="_UI-note">风格style：1 / 2 / 3 / 4 / 5</p>
@@ -24,14 +24,14 @@
       <p class="_UI-note">颜色color：信息 & 基本</p>
 
       <div class="_UI-showBox">
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
-        <div class="_framebox-80"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
+        <div class="_framebox-8x"></div>
       </div>
       
       <p class="_UI-note"></p>

@@ -3,6 +3,29 @@
 .vha_UI-view
   background-color transparent
 // ------------------------------
+// UI组件 - 视图区域-类型-网格
+// .vha_UI-view.type-grid
+//   >*
+//     flex 1
+// ------------------------------
+// UI组件 - 视图区域-显示边线
+.vha_UI-view.showLine-true
+  overflow hidden
+  // line-border(1px solid rgba(0,0,0,0.3))
+  >.vha_UI-subview
+    line-border-right(1px solid rgba(0,0,0,0.3))
+    &:last-child
+      &:after
+        display none
+  .vha_UI-view._fdc
+    >.vha_UI-subview
+      line-border-bottom(1px solid rgba(0,0,0,0.3))
+      &:after
+        border-right none !important
+      &:last-child
+        &:after
+          display none
+// ------------------------------
 // UI组件 - 视图区域-显示方式
 // .vha_UI-view.display-flex
 //   display flex
@@ -24,16 +47,20 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <!-- :class="[
-    'display-' + this.display,
-    this.direction ? 'direction-' + this.direction : ''
-  ]" 废弃 -->
+    <!-- :class="[
+      'display-' + this.display,
+      this.direction ? 'direction-' + this.direction : '',
+      this.size === 'none' ? '' : 'size-' + this.size
+    ]" 废弃 -->
   <div 
     class="vha_UI-view" 
     :class="[
+      this.type != 'normal' ? 'type-' + this.type : '',
+      this.showLine ? 'showLine-true' : '',
+      this.wrap ? '_fww' : '',
       this.display === 'flex' ? '_df' : '_dif',
       this.direction === '' ? '' : (this.direction === 'horizontal' ? '_fdr' : '_fdc'),
-      this.size === 'none' ? '' : 'size-' + this.size
+      this.temp_size ? 'size-' + this.temp_size : ''
     ]"
   >
     <slot></slot>
@@ -47,6 +74,24 @@ export default {
   name: 'vhaUIview',
   props: {
     //父组件参数
+    type: {
+      type: String,
+      default: 'normal',
+      validator(value) {
+        return [
+          'normal',
+          'grid'
+        ].indexOf(value) > -1;
+      }
+    },
+    showLine: {
+      type: Boolean,
+      default: false
+    },
+    wrap: {
+      type: Boolean,
+      default: false
+    },
     display: {
       type: String,
       default: 'flex',
@@ -70,9 +115,10 @@ export default {
     },
     size: {
       type: String,
-      default: 'full',
+      default: '',
       validator(value) {
         return [
+          '',
           'none',
           'full'
         ].indexOf(value) > -1;
@@ -82,6 +128,7 @@ export default {
   data() {
     //动态数据
     return {
+      temp_size: ''
     }
   },
   methods: {
@@ -89,6 +136,24 @@ export default {
   },
   watch: {
     //观察 - 数据或方法变动
+  },
+  created() {
+    //实例创建完成后
+    console.log(this.display, this.size)
+    switch (this.display) {
+      case '': {
+        this.temp_size = ''
+        break
+      }
+      case 'flex': {
+        this.temp_size = this.size || 'full'
+        break
+      }
+      case 'inline-flex': {
+        this.temp_size = this.size || ''
+        break
+      }
+    }
   },
   mounted() {
     //挂载实例后 - this.$el存在

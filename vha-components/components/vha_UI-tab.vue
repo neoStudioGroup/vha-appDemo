@@ -9,12 +9,12 @@
     >.vha_UI-view
       padding rpx(10)
       >.ui-t-i
-        flex 6.5
+        flex 6
         display inline-flex
         &:before
           margin auto
       >.ui-t-span
-        flex 3.5
+        flex 4
 // ------------------------------
 // UI组件 - 标签-类型-无
 // vhaTab_type()
@@ -26,7 +26,7 @@
 // // UI组件 - 标签-类型-基本
 // .vha_UI-tab.type-base
 //   vhaTab_type()
-//   border-1px-top(rgba(0,0,0,0.2))
+//   line-border-top(1px solid rgba(0,0,0,0.4))
 //   z-index 10000000
 
 // // UI组件 - 标签-类型-正常

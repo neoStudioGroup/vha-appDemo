@@ -8,33 +8,33 @@
     <vha-scrollview>
       <vha-navbar title="我是页内导航栏"></vha-navbar>
       
-      <p class="_UI-note">类型type：无 / 基本 / 正常</p>
+      <p class="_UI-note">类型 type：无 / 基本 / 正常</p>
 
       <div class="_UI-showBox">
         <vha-navbar title="none" type="none"></vha-navbar>
-        <div class="_framebox-40"></div>
+        <div class="_framebox-4x"></div>
         <vha-navbar title="base" type="base"></vha-navbar>
-        <div class="_framebox-40"></div>
+        <div class="_framebox-4x"></div>
         <vha-navbar title="normal"></vha-navbar>
       </div>
       
-      <p class="_UI-note">颜色color：信息 & 基本</p>
+      <p class="_UI-note">颜色 color：信息 & 基本</p>
 
       <div class="_UI-showBox">
         <vha-navbar title="success" color="success"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="info" color="info"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="warning" color="warning"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="error" color="error"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="dark" color="dark"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="royal" color="royal"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="stable" color="stable"></vha-navbar>
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         <vha-navbar title="light" color="light"></vha-navbar>
       </div>
       
@@ -44,7 +44,7 @@
         <vha-navbar>
           替换全部内容
         </vha-navbar>
-        <div class="_framebox-40"></div>
+        <div class="_framebox-4x"></div>
         <vha-navbar>
           <span slot="leftBox">
             替换左边内容
@@ -56,7 +56,7 @@
             替换右边内容
           </span>
         </vha-navbar>
-        <div class="_framebox-40"></div>
+        <div class="_framebox-4x"></div>
         <vha-navbar>
           <vha-button slot="leftBox" icon="fa fa-bars fa-2x" size="full">
           </vha-button>

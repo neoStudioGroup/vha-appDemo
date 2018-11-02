@@ -6,7 +6,7 @@
   transition all 200ms
 // ------------------------------
 vhaTabbar_type()
-  height rpx(100)
+  height rpx(106)
   font-size rpx(28)
 // UI组件 - 标签栏-类型-无
 .vha_UI-tabbar.type-none
@@ -16,15 +16,16 @@ vhaTabbar_type()
 // UI组件 - 标签栏-类型-基本
 .vha_UI-tabbar.type-base
   vhaTabbar_type()
-  border-1px-top(rgba(0,0,0,0.2))
+  position relative
   z-index 10000000
+  line-border-top(1px solid rgba(0,0,0,0.4))
 
 // UI组件 - 标签栏-类型-正常
 .vha_UI-tabbar.type-normal
   vhaTabbar_type()
   position relative
-  box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
   z-index 10000000
+  box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
 // ------------------------------
 // UI组件 - 标签栏-颜色
 vhaTabbar_color($color, $backgroundColor, $backgroundActiveColor)

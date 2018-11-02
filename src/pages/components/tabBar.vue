@@ -21,7 +21,7 @@
       <vha-subview full="height">
         <vha-scrollview>
           
-          <p class="_UI-note">类型type：无 / 基本 / 正常 / 外框 / 效果-扩散</p>
+          <p class="_UI-note">类型 type：无 / 基本 / 正常 / 按钮类型</p>
 
           <div class="_UI-showBox">
             <vha-tabbar type="none" :followMeta="false">
@@ -31,7 +31,7 @@
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
             
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             
             <vha-tabbar type="base" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
@@ -40,7 +40,7 @@
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
             
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             
             <vha-tabbar :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
@@ -49,7 +49,7 @@
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
             
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             
             <vha-tabbar type="base" :followMeta="false">
               <vha-tab type="none" icon="fa fa-home fa-2x">none</vha-tab>
@@ -58,7 +58,7 @@
             </vha-tabbar>
           </div>
           
-          <p class="_UI-note">颜色color：信息 & 基本</p>
+          <p class="_UI-note">颜色 color：信息 & 基本</p>
 
           <div class="_UI-showBox">
             <vha-tabbar color="success" :followMeta="false">
@@ -67,21 +67,21 @@
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="info" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="warning" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="error" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
@@ -89,28 +89,28 @@
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
             
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="dark" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="royal" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="stable" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>
-            <div class="_framebox-20"></div>
+            <div class="_framebox-2x"></div>
             <vha-tabbar color="light" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
@@ -125,7 +125,7 @@
             <vha-tabbar type="base" :followMeta="false">
               <vha-tab icon="fa fa-home fa-2x">主页</vha-tab>
               <vha-tab icon="fa fa-commenting fa-2x">消息</vha-tab>
-              <vha-button class="ui-t-b-div" type="none" color="error" icon="fa fa-plus fa-2x"></vha-button>
+              <vha-button class="ui-t-b-div _cl-fff _bc-error" type="none" icon="fa fa-plus fa-2x"></vha-button>
               <vha-tab icon="fa fa-eye fa-2x">发现</vha-tab>
               <vha-tab icon="fa fa-user fa-2x">我的</vha-tab>
             </vha-tabbar>

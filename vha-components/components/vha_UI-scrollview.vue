@@ -28,7 +28,7 @@
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'vha_UI-scrollview',
+  name: 'vhaUIscrollview',
   beforeCreate() {
     //实例创建之前
   },

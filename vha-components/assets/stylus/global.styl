@@ -14,6 +14,9 @@
 ._cl-info {color: Info_ !important;}
 ._cl-warning {color: Warning_ !important;}
 ._cl-error {color: Error_ !important;}
+._cl-dark {color: Dark_ !important;}
+._cl-royal {color: Royal_ !important;}
+._cl-stable {color: Stable_ !important;}
 // ------
 ._bc-000 {background-color: #000 !important;}
 ._bc-fff {background-color: #fff !important;}
@@ -22,6 +25,9 @@
 ._bc-info {background-color: Info_ !important;}
 ._bc-warning {background-color: Warning_ !important;}
 ._bc-error {background-color: Error_ !important;}
+._bc-dark {background-color: Dark_ !important;}
+._bc-royal {background-color: Royal_ !important;}
+._bc-stable {background-color: Stable_ !important;}
 // ------
 ._bdc-000 {border-color: #000 !important;}
 ._bdc-fff {border-color: #fff !important;}
@@ -30,6 +36,20 @@
 ._bdc-info {border-color: Info_ !important;}
 ._bdc-warning {border-color: Warning_ !important;}
 ._bdc-error {border-color: Error_ !important;}
+._bdc-dark {border-color: Dark_ !important;}
+._bdc-royal {border-color: Royal_ !important;}
+._bdc-stable {border-color: Stable_ !important;}
+
+._line-border
+  line-border(1px solid rgba(0,0,0,0.3))
+._line-border-top
+  line-border-top(1px solid rgba(0,0,0,0.3))
+._line-border-right
+  line-border-right(1px solid rgba(0,0,0,0.3))
+._line-border-bottom
+  line-border-bottom(1px solid rgba(0,0,0,0.3))
+._line-border-left
+  line-border-left(1px solid rgba(0,0,0,0.3))
 
 ._pa {position: absolute}
 ._pr {position: relative}
@@ -42,17 +62,34 @@
 ._nopd {padding: 0 !important}
 ._nobd {border: 0 !important}
 
-
+// 最大化绝对置于最前
 ._patlwh
   position absolute
   top 0
   left 0
   width 100%
   height 100%
-
+  background-color rgba(0,0,0,0.5)
+  z-index 100000000
+// 撑满宽高
 ._fullwh
   width 100%
   height 100%
+
+// 水平自动宽度撑满
+._flexXauto {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex: 1;
+}
+// 垂直自动高度撑满
+._flexYauto {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 1;
+}
 
 // 内联元素
 ._di {display: inline;}
@@ -67,62 +104,56 @@
 // 行高正常
 ._lhn {line-height: normal;}
 
-/* ========== 盒子常用 ========== start */
+/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ 盒子常用 ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ */
 /* 盒子 */
 ._df {display: flex;}
 /* 内联盒子 */
 ._dif {display: inline-flex;}
-/* 水平方向轴线 (默认) */
+/* 轴线 - 水平方向 (默认) */
 ._fdr {flex-direction: row;}
-/* 垂直方向轴线 */
+/* 轴线 - 垂直方向 */
 ._fdc {flex-direction: column;}
-/* 盒子水平自动宽度撑满 */
-._flexXauto {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  flex: 1;
-}
-/* 盒子垂直自动高度撑满 */
-._flexYauto {
-  max-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  flex: 1;
-}
-/* 内容-开头-分布 */
-._jcfs {justify-content: flex-start;}
-/* 内容-紧密-分布 - 居中时需注意 */
-._jcc {justify-content: center;}
-/* 内容-结尾-分布 */
-._jcfe {justify-content: flex-end;}
-/* 内容-贴边-平均-分布 */
-._jcsb {justify-content: space-between;}
-/* 内容-平均-分布 */
-._jssa {justify-content: space-around;}
-/* 轴线-居中 */
-._aic {align-items: center;}
-/* 轴线-居底 */
-._aife {align-items: flex-end;}
-/* 自动换行 多行+起始位置 */
-._fwwacf {flex-wrap: wrap; align-content: flex-start;}
-/* 元素-撑满-用于居中 */
-._wh11 {width:100%;height:100%;}
-/* 子元素-水平居中 */
-._fm0a {margin: 0 auto;}
-/* 子元素-垂直居中 */
-._fma0 {margin:auto 0;}
-/* 子元素-绝对居中 */
-._fma {margin:auto;}
-/* 子元素-居中 --废弃-- */
-._asc {align-self: center;}
-/* 子元素-居底 --废弃-- */
-._asfe {align-self: flex-end;}
-/* 子元素-填充 --废弃-- */
-._ass {align-self: stretch;}
-/* ========== 盒子常用 ========== end */
 
-// ========== 文本常用 ========== start
+/* 轴线 - 顶部 (默认) */
+._aifs {align-items: flex-start;}
+/* 轴线 - 底部 */
+._aife {align-items: flex-end;}
+/* 轴线 - 居中 */
+._aic {align-items: center;}
+
+/* 内容 - 顶部-分布 (默认) */
+._jcfs {justify-content: flex-start;}
+/* 内容 - 底部-分布 */
+._jcfe {justify-content: flex-end;}
+/* 内容 - 紧凑-分布 - 居中时需注意 */
+._jcc {justify-content: center;}
+/* 内容 - 平均-分布 */
+._jssa {justify-content: space-around;}
+/* 内容 - 贴边-平均-分布 */
+._jcsb {justify-content: space-between;}
+
+/* 多行 */
+._fww {flex-wrap: wrap;}
+/* 多行 + 顶部-分布 */
+._acfs {align-content: flex-start;}
+/* 多行 + 底部-分布 */
+._acfe {align-content: flex-end;}
+/* 多行 + 紧凑-分布 */
+._acc {align-content: center;}
+/* 多行 + 平均-分布 */
+._acsa {align-content: space-around;}
+/* 多行 + 贴边-平均-分布 */
+._acsb {align-content: space-between;}
+
+/* 子元素 - 水平居中 */
+._fm0a {margin: 0 auto;}
+/* 子元素 - 垂直居中 */
+._fma0 {margin:auto 0;}
+/* 子元素 - 绝对居中 */
+._fma {margin:auto;}
+/* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ 盒子常用 ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
+
+// ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ 文本常用 ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 // -----------------------------------强制不换行
 // normal	默认。空白会被浏览器忽略。
 // pre	空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。
@@ -168,7 +199,7 @@
 	//  autoprefixer: on
 	word-break: break-all;
 }
-// ========== 文本常用 ========== end
+// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ 文本常用 ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 // 清除<input>标签属性
 ._clearInput {

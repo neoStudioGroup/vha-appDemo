@@ -1,4 +1,6 @@
 <style lang="stylus">
+.type-grid>.vha_UI-subview
+  flex 1
 // UI组件 - 子视图
 // .vha_UI-subview
 // ------------------------------
@@ -10,31 +12,46 @@
   max-width 100%
   flex 1
 // ------------------------------
-// UI组件 - flex弹性-1-12
-.vha_UI-subview.flex-1
-  flex 1
-.vha_UI-subview.flex-2
-  flex 2
-.vha_UI-subview.flex-3
-  flex 3
-.vha_UI-subview.flex-4
-  flex 4
-.vha_UI-subview.flex-5
-  flex 5
-.vha_UI-subview.flex-6
-  flex 6
-.vha_UI-subview.flex-7
-  flex 7
-.vha_UI-subview.flex-8
-  flex 8
-.vha_UI-subview.flex-9
-  flex 9
+// UI组件 - fle弹性百分比
 .vha_UI-subview.flex-10
-  flex 10
-.vha_UI-subview.flex-11
-  flex 11
-.vha_UI-subview.flex-12
-  flex 12
+  flex 0 0 10%
+  // max-width 10%
+.vha_UI-subview.flex-20
+  flex 0 0 20%
+  // max-width 20%
+.vha_UI-subview.flex-25
+  flex 0 0 25%
+  // max-width 25%
+.vha_UI-subview.flex-30
+  flex 0 0 30%
+  // max-width 30%
+.vha_UI-subview.flex-33
+  flex 0 0 33.3333%
+  // max-width 33.3333%
+.vha_UI-subview.flex-40
+  flex 0 0 40%
+  // max-width 40%
+.vha_UI-subview.flex-50
+  flex 0 0 50%
+  // max-width 50%
+.vha_UI-subview.flex-60
+  flex 0 0 60%
+  // max-width 60%
+.vha_UI-subview.flex-66
+  flex 0 0 66.6666%
+  // max-width 66.6666%
+.vha_UI-subview.flex-70
+  flex 0 0 70%
+  // max-width 70%
+.vha_UI-subview.flex-75
+  flex 0 0 75%
+  // max-width 75%
+.vha_UI-subview.flex-80
+  flex 0 0 80%
+  // max-width 80%
+.vha_UI-subview.flex-90
+  flex 0 0 90%
+  // max-width 90%
 // ------------------------------
 // UI组件 - 滚动条-开启&关闭
 .vha_UI-subview.scroll-Yon
@@ -83,18 +100,15 @@ export default {
       validator(value) {
         return [
           '',
-          '1',
-          '2',
-          '3',
-          '4',
-          '5',
-          '6',
-          '7',
-          '8',
-          '9',
           '10',
-          '11',
-          '12'
+          '20',
+          '25',
+          '33',
+          '50',
+          '66',
+          '75',
+          '80',
+          '90',
         ].indexOf(value) > -1;
       }
     },

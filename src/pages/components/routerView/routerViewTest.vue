@@ -8,15 +8,15 @@
     <vha-scrollview>
       <div class="_UI-showBox">
         
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         
         <vha-button class="_db" v-vhaRouter="{go:-1, animate:'none'}">无动画返回</vha-button>
         
-        <div class="_framebox-80"></div>
+        <div class="_framebox-8x"></div>
         
         <input type="text" placeholder="在此输入内容测试缓存">
         
-        <div class="_framebox-20"></div>
+        <div class="_framebox-2x"></div>
         
         <p>向下滚动测试滚动条位置记录</p>
         <br>

@@ -5,19 +5,31 @@
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <vha-page class="components_PG-routerView">
+    
+    <p class="_UI-note">v-vhaRouter：路由动画方式</p>
+    
     <div class="_UI-showBox">
-      <div class="_framebox-20"></div>
-      <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', animate: 'none'}">无动画进入</vha-button>
-      <div class="_framebox-20"></div>
-      <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest'}">in动画进入</vha-button>
-      <div class="_framebox-20"></div>
-      <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', animate: 'out'}">out动画进入</vha-button>
-      
-      <div class="_framebox-80"></div>
-      <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', keepAlive: false}">从我进入不缓存</vha-button>
-      <div class="_framebox-20"></div>
-      <vha-button class="_db" v-vhaRouter="{push:'routerView/routerViewTest', keepAlive: true}">从我进入缓存</vha-button>
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest', animate: 'none'}">无动画进入</vha-button>
+      <div class="_framebox-2x"></div>
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest'}">in动画进入</vha-button>
+      <div class="_framebox-2x"></div>
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest', animate: 'out'}">out动画进入</vha-button>
+      <div class="_framebox-2x"></div>
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest', animate: 'myAnimate'}">自定义动画进入</vha-button>
     </div>
+    
+    <p class="_UI-note">keepAlive：动态路由缓存</p>
+    
+    <div class="_UI-showBox">
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest', keepAlive: false}">从我进入不缓存</vha-button>
+      <div class="_framebox-2x"></div>
+      <vha-button v-vhaRouter="{push:'routerView/routerViewTest', keepAlive: true}">从我进入缓存</vha-button>
+    </div>
+    
+    <p class="_UI-note"></p>
+    <p class="_UI-note"></p>
+    <p class="_UI-note"></p>
+    
   </vha-page>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－

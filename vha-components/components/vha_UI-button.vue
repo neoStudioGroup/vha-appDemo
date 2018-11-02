@@ -14,6 +14,7 @@ vhaButton_type()
   margin 0
   padding 0
   border none
+  font-size rpx(24)
   color inherit
   background-color transparent
   transition all .08s

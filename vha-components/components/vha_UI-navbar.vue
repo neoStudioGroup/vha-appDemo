@@ -76,15 +76,16 @@ vhaNavbar_type()
 // UI组件 - 导航栏-类型-基本
 .vha_UI-navbar.type-base
   vhaNavbar_type()
-  border-1px-bottom(rgba(0,0,0,0.2))
+  position relative
   z-index 10000000
+  line-border-bottom(1px solid rgba(0,0,0,0.4))
 
 // UI组件 - 导航栏-类型-正常
 .vha_UI-navbar.type-normal
   vhaNavbar_type()
   position relative
-  box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
   z-index 10000000
+  box-shadow rgba(0, 0, 0, 0.15) 0px 0px 10px
 // ------------------------------
 vhaNavbar_color($color, $backgroundColor, $backgroundActiveColor)
   color $color

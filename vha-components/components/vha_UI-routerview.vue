@@ -30,9 +30,9 @@
       // z-index 1000002
 
     .vhaRouterviewAnimate-none-enter-active //进入路由-上层-进场 过程中保持的状态
-      transition all 40ms
+      transition all 0ms
     .vhaRouterviewAnimate-none-leave-active //进入路由-下层-退场 过程中保持的状态
-      transition all 40ms
+      transition all 0ms
       
     .vhaRouterviewAnimate-in-enter-active //进入路由-上层-进场 过程中保持的状态
       transition transform 350ms cubic-bezier(0,1,1,1)
