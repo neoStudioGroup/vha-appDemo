@@ -1,0 +1,139 @@
+// 全局样式 - 只放通用class
+
+/* 所有UI组件 */
+*[class*="UI-"]{
+  /* outline: 1px solid red !important; */
+  outline-color: red;
+}
+/* 所有UI组件-子元素 */
+*[class*="UI-"] *[class*="ui-"]{
+  /* outline: 1px solid blue !important; */
+  outline-color: blue;
+}
+/* 所有UI组件-所有子元素 */
+*[class*="UI-"] *{
+  /* outline: 1px solid green !important; */
+  outline-color: green;
+}
+
+
+// 自定义导航栏动画
+.vhaNavbarAnimate-myAnimatein-enter-active //进入路由-上层-进场 过程中保持的状态
+  transition all 500ms
+  z-index 100
+.vhaNavbarAnimate-myAnimatein-enter //进场开始值
+  transform scale(1.1)
+  opacity 0
+.vhaNavbarAnimate-myAnimatein-enter-to //进场目标值
+  transform scale(1)
+.vhaNavbarAnimate-myAnimatein-leave-active //进入路由-下层-退场 过程中保持的状态
+  transition all 500ms
+.vhaNavbarAnimate-myAnimatein-leave //退场开始值
+.vhaNavbarAnimate-myAnimatein-leave-to //退场目标值
+  opacity 0
+
+.vhaNavbarAnimate-myAnimateout-enter-active //返回路由-上层-进场 过程中保持的状态
+  transition all 400ms
+.vhaNavbarAnimate-myAnimateout-enter //进场开始值
+  opacity 0
+.vhaNavbarAnimate-myAnimateout-enter-to //进场目标值
+  // transform translate(0, 0)
+.vhaNavbarAnimate-myAnimateout-leave-active //返回路由-下层-退场 过程中保持的状态
+  transition all 400ms
+  z-index 100
+.vhaNavbarAnimate-myAnimateout-leave //退场开始值
+.vhaNavbarAnimate-myAnimateout-leave-to //退场目标值
+  transform scale(1.1)
+  opacity 0
+
+
+// 自定义路由动画
+.vhaRouterviewAnimate-myAnimatein-enter-active //进入路由-上层-进场 过程中保持的状态
+  transition all 400ms
+  z-index 100
+.vhaRouterviewAnimate-myAnimatein-enter //进场开始值
+  transform scale(1.1)
+  opacity 0
+.vhaRouterviewAnimate-myAnimatein-enter-to //进场目标值
+  transform scale(1)
+.vhaRouterviewAnimate-myAnimatein-leave-active //进入路由-下层-退场 过程中保持的状态
+  transition all 400ms
+.vhaRouterviewAnimate-myAnimatein-leave //退场开始值
+.vhaRouterviewAnimate-myAnimatein-leave-to //退场目标值
+
+.vhaRouterviewAnimate-myAnimateout-enter-active //返回路由-上层-进场 过程中保持的状态
+  transition all 300ms
+.vhaRouterviewAnimate-myAnimateout-enter //进场开始值
+  // transform translate(rpx(-300), 0)
+.vhaRouterviewAnimate-myAnimateout-enter-to //进场目标值
+  // transform translate(0, 0)
+.vhaRouterviewAnimate-myAnimateout-leave-active //返回路由-下层-退场 过程中保持的状态
+  transition all 300ms
+  z-index 100
+.vhaRouterviewAnimate-myAnimateout-leave //退场开始值
+.vhaRouterviewAnimate-myAnimateout-leave-to //退场目标值
+  transform scale(1.1)
+  opacity 0
+
+
+
+// 公共组件-标题
+._UI-title
+  padding rpx(50) rpx(20) rpx(40) 
+  color #888
+  background-color rgba(0,0,0,0.04)
+
+// 公共组件-展示盒子
+._UI-showBox
+  position relative
+  z-index 1
+  padding rpx(40)
+  box-shadow 0 0 rpx(30) rgba(0,0,0,0.04)
+
+// 公共组件-空行空格
+._ph{
+  height: rpx(10)
+}
+._ph-2x{
+  height: rpx(20)
+}
+._ph-4x{
+  height: rpx(40)
+}
+._ph-6x{
+  height: rpx(60)
+}
+._it{
+  display: inline-block
+  width: rpx(10)
+}
+._it-2x{
+  display: inline-block
+  width: rpx(20)
+}
+._it-4x{
+  display: inline-block
+  width: rpx(30)
+}
+
+
+[class*="native_PG-"]
+  .ui-s-wrap
+    padding rpx(25)
+    .vha_UI-button
+      margin rpx(25) 0 !important
+      border-radius rpx(100) !important
+
+
+// 公共组件-输入框
+._UI-input
+  display block
+  padding rpx(30)
+  input
+    padding rpx(10)
+    border 1px solid #eee
+
+// 公共组件-分割线
+._UI-hr
+  margin rpx(40) rpx(20)
+  border-bottom: 1px dashed #bbb

@@ -11,8 +11,8 @@ module.exports = {
     loaderOptions: {
       stylus: {
         // 全局使用 rpx()
-        import: [__dirname + '/vha-components/assets/stylus/method.styl']
-        // import: ['~vha-components/assets/stylus/method.styl']
+        // import: [__dirname + '/vha-components/src/assets/stylus/method.styl']
+        import: ['~vha-components/src/assets/stylus/method.styl']
       }
     }
   }
