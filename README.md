@@ -1,10 +1,16 @@
-# vha-native-demo
+# vha-appDemo
 
 vue Hybrid App演示程序
 
-vha-components
+vha-components + vha-native
 
-vha-native
+
+食用指南:
+
+
+
+
+
 
 
 <div align="center">
