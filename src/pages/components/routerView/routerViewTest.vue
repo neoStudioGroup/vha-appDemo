@@ -128,8 +128,15 @@ export default {
   watch: {
     //观察 - 数据或方法变动
   },
+  created() {
+  },
   mounted() {
     //挂载实例后 - this.$el存在
+    // 代理navbar左侧按钮事件
+    this.$route.meta.vhaNavbar.leftButtonEvent = () => {
+      console.log('代理navbar左侧按钮事件')
+      this.$vhaRt.go({value: -1})
+    }
   },
   activated() {
     //keep-alive组件激活时
